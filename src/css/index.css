@@ -1,0 +1,43 @@
+@import url("https://api.fontshare.com/v2/css?f[]=boska@900,500,400,700&f[]=satoshi@900,700,500,301,701,300,501,401,901,400&display=swap");
+
+html {
+  scroll-behavior: smooth;
+  &.lenis {
+    height: auto;
+  }
+}
+
+.lenis {
+  &.lenis-smooth {
+    scroll-behavior: auto;
+
+    [data-lenis-prevent] {
+      overscroll-behavior: contain;
+    }
+  }
+
+  &.lenis-scrolling {
+    iframe {
+      pointer-events: none;
+    }
+  }
+
+  &.lenis-stopped {
+    overflow: hidden;
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Newyork;
+  src: url("/font/NewYork.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Circular;
+  font-weight: normal;
+  src: url("/font/CircularStd-Book.otf") format("opentype");
+}
