@@ -1,6 +1,6 @@
 import ScrollReveal from "../scroll-reveal";
 import { useScroll, useTransform, motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { useInView } from "react-intersection-observer";
 
 function About() {
@@ -16,20 +16,7 @@ function About() {
   };
   const targetRef = useRef<HTMLDivElement>(null);
 
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-
-  //Responsive framer motion trigger
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -129,10 +116,10 @@ function About() {
               y: isMobile ? 0 : yScroll,
               transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
             }}
-            whileHover={{ scale: 0.9, rotate: -10 }}
+            whileHover={isMobile ? {} : { scale: 0.9, rotate: -10 }}
             whileTap="hover"
             src="/about/profile-pic.png"
-            className="object-contain max-w-[25rem] lg:max-w-[30rem] transition-all duration-700 ease-in-out filter grayscale hover:filter-none"
+            className="object-contain max-w-[25rem] lg:max-w-[30rem] md:mt-0 mt-5 transition-all duration-700 ease-in-out filter grayscale hover:filter-none"
             alt=""
           />
         </div>

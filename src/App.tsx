@@ -12,8 +12,6 @@ import { ReactLenis } from "@studio-freight/react-lenis";
 import Tunema from "./components/pages/projects/tunema";
 import { Cursor } from "react-creative-cursor";
 import "react-creative-cursor/dist/styles.css";
-import { useState } from "react";
-//test
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -36,21 +34,7 @@ function ScrollToTop() {
 function App() {
   const location = useLocation();
 
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      const isMobileDevice = window.innerWidth <= 768;
-      setIsMobile(isMobileDevice);
-    };
-
-    checkMobile();
-
-    window.addEventListener("resize", checkMobile);
-    return () => {
-      window.removeEventListener("resize", checkMobile);
-    };
-  }, []);
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   return (
     <>
