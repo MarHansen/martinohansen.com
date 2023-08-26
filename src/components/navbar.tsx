@@ -50,7 +50,7 @@ const Navbar = () => {
 
   const colorVariant = {
     light:
-      "z-10 navbar fixed top-0 left-0 w-full flex justify-between align-middle sm:px-[3em] px-[1em] bg-white ",
+      "z-10 navbar fixed top-0 left-0 w-full flex justify-between align-middle sm:px-[3em] px-[1em] bg-white",
     dark: "z-10 navbar fixed top-0 left-0 w-full flex justify-between align-middle sm:px-[3em] px-[1em] bg-black",
   };
   const navColor = navOpen ? colorVariant.dark : colorVariant.light;
@@ -183,7 +183,6 @@ const Navbar = () => {
                   data-cursor-size="100px"
                   data-cursor-stick="#stick-item"
                   data-cursor-exclusion
-                  className="hover:text-orange-300"
                   to="/projects"
                   onClick={() => setNavOpen(!navOpen)}
                   style={{
@@ -207,7 +206,6 @@ const Navbar = () => {
                   data-cursor-size="100px"
                   data-cursor-stick="#stick-item"
                   data-cursor-exclusion
-                  className="hover:text-orange-300"
                   to="/about"
                   onClick={() => setNavOpen(!navOpen)}
                   style={{
@@ -231,7 +229,6 @@ const Navbar = () => {
                   data-cursor-size="100px"
                   data-cursor-stick="#stick-item"
                   data-cursor-exclusion
-                  className="hover:text-orange-300 duration-75"
                   to=""
                   onClick={() => setNavOpen(!navOpen)}
                   style={{
@@ -239,7 +236,7 @@ const Navbar = () => {
                     transitionDelay: navOpen ? "1.1s" : "0s",
                   }}
                 >
-                  MyToolkit
+                  Blog
                 </Link>
                 <div className="nav-item-wrapper"></div>
               </motion.li>

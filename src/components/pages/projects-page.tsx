@@ -160,6 +160,8 @@ function ProjectsPage() {
                 <ScrollReveal>
                   <div className="overflow-clip relative w-full h-auto flex items-center justify-center">
                     <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                       style={{
                         y: yScroll,
                         transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
@@ -181,6 +183,8 @@ function ProjectsPage() {
                 <ScrollReveal>
                   <div className="overflow-clip relative w-full h-auto flex items-center justify-center">
                     <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                       style={{
                         y: yScroll,
                         transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
@@ -202,6 +206,8 @@ function ProjectsPage() {
                 <ScrollReveal>
                   <div className="overflow-clip relative w-full h-auto flex items-center justify-center">
                     <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                       style={{
                         y: yScroll,
                         transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
@@ -223,6 +229,8 @@ function ProjectsPage() {
                 <ScrollReveal>
                   <div className="overflow-clip relative w-full h-auto flex items-center justify-center">
                     <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                       style={{
                         y: yScroll,
                         transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
@@ -244,6 +252,8 @@ function ProjectsPage() {
                 <ScrollReveal>
                   <div className="overflow-clip relative w-full h-auto flex items-center justify-center">
                     <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                       style={{
                         y: yScroll,
                         transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
@@ -265,6 +275,8 @@ function ProjectsPage() {
                 <ScrollReveal>
                   <div className="overflow-clip relative w-full h-auto flex items-center justify-center">
                     <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                       style={{
                         y: yScroll,
                         transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
@@ -286,6 +298,8 @@ function ProjectsPage() {
                 <ScrollReveal>
                   <div className="overflow-clip relative w-full h-auto flex items-center justify-center">
                     <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                       style={{
                         y: yScroll,
                         transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",

@@ -220,7 +220,7 @@ function Projects() {
         </motion.a>
       </div>
 
-      <div className="w-fit ml-auto mt-5">
+      <div className="w-fit sm:ml-auto sm:mr-0 mr-auto ml-auto my-10">
         <ScrollReveal delay={0.1}>
           <CustomButton to="/projects">More Projects</CustomButton>
         </ScrollReveal>

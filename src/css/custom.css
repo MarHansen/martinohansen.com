@@ -127,3 +127,10 @@ ul.nav-links li a {
     max-width: 2000px;
   }
 }
+
+@keyframes customEase {
+  0%,
+  100% {
+    cubic-bezier: 0.22, 1, 0.36, 1;
+  }
+}
