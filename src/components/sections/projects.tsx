@@ -106,10 +106,10 @@ function Projects() {
           </p>
           <img
             className="absolute group-hover:opacity-0 transition-opacity duration-700"
-            src="/porto/tunema2.png"
+            src="/porto/tunema2.jpeg"
             alt=""
           />
-          <img src="/porto/tunema.png" alt="" />
+          <img src="/porto/tunema.jpeg" alt="" />
           <p className="font-body text-[1rem] text-center pt-5">
             Frontend ── UI/UX
           </p>
@@ -138,7 +138,7 @@ function Projects() {
             src="/porto/serene2.gif"
             alt=""
           />
-          <img src="/porto/serene.png" alt="" />
+          <img src="/porto/serene.jpeg" alt="" />
           <p className="font-body text-[1rem] text-center pt-5">UI Designer</p>
         </motion.a>
 
@@ -161,7 +161,7 @@ function Projects() {
             Stray animal rescue application.
           </p>
           <img
-            src="/porto/catpaws.png"
+            src="/porto/catpaws.jpeg"
             className="object-cover sm:w-[700px] sm:h-[200px] self-center justify-self-center"
             alt=""
           />
@@ -188,10 +188,10 @@ function Projects() {
           </p>
           <img
             className="absolute group-hover:opacity-0 transition-opacity duration-700 object-cover w-fit xl:max-w-[494px]"
-            src="/porto/yutrav.png"
+            src="/porto/yutrav.jpeg"
             alt=""
           />
-          <img src="/porto/yutrav2.png" alt="" />
+          <img src="/porto/yutrav2.jpeg" alt="" />
           <p className="font-body text-[1rem] text-center pt-5">UI/UX</p>
         </motion.a>
 
@@ -213,7 +213,7 @@ function Projects() {
           <p className="font-body text-[1rem] text-center py-5">
             Human Computer Interaction final project.
           </p>
-          <img src="/porto/adex.png" alt="" />
+          <img src="/porto/adex.jpeg" alt="" />
           <p className="font-body text-[1rem] text-center pt-5">
             Frontend ── UI/UX
           </p>

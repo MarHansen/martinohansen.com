@@ -115,7 +115,7 @@ function ProjectsPage() {
               <ProjectCard
                 targetRef={targetRef}
                 type="left"
-                backgroundImage="/porto/tunema.png"
+                backgroundImage="/porto/tunema.jpeg"
                 title="TUNEMA"
                 description="Frontend ── UI/UX"
                 buttonTo="/projects/TUNEMA"
@@ -124,7 +124,7 @@ function ProjectsPage() {
               <ProjectCard
                 targetRef={targetRef}
                 type="right"
-                backgroundImage="/porto/serene.png"
+                backgroundImage="/porto/serene.jpeg"
                 title="Serene"
                 description="User Interface Design"
                 buttonTo="/projects/Serene"
@@ -133,7 +133,7 @@ function ProjectsPage() {
               <ProjectCard
                 targetRef={targetRef}
                 type="left"
-                backgroundImage="/porto/catpaws.png"
+                backgroundImage="/porto/catpaws.jpeg"
                 title="CatPaws"
                 description="UI/UX"
                 buttonTo="/projects/CatPaws"
@@ -142,7 +142,7 @@ function ProjectsPage() {
               <ProjectCard
                 targetRef={targetRef}
                 type="right"
-                backgroundImage="/porto/yutrav.png"
+                backgroundImage="/porto/yutrav.jpeg"
                 title="YuTrav"
                 description="UI/UX"
                 buttonTo="/projects/YuTrav"
@@ -151,7 +151,7 @@ function ProjectsPage() {
               <ProjectCard
                 targetRef={targetRef}
                 type="left"
-                backgroundImage="/porto/adex.png"
+                backgroundImage="/porto/adex.jpeg"
                 title="Adex Legend"
                 description="Frontend ── UI/UX"
                 buttonTo="/projects/AdexLegend"
@@ -160,7 +160,7 @@ function ProjectsPage() {
               <ProjectCard
                 targetRef={targetRef}
                 type="right"
-                backgroundImage="/porto/merci.png"
+                backgroundImage="/porto/merci.jpeg"
                 title="Merci"
                 description="Frontend ── UI/UX"
                 buttonTo="/projects/Merci"
@@ -169,7 +169,7 @@ function ProjectsPage() {
               <ProjectCard
                 targetRef={targetRef}
                 type="left"
-                backgroundImage="/porto/marhansenv1.png"
+                backgroundImage="/porto/marhansenv1.jpeg"
                 title="marhansen ── Early Version"
                 description="Frontend ── UI/UX"
                 buttonTo="/projects/marhansen"
