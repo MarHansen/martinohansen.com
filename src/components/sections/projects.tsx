@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
-import ScrollReveal from "../scroll-reveal";
-import CustomButton from "../main-button";
+import ScrollReveal from "../animation/scroll-reveal";
+import CustomButton from "../buttons/main-button";
 import { useInView } from "react-intersection-observer";
 import ReactCurvedText from "react-curved-text";
 
@@ -41,7 +41,7 @@ function Projects() {
           <p className="text-[2rem] font-normal">01</p>
         </ScrollReveal>
         <motion.div
-          className="text-[1.2rem] mt-10 font-serif font-normal"
+          className="text-[1.2rem] mt-10 mb-10 font-serif font-normal"
           style={{
             rotate: rotate,
             transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",

@@ -1,11 +1,11 @@
-import Container from "../../container";
+import Container from "../../containers/container";
 import "../../../css/custom.css";
 import "../../../css/index.css";
 import { Helmet } from "react-helmet";
-import Transition from "../../../page-transition";
+import Transition from "../../animation/page-transition";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import Notes from "../../notes-deletesoon";
+import Notes from "../../containers/notes-deletesoon";
 import Footer from "../../sections/footer";
 import { Outlet } from "react-router-dom";
 

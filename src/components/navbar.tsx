@@ -50,8 +50,8 @@ const Navbar = () => {
 
   const colorVariant = {
     light:
-      "z-10 navbar fixed top-0 left-0 w-full flex justify-between align-middle sm:px-[3em] px-[1em] bg-white",
-    dark: "z-10 navbar fixed top-0 left-0 w-full flex justify-between align-middle sm:px-[3em] px-[1em] bg-black",
+      "z-10 navbar fixed top-0 left-0 w-full flex justify-between align-middle sm:px-[3em] px-[1.2em] bg-white",
+    dark: "z-10 navbar fixed top-0 left-0 w-full flex justify-between align-middle sm:px-[3em] px-[1.2em] bg-black",
   };
   const navColor = navOpen ? colorVariant.dark : colorVariant.light;
 

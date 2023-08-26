@@ -1,4 +1,4 @@
-import "../css/custom.css";
+import "../../css/custom.css";
 
 type ContainerProps = {
   children: React.ReactNode;

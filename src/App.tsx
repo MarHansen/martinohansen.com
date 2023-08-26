@@ -56,6 +56,8 @@ function App() {
               cursorSize={15}
               sizeAnimationEase={[0.165, 0.84, 0.44, 1]}
               sizeAnimationDuration={0.3}
+              textAnimationEase={[0.165, 0.84, 0.44, 1]}
+              textAnimationDuration={0.3}
             />
           )}
           <Routes location={location} key={location.pathname}>

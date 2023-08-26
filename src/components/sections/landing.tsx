@@ -1,6 +1,6 @@
-import { AnimatedTextCharacter } from "../animated-text";
-import Container from "../container";
-import ScrollReveal from "../scroll-reveal";
+import { AnimatedTextCharacter } from "../animation/animated-text";
+import Container from "../containers/container";
+import ScrollReveal from "../animation/scroll-reveal";
 import { motion } from "framer-motion";
 
 function Landing() {

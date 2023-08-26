@@ -1,4 +1,4 @@
-import ScrollReveal from "../scroll-reveal";
+import ScrollReveal from "../animation/scroll-reveal";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
