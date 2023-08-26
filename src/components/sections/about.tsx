@@ -1,6 +1,6 @@
 import ScrollReveal from "../scroll-reveal";
 import { useScroll, useTransform, motion } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
 function About() {
@@ -17,6 +17,22 @@ function About() {
   const targetRef = useRef<HTMLDivElement>(null);
 
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  const [isSmall, setIsSmall] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkWindowSize = () => {
+      setIsSmall(window.innerWidth < 768);
+    };
+
+    checkWindowSize();
+
+    window.addEventListener("resize", checkWindowSize);
+
+    return () => {
+      window.removeEventListener("resize", checkWindowSize);
+    };
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -40,8 +56,14 @@ function About() {
           className="relative overflow-hidden m-auto font-serif text-[5rem] lg:text-[7rem] font-medium border-t-[1px] mb-7"
         >
           <motion.div
-            initial={{ width: 0, left: 0 }}
-            animate={{ width: inView ? "100%" : 0, left: 0 }}
+            initial={
+              isSmall ? { width: "100%", left: 0 } : { width: 0, left: 0 }
+            }
+            animate={
+              isSmall
+                ? { width: "100%", left: 0 }
+                : { width: inView ? "100%" : 0, left: 0 }
+            }
             transition={{ duration: 0.5, delay: 0 }}
             className="h-[1px] bg-black"
           />
@@ -56,8 +78,14 @@ function About() {
             ── About Me ── About Me
           </motion.h1>
           <motion.div
-            initial={{ width: 0, right: 0 }}
-            animate={{ width: inView ? "100%" : 0, right: 0 }}
+            initial={
+              isSmall ? { width: "100%", right: 0 } : { width: 0, right: 0 }
+            }
+            animate={
+              isSmall
+                ? { width: "100%", right: 0 }
+                : { width: inView ? "100%" : 0, right: 0 }
+            }
             transition={{ duration: 0.5, delay: 0 }}
             className="absolute bottom-0 h-[1px] bg-black"
           />
@@ -113,7 +141,7 @@ function About() {
               ease: [0.16, 1, 0.3, 1],
             }}
             style={{
-              y: isMobile ? 0 : yScroll,
+              y: isSmall ? 0 : yScroll,
               transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
             }}
             whileHover={isMobile ? {} : { scale: 0.9, rotate: -10 }}

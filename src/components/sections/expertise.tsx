@@ -4,10 +4,10 @@ import AnimatedTabs from "../animated-tab";
 function Expertise() {
   return (
     <>
-      <section className="mb-12 sm:mt-[7rem] mt-12 overflow-clip text-black">
+      <section className="sm:mt-[2rem] mt-12 overflow-clip text-black">
         <ScrollReveal delay={0.15}>
           <h1 className="w-fit mx-auto font-serif text-[5rem] lg:text-[6rem] font-medium text-black">
-            My Toolkit
+            Toolbox
           </h1>
         </ScrollReveal>
         <ScrollReveal delay={0.2}>
@@ -26,7 +26,7 @@ function Expertise() {
           data-cursor-size="60px"
           data-cursor-stick="#stick-item"
           data-cursor-exclusion
-          className="mt-10 arrow mx-auto flex w-fit flex-col items-center cursor-pointe font-foot text-[1.3rem] font-medium"
+          className="mt-20 arrow mx-auto flex w-fit flex-col items-center cursor-pointe font-foot text-[1.3rem] font-medium"
         >
           <ScrollReveal delay={0.5}>
             <svg

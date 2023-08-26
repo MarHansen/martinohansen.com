@@ -26,39 +26,11 @@ function Home() {
           <Container>
             <Projects></Projects>
             <About></About>
-            <div className="w-fit ml-auto mt-5">
+            <div className="w-fit ml-auto my-10 sm:ml-auto sm:mr-0 mr-auto ml-auto">
               <ScrollReveal delay={0.3}>
-                <CustomButton to="/about">More About me.</CustomButton>
+                <CustomButton to="/about">More About me</CustomButton>
               </ScrollReveal>
             </div>
-
-            <a
-              data-cursor-size="60px"
-              data-cursor-stick="#stick-item"
-              data-cursor-exclusion
-              className="sm:mt-10 mt-10 arrow mx-auto flex w-fit flex-col items-center cursor-pointe font-foot text-[1.3rem] font-medium"
-            >
-              <ScrollReveal delay={0.3}>
-                <svg
-                  className="mx-auto"
-                  width="38"
-                  height="53"
-                  viewBox="0 0 38 53"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M37 33.79L19 52L1 33.79M19 1V51.49"
-                    stroke="#2B2724"
-                    stroke-width="2"
-                    stroke-miterlimit="10"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-                <p>Toolkit</p>
-              </ScrollReveal>
-            </a>
 
             <Expertise></Expertise>
             <Footer></Footer>

@@ -12,6 +12,7 @@ import { ReactLenis } from "@studio-freight/react-lenis";
 import Tunema from "./components/pages/projects/tunema";
 import { Cursor } from "react-creative-cursor";
 import "react-creative-cursor/dist/styles.css";
+import { Analytics } from "@vercel/analytics/react";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -38,6 +39,7 @@ function App() {
 
   return (
     <>
+      <Analytics />
       <Navbar></Navbar>
       <ReactLenis root options={{ lerp: 0.1, smoothWheel: true }}>
         <Helmet>
@@ -48,7 +50,14 @@ function App() {
 
         <AnimatePresence mode="wait">
           <ScrollToTop />
-          {!isMobile && <Cursor isGelly={true} cursorSize={15} />}
+          {!isMobile && (
+            <Cursor
+              isGelly={true}
+              cursorSize={15}
+              sizeAnimationEase={[0.165, 0.84, 0.44, 1]}
+              sizeAnimationDuration={0.3}
+            />
+          )}
           <Routes location={location} key={location.pathname}>
             <Route index element={<Home />}></Route>
             <Route path="/about" element={<AboutPage />}></Route>
