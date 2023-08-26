@@ -8,8 +8,8 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 import ScrollReveal from "../animation/scroll-reveal";
 import { AnimatedTextCharacter } from "../animation/animated-text";
-import ProjectCard from "../containers/project-cards";
 import ReturnButton from "../buttons/return-button";
+import ProjectCard from "../containers/project-cards";
 
 function ProjectsPage() {
   const targetRef = useRef<HTMLDivElement>(null);

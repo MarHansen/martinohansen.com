@@ -43,9 +43,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             style={{
               y: yScroll,
+              backgroundImage: `url('${backgroundImage}')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
               transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
             }}
-            className={`img-wrap w-full h-[30rem] bg-[url('${backgroundImage}')] bg-cover bg-center`}
+            className={`img-wrap w-full h-[30rem] bg-cover bg-center`}
           ></motion.div>
         </div>
         <div className="flex justify-between items-center w-auto mt-2">
