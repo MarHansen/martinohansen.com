@@ -9,7 +9,7 @@ function Landing() {
       <section className="flex h-screen flex-col justify-between overflow-visible">
         <div className="flex flex-col">
           <div
-            data-cursor-size="100px"
+            data-cursor-size="250px"
             data-cursor-stick="#stick-item"
             data-cursor-exclusion
             className="sm:mt-[60px] mt-[100px] overflow-visible md:flex-row gap-[2rem] flex-col flex items-center justify-center font-serif font-medium md:text-[11vw] text-[20vw]"
