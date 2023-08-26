@@ -36,7 +36,7 @@ function Home() {
               data-cursor-size="60px"
               data-cursor-stick="#stick-item"
               data-cursor-exclusion
-              className="sm:mt-10 mt-36 arrow mx-auto flex w-fit flex-col items-center cursor-pointe font-foot text-[1.3rem] font-medium"
+              className="sm:mt-10 mt-10 arrow mx-auto flex w-fit flex-col items-center cursor-pointe font-foot text-[1.3rem] font-medium"
             >
               <ScrollReveal delay={0.3}>
                 <svg

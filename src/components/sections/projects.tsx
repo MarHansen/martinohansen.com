@@ -3,6 +3,7 @@ import { useScroll, useTransform, motion } from "framer-motion";
 import ScrollReveal from "../scroll-reveal";
 import CustomButton from "../main-button";
 import { useInView } from "react-intersection-observer";
+import ReactCurvedText from "react-curved-text";
 
 function Projects() {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -23,10 +24,11 @@ function Projects() {
   const scale3 = useTransform(scrollYProgress, [0.35, 0.45], [0.7, 1]);
   const scale4 = useTransform(scrollYProgress, [0.4, 0.57], [0.6, 1]);
   const scale5 = useTransform(scrollYProgress, [0.47, 0.7], [0.5, 1]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
 
   return (
     <section id="projects" className="max-w-none px-0 mt-10 lg:mb-10 mb-5">
-      <div className="flex mb-40 md:flex-row flex-col justify-between items-center font-serif text-[5rem] lg:text-[11rem] font-medium sticky top-10">
+      <div className="flex overflow-clip mb-40 md:flex-row flex-col justify-between items-center font-serif text-[5rem] lg:text-[11rem] font-medium sticky top-10">
         <ScrollReveal distance={50} delay={0.3}>
           <h1>Projects</h1>
           <motion.div
@@ -38,12 +40,47 @@ function Projects() {
           />
           <p className="text-[2rem] font-normal">01</p>
         </ScrollReveal>
-        <div className="text-[5rem]">
+        <motion.div
+          className="text-[1.2rem] mt-10 font-serif font-normal"
+          style={{
+            rotate: rotate,
+            transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
+          }}
+        >
           {" "}
           <ScrollReveal distance={70} delay={0.7}>
-            Est 2022
+            <svg width={300} height={300}>
+              <svg
+                x={105}
+                y={105}
+                width="90"
+                height="90"
+                viewBox="0 0 90 90"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="45" cy="45" r="45" fill="#2B2724" />
+                <path
+                  d="M42.4965 4C39.4723 6.81782 37.0467 10.2159 35.3643 13.9914C33.682 17.767 32.7774 21.8427 32.7044 25.9755C32.6315 30.1082 33.3918 34.2133 34.9399 38.0458C36.488 41.8784 38.7923 45.3599 41.7151 48.2826C44.638 51.2054 48.1197 53.5095 51.9525 55.0575C55.7852 56.6056 59.8905 57.3658 64.0235 57.2929C68.1564 57.22 72.2323 56.3154 76.0081 54.6331C79.7838 52.9509 83.182 50.5254 86 47.5013C85.3574 57.9259 80.7626 67.7128 73.1524 74.8665C65.5423 82.0202 55.49 86.002 45.0452 86C22.3741 86 4 67.6269 4 44.961C4 23.1488 21.0156 5.31325 42.4965 4Z"
+                  fill="#EDE8E2"
+                />
+              </svg>
+
+              <ReactCurvedText
+                width={300}
+                height={300}
+                cx={150}
+                cy={150}
+                rx={110}
+                ry={110}
+                startOffset={10}
+                reversed={true}
+                text="Est 2022•Est 2022•Est 2022•Est 2022•Est 2022•Est 2022•Est 2022•Est 2022•Est 2022"
+                textProps={{ style: { letterSpacing: 3 } }}
+              />
+            </svg>
           </ScrollReveal>
-        </div>
+        </motion.div>
       </div>
       <div
         ref={targetRef}
