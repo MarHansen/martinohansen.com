@@ -1,5 +1,5 @@
-import CustomButton from "../main-button";
-import ScrollReveal from "../scroll-reveal";
+import CustomButton from "../buttons/main-button";
+import ScrollReveal from "../animation/scroll-reveal";
 import { Link } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
@@ -19,9 +19,10 @@ function Footer() {
         <ScrollReveal>
           <div className="relative md:w-[40%] w-[100%] mr-auto overflow-hidden mb-5">
             <Link
-              data-cursor-size="200px"
+              data-cursor-size="150px"
               data-cursor-stick="#stick-item"
               data-cursor-exclusion
+              data-cursor-text="email"
               to="mailto:marhancens@gmail.com"
               className="leading-[8rem] font-serif text-[5rem] lg:text-[7rem] font-medium mb-7 hover:text-orange-500 transition duration-500 ease-cubic-bezier(0.22, 1, 0.36, 1)"
             >
@@ -31,12 +32,12 @@ function Footer() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="h-[1px] bg-black"
               />
-              <h1>Let's get in touch.</h1>
+              <h1 className="my-5">Let's get in touch.</h1>
               <motion.div
                 initial={{ width: 0, right: 0 }}
                 animate={{ width: inView ? "100%" : 0, right: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="absolute bottom-0 h-[1px] bg-black"
+                className="h-[1px] bg-black"
               />
             </Link>
           </div>

@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { motion } from "framer-motion";
-import "./css/custom.css";
+import "../../css/custom.css";
 
 interface TransitionProps {
   children: ReactNode;

@@ -1,4 +1,4 @@
-import ScrollReveal from "../scroll-reveal";
+import ScrollReveal from "../animation/scroll-reveal";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
@@ -145,8 +145,8 @@ function About() {
               transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
             }}
             whileHover={isMobile ? {} : { scale: 0.9, rotate: -10 }}
-            whileTap="hover"
-            src="/about/profile-pic.png"
+            whileTap={isMobile ? {} : "hover"}
+            src="/about/profile-pic.jpeg"
             className="object-contain max-w-[25rem] lg:max-w-[30rem] md:mt-0 mt-5 transition-all duration-700 ease-in-out filter grayscale hover:filter-none"
             alt=""
           />

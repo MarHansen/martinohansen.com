@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import ScrollReveal from "./scroll-reveal";
+import ScrollReveal from "../animation/scroll-reveal";
 
 export default function Notes() {
   const marqueeVariants = {

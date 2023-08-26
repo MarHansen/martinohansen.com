@@ -1,5 +1,5 @@
 import React from "react";
-import ScrollReveal from "./scroll-reveal";
+import ScrollReveal from "../animation/scroll-reveal";
 import { motion } from "framer-motion";
 import { Link as RouterLink } from "react-router-dom";
 
