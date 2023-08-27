@@ -4,6 +4,7 @@ import ScrollReveal from "../animation/scroll-reveal";
 import CustomButton from "../buttons/main-button";
 import { useInView } from "react-intersection-observer";
 import ReactCurvedText from "react-curved-text";
+import "../../css/custom.css";
 
 function Projects() {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -30,7 +31,7 @@ function Projects() {
     <section id="projects" className="max-w-none px-0 mt-10 lg:mb-10 mb-5">
       <div className="flex overflow-clip mb-40 md:flex-row flex-col justify-between items-center font-serif text-[5rem] lg:text-[11rem] font-medium sticky top-10">
         <ScrollReveal distance={50} delay={0.3}>
-          <h1>Projects</h1>
+          <h1 className="md:mt-0 mt-[3rem]">Projects</h1>
           <motion.div
             ref={ref}
             initial={{ width: 0, left: 0 }}

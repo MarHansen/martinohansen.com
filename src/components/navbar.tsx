@@ -14,44 +14,44 @@ const Navbar = () => {
     }
   }, [navOpen]);
 
-  //chat gpt logic for hiding navbar, i'm to lazy T_T
-  const [show, setShow] = useState(true);
-  const [scrollDirection, setScrollDirection] = useState("up");
-  const [prevScrollY, setPrevScrollY] = useState(window.scrollY);
+  //chat gpt logic for hiding navbar, i'm to lazy T_T, i want to disable it temporary, because its too annoying
+  // const [show, setShow] = useState(true);
+  // const [scrollDirection, setScrollDirection] = useState("up");
+  // const [prevScrollY, setPrevScrollY] = useState(window.scrollY);
 
-  const controlNavbar = () => {
-    const currentScrollY = window.scrollY;
-    setScrollDirection(
-      currentScrollY > prevScrollY
-        ? "down"
-        : currentScrollY < prevScrollY
-        ? "up"
-        : scrollDirection
-    );
-    setPrevScrollY(currentScrollY);
-  };
+  // const controlNavbar = () => {
+  //   const currentScrollY = window.scrollY;
+  //   setScrollDirection(
+  //     currentScrollY > prevScrollY
+  //       ? "down"
+  //       : currentScrollY < prevScrollY
+  //       ? "up"
+  //       : scrollDirection
+  //   );
+  //   setPrevScrollY(currentScrollY);
+  // };
 
-  useEffect(() => {
-    window.addEventListener("scroll", controlNavbar);
-    return () => {
-      window.removeEventListener("scroll", controlNavbar);
-    };
-  }, [prevScrollY]);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", controlNavbar);
+  //   return () => {
+  //     window.removeEventListener("scroll", controlNavbar);
+  //   };
+  // }, [prevScrollY]);
 
-  useEffect(() => {
-    setShow(scrollDirection === "up");
-  }, [scrollDirection]);
+  // useEffect(() => {
+  //   setShow(scrollDirection === "up");
+  // }, [scrollDirection]);
 
-  const variants = {
-    visible: { y: 0 },
-    hidden: { y: -90 },
-  };
+  // const variants = {
+  //   visible: { y: 0 },
+  //   hidden: { y: -90 },
+  // };
   //ends here
 
   const colorVariant = {
     light:
-      "z-10 navbar fixed top-0 left-0 w-full flex justify-between align-middle sm:px-[3em] px-[1.2em] bg-white",
-    dark: "z-10 navbar fixed top-0 left-0 w-full flex justify-between align-middle sm:px-[3em] px-[1.2em] bg-black",
+      "z-50 navbar fixed top-0 left-0 w-full flex justify-between align-middle sm:px-[3em] px-[1.2em] transition duration-500 ease-cubic-bezier bg-white",
+    dark: "z-50 navbar fixed top-0 left-0 w-full flex justify-between align-middle sm:px-[3em] px-[1.2em] transition duration-500 ease-cubic-bezier bg-black",
   };
   const navColor = navOpen ? colorVariant.dark : colorVariant.light;
 
@@ -64,12 +64,12 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="nav fixed z-[2] top-0 font-body text-[1rem] py-2">
+      <div className="nav fixed z-[100] -top-1 font-body text-[1rem] py-2">
         <div className="nav-container">
           <motion.div
-            variants={variants}
+            // variants={variants}
             initial={false}
-            animate={show ? "visible" : "hidden"}
+            // animate={show ? "visible" : "hidden"}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className={navColor}
           >
@@ -141,7 +141,6 @@ const Navbar = () => {
           <div
             className="nav-overlay fixed bg-black -z-10 -top-full left-0 w-full h-screen overflow-hidden p-[4em]"
             style={{
-              // opacity: navOpen ? "1" : "0",
               top: navOpen ? "0" : "-130%",
               transitionDelay: navOpen ? "0s" : "0s",
             }}
@@ -229,7 +228,7 @@ const Navbar = () => {
                   data-cursor-size="100px"
                   data-cursor-stick="#stick-item"
                   data-cursor-exclusion
-                  to=""
+                  to="/"
                   onClick={() => setNavOpen(!navOpen)}
                   style={{
                     top: navOpen ? "0" : "120px",
