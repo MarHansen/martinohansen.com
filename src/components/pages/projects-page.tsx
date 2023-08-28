@@ -39,7 +39,7 @@ function ProjectsPage() {
         </Helmet>
         <Container>
           <>
-            <ReturnButton to="/"></ReturnButton>
+            <ReturnButton></ReturnButton>
 
             <section className="h-[60vh] my-auto">
               <div className="flex gap-[2rem] font-serif font-medium md:text-[7rem] text-[5rem]">
@@ -115,7 +115,7 @@ function ProjectsPage() {
               <ProjectCard
                 targetRef={targetRef}
                 type="left"
-                backgroundImage="/porto/tunema.jpeg"
+                backgroundImage="/porto/tunema.webp"
                 title="TUNEMA"
                 description="Frontend ── UI/UX"
                 buttonTo="/projects/TUNEMA"
@@ -124,7 +124,7 @@ function ProjectsPage() {
               <ProjectCard
                 targetRef={targetRef}
                 type="right"
-                backgroundImage="/porto/serene.jpeg"
+                backgroundImage="/porto/serene.webp"
                 title="Serene"
                 description="User Interface Design"
                 buttonTo="/projects/Serene"
@@ -133,7 +133,7 @@ function ProjectsPage() {
               <ProjectCard
                 targetRef={targetRef}
                 type="left"
-                backgroundImage="/porto/catpaws.jpeg"
+                backgroundImage="/porto/catpaws.webp"
                 title="CatPaws"
                 description="UI/UX"
                 buttonTo="/projects/CatPaws"
@@ -142,7 +142,7 @@ function ProjectsPage() {
               <ProjectCard
                 targetRef={targetRef}
                 type="right"
-                backgroundImage="/porto/yutrav.jpeg"
+                backgroundImage="/porto/yutrav.webp"
                 title="YuTrav"
                 description="UI/UX"
                 buttonTo="/projects/YuTrav"
@@ -151,7 +151,7 @@ function ProjectsPage() {
               <ProjectCard
                 targetRef={targetRef}
                 type="left"
-                backgroundImage="/porto/adex.jpeg"
+                backgroundImage="/porto/adex.webp"
                 title="Adex Legend"
                 description="Frontend ── UI/UX"
                 buttonTo="/projects/AdexLegend"
@@ -160,7 +160,7 @@ function ProjectsPage() {
               <ProjectCard
                 targetRef={targetRef}
                 type="right"
-                backgroundImage="/porto/merci.jpeg"
+                backgroundImage="/porto/merci.webp"
                 title="Merci"
                 description="Frontend ── UI/UX"
                 buttonTo="/projects/Merci"
@@ -169,7 +169,7 @@ function ProjectsPage() {
               <ProjectCard
                 targetRef={targetRef}
                 type="left"
-                backgroundImage="/porto/marhansenv1.jpeg"
+                backgroundImage="/porto/marhansenv1.webp"
                 title="marhansen ── Early Version"
                 description="Frontend ── UI/UX"
                 buttonTo="/projects/marhansen"

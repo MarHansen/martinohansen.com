@@ -11,7 +11,7 @@ interface ScrollRevealProps {
 
 const ScrollReveal: React.FC<ScrollRevealProps> = ({
   threshold = 0.5,
-  distance = 30,
+  distance = 40,
   delay = 0,
   children,
 }) => {

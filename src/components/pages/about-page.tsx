@@ -20,7 +20,7 @@ function AboutPage() {
         <Container>
           <>
             <div className="mt-24">
-              <ReturnButton to="/"></ReturnButton>
+              <ReturnButton></ReturnButton>
               <About></About>
 
               <Expertise></Expertise>

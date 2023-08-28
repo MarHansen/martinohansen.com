@@ -394,7 +394,7 @@ function Expertise() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`${
                   activeTab === tab.id ? "" : ""
-                } relative rounded-full md:px-5 px-3 py-2 text-[1.2rem] font-medium font-body text-black transition focus-visible:outline-2`}
+                } relative rounded-full md:px-5 px-3 py-2 text-[1.2rem] font-body text-black transition focus-visible:outline-2`}
                 style={{
                   WebkitTapHighlightColor: "transparent",
                 }}

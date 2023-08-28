@@ -2,8 +2,25 @@ import { AnimatedTextCharacter } from "../animation/animated-text";
 import Container from "../containers/container";
 import ScrollReveal from "../animation/scroll-reveal";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 function Landing() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <>
       <section className="flex h-screen flex-col justify-between overflow-visible">
@@ -18,7 +35,7 @@ function Landing() {
               customI={1}
               text="MARTINO"
             ></AnimatedTextCharacter>
-            {/* <AnimatedTextCharacter2 text="HANSEN"></AnimatedTextCharacter2> */}
+
             <AnimatedTextCharacter
               customI={2}
               text="HANSEN"
@@ -78,7 +95,7 @@ function Landing() {
         <Container>
           <div className="mb-[60px] grid grid-cols-3 gap-[1rem] auto-cols-max justify-items-between font-body md:text-[1.2rem] text-[1rem] text-center">
             <span className="justify-self-start">
-              <ScrollReveal delay={2.1}>
+              <ScrollReveal delay={isMobile ? 0.1 : 2.1}>
                 UI/UX Designer ── Web Developer
               </ScrollReveal>
             </span>
@@ -89,7 +106,7 @@ function Landing() {
               href="#projects"
               className="arrow flex w-fit mx-auto flex-col items-center cursor-pointe font-foot text-[1.3rem] font-medium"
             >
-              <ScrollReveal delay={2.5}>
+              <ScrollReveal delay={isMobile ? 0.3 : 2.5}>
                 <svg
                   className="mx-auto"
                   width="38"
@@ -111,7 +128,7 @@ function Landing() {
               </ScrollReveal>
             </a>
             <span className="justify-self-end">
-              <ScrollReveal delay={2.3}>
+              <ScrollReveal delay={isMobile ? 0.2 : 2.3}>
                 Based in Jakarta, Indonesia.
               </ScrollReveal>
             </span>

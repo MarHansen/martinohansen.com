@@ -146,7 +146,7 @@ function About() {
             }}
             whileHover={isMobile ? {} : { scale: 0.9, rotate: -10 }}
             whileTap={isMobile ? {} : "hover"}
-            src="/about/profile-pic.jpeg"
+            src="/about/profile-pic.webp"
             className="object-contain max-w-[25rem] lg:max-w-[30rem] md:mt-0 mt-5 transition-all duration-700 ease-in-out filter grayscale hover:filter-none"
             alt=""
           />
