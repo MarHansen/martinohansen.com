@@ -45,8 +45,9 @@ function About() {
   return (
     <>
       <section
+        id="about"
         ref={targetRef}
-        className="max-w-none px-0 overflow-hidden text-black"
+        className="pt-[5rem] max-w-none px-0 overflow-hidden text-black"
       >
         <div
           data-cursor-size="100px"

@@ -3,6 +3,7 @@ import Container from "../containers/container";
 import ScrollReveal from "../animation/scroll-reveal";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { Link as ToLink } from "react-scroll";
 
 function Landing() {
   const [isMobile, setIsMobile] = useState(false);
@@ -99,11 +100,14 @@ function Landing() {
                 UI/UX Designer ── Web Developer
               </ScrollReveal>
             </span>
-            <a
+            <ToLink
+              spy={true}
+              smooth={true}
+              duration={500}
               data-cursor-size="60px"
               data-cursor-stick="#stick-item"
               data-cursor-exclusion
-              href="#projects"
+              to="projects"
               className="arrow flex w-fit mx-auto flex-col items-center cursor-pointe font-foot text-[1.3rem] font-medium"
             >
               <ScrollReveal delay={isMobile ? 0.3 : 2.5}>
@@ -126,7 +130,7 @@ function Landing() {
                 </svg>
                 <p>Projects</p>
               </ScrollReveal>
-            </a>
+            </ToLink>
             <span className="justify-self-end">
               <ScrollReveal delay={isMobile ? 0.2 : 2.3}>
                 Based in Jakarta, Indonesia.

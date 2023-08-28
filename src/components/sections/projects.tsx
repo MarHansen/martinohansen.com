@@ -5,6 +5,7 @@ import CustomButton from "../buttons/main-button";
 import { useInView } from "react-intersection-observer";
 import ReactCurvedText from "react-curved-text";
 import "../../css/custom.css";
+import { Link as ToLink } from "react-scroll";
 
 function Projects() {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -227,11 +228,15 @@ function Projects() {
         </ScrollReveal>
       </div>
 
-      <a
+      <ToLink
+        spy={true}
+        smooth={true}
+        duration={500}
+        to="about"
         data-cursor-size="60px"
         data-cursor-stick="#stick-item"
         data-cursor-exclusion
-        className="mt-5 arrow flex w-fit mx-auto flex-col items-center cursor-pointe font-foot text-[1.3rem] font-medium"
+        className="mt-[5rem] arrow flex w-fit mx-auto flex-col items-center cursor-pointe font-foot text-[1.3rem] font-medium"
       >
         <ScrollReveal delay={0.2}>
           <svg
@@ -253,7 +258,7 @@ function Projects() {
           </svg>
           <p>About Me</p>
         </ScrollReveal>
-      </a>
+      </ToLink>
     </section>
   );
 }
