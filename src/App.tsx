@@ -13,6 +13,7 @@ import Tunema from "./components/pages/projects/tunema";
 import { Cursor } from "react-creative-cursor";
 import "react-creative-cursor/dist/styles.css";
 import { Analytics } from "@vercel/analytics/react";
+import NotFound from "./components/pages/catch-page";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -65,7 +66,8 @@ function App() {
             <Route path="/about" element={<AboutPage />}></Route>
             <Route path="/projects" element={<ProjectsPage />}></Route>
             <Route path="/projects/TUNEMA" element={<Tunema />}></Route>
-            <Route path="/toolkit" element={<ProjectsPage />}></Route>
+            <Route path="/blog" element={<NotFound />}></Route>
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </AnimatePresence>
       </ReactLenis>

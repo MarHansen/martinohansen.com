@@ -1,12 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
-interface CustomLinkProps {
-  to: string;
-}
-
-const ReturnButton: React.FC<CustomLinkProps> = ({ to }) => {
+const ReturnButton = () => {
+  const navigate = useNavigate();
   return (
     <div className="mt-24">
       <motion.div
@@ -17,11 +13,11 @@ const ReturnButton: React.FC<CustomLinkProps> = ({ to }) => {
           ease: [0.16, 1, 0.3, 1],
         }}
       >
-        <Link
+        <button
           data-cursor-size="80px"
           data-cursor-stick="#stick-item"
           data-cursor-exclusion
-          to={to}
+          onClick={() => navigate(-1)}
           className="group my-10 w-fit flex items-center gap-7 font-foot font-medium sm:text-[3rem] text-[2.5rem]"
         >
           <svg
@@ -43,7 +39,7 @@ const ReturnButton: React.FC<CustomLinkProps> = ({ to }) => {
           <p className="duration-200 relative mt-auto mb-auto w-fit text-black group-hover:text-black group-hover:before:scale-x-100 before:absolute before:origin-top-left before:block before:transition-transform before:duration-[0.3s] before:ease-[ease] before:scale-x-0 before:left-0 before:bottom-0 before:w-full before:h-0.5 before:bg-black">
             Return
           </p>
-        </Link>
+        </button>
       </motion.div>
     </div>
   );

@@ -20,7 +20,7 @@ function Tunema() {
         <Container>
           <>
             <div className="mt-24">
-              <ReturnButton to="/projects"></ReturnButton>
+              <ReturnButton></ReturnButton>
               <Notes></Notes>
 
               <Footer></Footer>

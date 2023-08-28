@@ -107,10 +107,10 @@ function Projects() {
           </p>
           <img
             className="absolute group-hover:opacity-0 transition-opacity duration-700"
-            src="/porto/tunema2.jpeg"
+            src="/porto/tunema2.webp"
             alt=""
           />
-          <img src="/porto/tunema.jpeg" alt="" />
+          <img src="/porto/tunema.webp" alt="" />
           <p className="font-body text-[1rem] text-center pt-5">
             Frontend ── UI/UX
           </p>
@@ -136,10 +136,10 @@ function Projects() {
           </p>
           <img
             className="absolute group-hover:opacity-0 transition-opacity duration-700 object-cover w-fit"
-            src="/porto/serene2.gif"
+            src="/porto/serene2.webp"
             alt=""
           />
-          <img src="/porto/serene.jpeg" alt="" />
+          <img src="/porto/serene.webp" alt="" />
           <p className="font-body text-[1rem] text-center pt-5">UI Designer</p>
         </motion.a>
 
@@ -162,7 +162,7 @@ function Projects() {
             Stray animal rescue application.
           </p>
           <img
-            src="/porto/catpaws.jpeg"
+            src="/porto/catpaws.webp"
             className="object-cover sm:w-[700px] sm:h-[200px] self-center justify-self-center"
             alt=""
           />
@@ -189,10 +189,10 @@ function Projects() {
           </p>
           <img
             className="absolute group-hover:opacity-0 transition-opacity duration-700 object-cover w-fit xl:max-w-[494px]"
-            src="/porto/yutrav.jpeg"
+            src="/porto/yutrav.webp"
             alt=""
           />
-          <img src="/porto/yutrav2.jpeg" alt="" />
+          <img src="/porto/yutrav2.webp" alt="" />
           <p className="font-body text-[1rem] text-center pt-5">UI/UX</p>
         </motion.a>
 
@@ -214,7 +214,7 @@ function Projects() {
           <p className="font-body text-[1rem] text-center py-5">
             Human Computer Interaction final project.
           </p>
-          <img src="/porto/adex.jpeg" alt="" />
+          <img src="/porto/adex.webp" alt="" />
           <p className="font-body text-[1rem] text-center pt-5">
             Frontend ── UI/UX
           </p>
