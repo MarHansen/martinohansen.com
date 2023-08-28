@@ -2,10 +2,11 @@
 
 html {
   font-family: satoshi;
-  scroll-behavior: smooth;
   &.lenis {
     height: auto;
   }
+
+  scroll-behavior: smooth;
 }
 
 .lenis {
