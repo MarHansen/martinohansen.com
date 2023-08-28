@@ -36,10 +36,12 @@ html {
 @font-face {
   font-family: Newyork;
   src: url("/font/NewYork.otf") format("opentype");
+  font-display: swap;
 }
 
 @font-face {
   font-family: Circular;
   font-weight: normal;
   src: url("/font/CircularStd-Book.otf") format("opentype");
+  font-display: swap;
 }
