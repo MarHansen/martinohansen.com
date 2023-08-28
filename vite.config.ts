@@ -4,13 +4,5 @@ import { compression } from "vite-plugin-compression2";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    compression(),
-    compression({
-      deleteOriginalAssets: true,
-      skipIfLargerOrEqual: true,
-      algorithm: "gzip",
-    }),
-  ],
+  plugins: [react(), compression()],
 });
