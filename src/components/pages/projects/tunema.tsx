@@ -22,6 +22,15 @@ const images = [
   "/showcase/tunema/tunema-4.webp",
 ];
 
+const preloadImages = (imageUrls: any) => {
+  imageUrls.forEach((imageUrl: any) => {
+    const img = new Image();
+    img.src = imageUrl;
+  });
+};
+
+preloadImages(images);
+
 const variants = {
   initial: (direction: any) => {
     return {
