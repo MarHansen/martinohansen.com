@@ -8,18 +8,16 @@ import ReturnButton from "../../buttons/return-button";
 import CustomButton from "../../buttons/main-button";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import ReactIcon from "../../techstack/react-icon";
-import TailwindIcon from "../../techstack/tailwind-icon";
-import GolangIcon from "../../techstack/golang-icon";
-import LambdaIcon from "../../techstack/lambda-icon";
-import RDSIcon from "../../techstack/rds-icon";
-import S3Icon from "../../techstack/s3-icon";
+import FigmaIcon from "../../techstack/figma-icon";
+import HTMLIcon from "../../techstack/html-icon";
+import CSSIcon from "../../techstack/css-icon";
+import JSIcon from "../../techstack/javascript-icon";
 
 const images = [
-  "/showcase/tunema/tunema-1.webp",
-  "/showcase/tunema/tunema-2.webp",
-  "/showcase/tunema/tunema-3.webp",
-  "/showcase/tunema/tunema-4.webp",
+  "/showcase/adex/adex-1.webp",
+  "/showcase/adex/adex-2.webp",
+  "/showcase/adex/adex-3.webp",
+  "/showcase/adex/adex-4.webp",
 ];
 
 const variants = {
@@ -47,7 +45,7 @@ const variants = {
   },
 };
 
-function Tunema() {
+function Adex() {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isAuto, setIsAuto] = useState(true);
@@ -84,7 +82,7 @@ function Tunema() {
       <Transition>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>TUNEMA──marhansen</title>
+          <title>Adex──marhansen</title>
           <link rel="icon" type="image/x-icon" href="/favicon.svg" />
         </Helmet>
         <Container>
@@ -93,7 +91,7 @@ function Tunema() {
               <ReturnButton></ReturnButton>
               <section className="h-full grid lg:grid-cols-3 grid-cols-1">
                 <section className="flex flex-col gap-10">
-                  <h1 className="font-serif text-[4rem]">TUNEMA</h1>
+                  <h1 className="font-serif text-[4rem]">Adex Legend</h1>
                   <div className="flex flex-wrap lg:flex-col flex-row justify-start lg:gap-20 gap-16">
                     <div>
                       <h1 className="font-body font-bold text-black text-opacity-75">
@@ -105,7 +103,7 @@ function Tunema() {
                       <h1 className="font-body font-bold text-black text-opacity-75">
                         DEVELOPED
                       </h1>
-                      <p>February 2023</p>
+                      <p>May 2022</p>
                     </div>
                     <div>
                       <h1 className="font-body font-bold text-black text-opacity-75">
@@ -113,13 +111,13 @@ function Tunema() {
                       </h1>
                       <div className="w-fit flex flex-wrap gap-5 mt-3">
                         <CustomButton
-                          to="https://github.com/tunema-org"
+                          to="https://github.com/MarHansen/HCI--Adex-Legends"
                           openInNewTab
                         >
                           Github
                         </CustomButton>
                         <CustomButton
-                          to="https://www.behance.net/gallery/171910903/TUNEMA"
+                          to="https://www.behance.net/gallery/171659489/Serene"
                           openInNewTab
                         >
                           Bēhance
@@ -132,49 +130,40 @@ function Tunema() {
                   <h1 className="font-body font-bold text-black text-opacity-75">
                     ABOUT
                   </h1>
-                  <p className="font-medium text-[#758915]">
-                    Sampling exists as an educational tool and as a way for
-                    artists to springboard inspiration off of each other. In
-                    today there's only 1 platform that well known as sample
-                    music selling website. TUNEMA is here to provide music
-                    samples to help the producer and independent artist in music
-                    industry.
+                  <p className="font-medium text-[#7D0F10]">
+                    Adex Legends theme was decided by University as a main theme
+                    for the final project. Adex Legend is simply a copy of Apex
+                    Legends battle royale game with heroes abilities.
                   </p>
                   <div className="flex lg:flex-row flex-col gap-3">
                     <p className="w-fit">
-                      This web application allows producers to sell and buy a
-                      variety of music samples, including kicks, snare,
-                      instrumentals, vocals, and more. With TUNEMA, producers
-                      worldwide can access high-quality samples at an affordable
-                      price, making it easier than ever to create
-                      professional-quality music.
-                      <br /> TUNEMA is created to revolutionize the music
-                      production industry by providing a more affordable and
-                      diverse marketplace for music samples, empowering
-                      producers to create professional quality tracks and
-                      connecting with other music creators around the world.
+                      Adex Legends is my first time debut designing a UI/UX mega
+                      project with figma prototyping. The 'Game' theme in this
+                      project is the most challenging part too work at. Game
+                      theme usually contains colorful theme and flashy content
+                      in the game that represent the game itself. To work with
+                      that, we need to do a research from all tactical shooter
+                      game websites like 'Valorant' and 'Rainbow 6 siege' and do
+                      a benchamarking for each website to find the selling
+                      points from the website design itself.
                     </p>
                     <p className="w-fit">
-                      The most challenging part when developing TUNEMA is to
-                      find-out and how to differentiate TUNEMA with other sample
-                      music selling platform. This is the first time debut using
-                      react typescript when developing TUNEMA frontend, it ends
-                      up with new knowledge with react ecosystem and do an
-                      easier things that vanilla HTML and CSS does, with tons of
-                      frameworks and libraries to use.
+                      The frontend development is the most challenging part.
+                      Because the design is quite hard to be done in responsive
+                      page and this website project only allowed using vanilla
+                      HTML, CSS, JS. We manage to do with some design tweaking
+                      in the frontend parts and cutoff the hardest part to do
+                      with responsive pages.
                     </p>
                   </div>
                   <h1 className="font-body font-bold text-black text-opacity-75">
                     TECH STACK
                   </h1>
                   <div className="flex flex-wrap gap-3">
-                    <ReactIcon></ReactIcon>
-                    <TailwindIcon></TailwindIcon>
-                    <GolangIcon></GolangIcon>
-                    <LambdaIcon></LambdaIcon>
-                    <RDSIcon></RDSIcon>
-                    <S3Icon></S3Icon>
-                    <p className="self-end">...</p>
+                    <FigmaIcon></FigmaIcon>
+                    <HTMLIcon></HTMLIcon>
+                    <CSSIcon></CSSIcon>
+                    <JSIcon></JSIcon>
                   </div>
 
                   <div
@@ -376,4 +365,4 @@ function Tunema() {
   );
 }
 
-export default Tunema;
+export default Adex;

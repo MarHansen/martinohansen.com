@@ -29,6 +29,26 @@ html {
   }
 }
 
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(43, 39, 36, 0.1);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #2b2724;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(78, 70, 65, 1);
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

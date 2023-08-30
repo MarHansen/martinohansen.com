@@ -8,18 +8,12 @@ import ReturnButton from "../../buttons/return-button";
 import CustomButton from "../../buttons/main-button";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import ReactIcon from "../../techstack/react-icon";
-import TailwindIcon from "../../techstack/tailwind-icon";
-import GolangIcon from "../../techstack/golang-icon";
-import LambdaIcon from "../../techstack/lambda-icon";
-import RDSIcon from "../../techstack/rds-icon";
-import S3Icon from "../../techstack/s3-icon";
+import FigmaIcon from "../../techstack/figma-icon";
 
 const images = [
-  "/showcase/tunema/tunema-1.webp",
-  "/showcase/tunema/tunema-2.webp",
-  "/showcase/tunema/tunema-3.webp",
-  "/showcase/tunema/tunema-4.webp",
+  "/showcase/catpaws/catpaws-1.webp",
+  "/showcase/catpaws/catpaws-2.webp",
+  "/showcase/catpaws/catpaws-3.webp",
 ];
 
 const variants = {
@@ -47,7 +41,7 @@ const variants = {
   },
 };
 
-function Tunema() {
+function CatPaws() {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isAuto, setIsAuto] = useState(true);
@@ -84,7 +78,7 @@ function Tunema() {
       <Transition>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>TUNEMA──marhansen</title>
+          <title>CatPaws──marhansen</title>
           <link rel="icon" type="image/x-icon" href="/favicon.svg" />
         </Helmet>
         <Container>
@@ -93,19 +87,19 @@ function Tunema() {
               <ReturnButton></ReturnButton>
               <section className="h-full grid lg:grid-cols-3 grid-cols-1">
                 <section className="flex flex-col gap-10">
-                  <h1 className="font-serif text-[4rem]">TUNEMA</h1>
+                  <h1 className="font-serif text-[4rem]">Cat Paws</h1>
                   <div className="flex flex-wrap lg:flex-col flex-row justify-start lg:gap-20 gap-16">
                     <div>
                       <h1 className="font-body font-bold text-black text-opacity-75">
                         ROLE
                       </h1>
-                      <p>Frontend ── UI/UX</p>
+                      <p>UI/UX Designer</p>
                     </div>
                     <div>
                       <h1 className="font-body font-bold text-black text-opacity-75">
                         DEVELOPED
                       </h1>
-                      <p>February 2023</p>
+                      <p>February 2022</p>
                     </div>
                     <div>
                       <h1 className="font-body font-bold text-black text-opacity-75">
@@ -113,16 +107,10 @@ function Tunema() {
                       </h1>
                       <div className="w-fit flex flex-wrap gap-5 mt-3">
                         <CustomButton
-                          to="https://github.com/tunema-org"
+                          to="https://medium.com/@marhansen/catpaws-34cb48c56f28"
                           openInNewTab
                         >
-                          Github
-                        </CustomButton>
-                        <CustomButton
-                          to="https://www.behance.net/gallery/171910903/TUNEMA"
-                          openInNewTab
-                        >
-                          Bēhance
+                          Medium
                         </CustomButton>
                       </div>
                     </div>
@@ -132,49 +120,44 @@ function Tunema() {
                   <h1 className="font-body font-bold text-black text-opacity-75">
                     ABOUT
                   </h1>
-                  <p className="font-medium text-[#758915]">
-                    Sampling exists as an educational tool and as a way for
-                    artists to springboard inspiration off of each other. In
-                    today there's only 1 platform that well known as sample
-                    music selling website. TUNEMA is here to provide music
-                    samples to help the producer and independent artist in music
-                    industry.
+                  <p className="font-medium text-[#B77D30]">
+                    There are still many stray cat and dogs that need human
+                    hands to help. CatPaws is here to give a solution for those
+                    who see a stray animals that needed help but you can’t do
+                    much with it. Or you can be a animal rescue for helping the
+                    environment.
                   </p>
                   <div className="flex lg:flex-row flex-col gap-3">
                     <p className="w-fit">
-                      This web application allows producers to sell and buy a
-                      variety of music samples, including kicks, snare,
-                      instrumentals, vocals, and more. With TUNEMA, producers
-                      worldwide can access high-quality samples at an affordable
-                      price, making it easier than ever to create
-                      professional-quality music.
-                      <br /> TUNEMA is created to revolutionize the music
-                      production industry by providing a more affordable and
-                      diverse marketplace for music samples, empowering
-                      producers to create professional quality tracks and
-                      connecting with other music creators around the world.
+                      Stray animals sometimes can't adapt with our daily life
+                      and new environment leading to human care and help needs.
+                      And sometimes whenever we see stray animals in streets
+                      that in dangerous, we can't do much for them. Which lead
+                      us to create CatPaws that can help to solve the problem.
+                      <br /> CatPaws have 2 sides, one is from the animal
+                      rescuer and one for free user who can use the application
+                      to help the stray animals who needs help. If the user see
+                      some stray animals who need help, they can call the
+                      rescuer via application, with the details of the location
+                      and condition via maps.
                     </p>
                     <p className="w-fit">
-                      The most challenging part when developing TUNEMA is to
-                      find-out and how to differentiate TUNEMA with other sample
-                      music selling platform. This is the first time debut using
-                      react typescript when developing TUNEMA frontend, it ends
-                      up with new knowledge with react ecosystem and do an
-                      easier things that vanilla HTML and CSS does, with tons of
-                      frameworks and libraries to use.
+                      Animal issues was a very serious and sensitive case, which
+                      lead us to do a very technical and careful research. We've
+                      done a survey with more than 60 people to test the
+                      prototype, 90% of them supports our idea. The tricky part
+                      is to create a concept where both rescuer and normal user
+                      can have an advantage to encourage them helping more
+                      animals with fake call prevention. So we created a point
+                      system that lead user to help more animals out there and
+                      punishment system if the call was false.
                     </p>
                   </div>
                   <h1 className="font-body font-bold text-black text-opacity-75">
                     TECH STACK
                   </h1>
                   <div className="flex flex-wrap gap-3">
-                    <ReactIcon></ReactIcon>
-                    <TailwindIcon></TailwindIcon>
-                    <GolangIcon></GolangIcon>
-                    <LambdaIcon></LambdaIcon>
-                    <RDSIcon></RDSIcon>
-                    <S3Icon></S3Icon>
-                    <p className="self-end">...</p>
+                    <FigmaIcon></FigmaIcon>
                   </div>
 
                   <div
@@ -376,4 +359,4 @@ function Tunema() {
   );
 }
 
-export default Tunema;
+export default CatPaws;

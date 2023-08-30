@@ -115,7 +115,7 @@ function ProjectsPage() {
               <ProjectCard
                 targetRef={targetRef}
                 type="left"
-                backgroundImage="/porto/tunema.webp"
+                backgroundImage="/showcase/tunema/tunema-1.webp"
                 title="TUNEMA"
                 description="Frontend ── UI/UX"
                 buttonTo="/projects/TUNEMA"
@@ -124,7 +124,7 @@ function ProjectsPage() {
               <ProjectCard
                 targetRef={targetRef}
                 type="right"
-                backgroundImage="/porto/serene.webp"
+                backgroundImage="/showcase/serene/serene-1.webp"
                 title="Serene"
                 description="User Interface Design"
                 buttonTo="/projects/Serene"

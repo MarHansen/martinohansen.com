@@ -8,18 +8,13 @@ import ReturnButton from "../../buttons/return-button";
 import CustomButton from "../../buttons/main-button";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import ReactIcon from "../../techstack/react-icon";
-import TailwindIcon from "../../techstack/tailwind-icon";
-import GolangIcon from "../../techstack/golang-icon";
-import LambdaIcon from "../../techstack/lambda-icon";
-import RDSIcon from "../../techstack/rds-icon";
-import S3Icon from "../../techstack/s3-icon";
+import FigmaIcon from "../../techstack/figma-icon";
 
 const images = [
-  "/showcase/tunema/tunema-1.webp",
-  "/showcase/tunema/tunema-2.webp",
-  "/showcase/tunema/tunema-3.webp",
-  "/showcase/tunema/tunema-4.webp",
+  "/showcase/yutrav/yutrav-1.webp",
+  "/showcase/yutrav/yutrav-2.webp",
+  "/showcase/yutrav/yutrav-3.webp",
+  "/showcase/yutrav/yutrav-3.webp",
 ];
 
 const variants = {
@@ -47,7 +42,7 @@ const variants = {
   },
 };
 
-function Tunema() {
+function YuTrav() {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isAuto, setIsAuto] = useState(true);
@@ -84,7 +79,7 @@ function Tunema() {
       <Transition>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>TUNEMA──marhansen</title>
+          <title>YuTrav──marhansen</title>
           <link rel="icon" type="image/x-icon" href="/favicon.svg" />
         </Helmet>
         <Container>
@@ -93,19 +88,19 @@ function Tunema() {
               <ReturnButton></ReturnButton>
               <section className="h-full grid lg:grid-cols-3 grid-cols-1">
                 <section className="flex flex-col gap-10">
-                  <h1 className="font-serif text-[4rem]">TUNEMA</h1>
+                  <h1 className="font-serif text-[4rem]">YuTrav</h1>
                   <div className="flex flex-wrap lg:flex-col flex-row justify-start lg:gap-20 gap-16">
                     <div>
                       <h1 className="font-body font-bold text-black text-opacity-75">
                         ROLE
                       </h1>
-                      <p>Frontend ── UI/UX</p>
+                      <p>UI/UX Designer</p>
                     </div>
                     <div>
                       <h1 className="font-body font-bold text-black text-opacity-75">
                         DEVELOPED
                       </h1>
-                      <p>February 2023</p>
+                      <p>July 2022</p>
                     </div>
                     <div>
                       <h1 className="font-body font-bold text-black text-opacity-75">
@@ -113,13 +108,7 @@ function Tunema() {
                       </h1>
                       <div className="w-fit flex flex-wrap gap-5 mt-3">
                         <CustomButton
-                          to="https://github.com/tunema-org"
-                          openInNewTab
-                        >
-                          Github
-                        </CustomButton>
-                        <CustomButton
-                          to="https://www.behance.net/gallery/171910903/TUNEMA"
+                          to="https://medium.com/@marhansen/catpaws-34cb48c56f28"
                           openInNewTab
                         >
                           Bēhance
@@ -132,49 +121,41 @@ function Tunema() {
                   <h1 className="font-body font-bold text-black text-opacity-75">
                     ABOUT
                   </h1>
-                  <p className="font-medium text-[#758915]">
-                    Sampling exists as an educational tool and as a way for
-                    artists to springboard inspiration off of each other. In
-                    today there's only 1 platform that well known as sample
-                    music selling website. TUNEMA is here to provide music
-                    samples to help the producer and independent artist in music
-                    industry.
+                  <p className="font-medium text-[#1F1F1F]">
+                    Indonesia have a lot of nature potential that not well known
+                    by the public. Usually tourist across the world only known
+                    Indonesia not more than Bali and Jogja, neither the other
+                    tourist destination that can be better than that two.
+                    Tourist also don't know the other destination due to less
+                    documentation about the other place.
                   </p>
                   <div className="flex lg:flex-row flex-col gap-3">
                     <p className="w-fit">
-                      This web application allows producers to sell and buy a
-                      variety of music samples, including kicks, snare,
-                      instrumentals, vocals, and more. With TUNEMA, producers
-                      worldwide can access high-quality samples at an affordable
-                      price, making it easier than ever to create
-                      professional-quality music.
-                      <br /> TUNEMA is created to revolutionize the music
-                      production industry by providing a more affordable and
-                      diverse marketplace for music samples, empowering
-                      producers to create professional quality tracks and
-                      connecting with other music creators around the world.
+                      YuTrav was orginaly planned to solve the less
+                      documentation about the Indonesia tourist destination.
+                      <br /> YuTrav offer many features that will help foreigner
+                      and domestic tourist to find the underdog tourist
+                      destination in Indonesia. User can do a virtual tour to
+                      set the expectation before heading into the place, user
+                      also can see the ongoing and upcoming event and culinary
+                      in the place. Community hub have a huge impact in tourist
+                      destination promotion, because every user can share their
+                      own experience.
                     </p>
                     <p className="w-fit">
-                      The most challenging part when developing TUNEMA is to
-                      find-out and how to differentiate TUNEMA with other sample
-                      music selling platform. This is the first time debut using
-                      react typescript when developing TUNEMA frontend, it ends
-                      up with new knowledge with react ecosystem and do an
-                      easier things that vanilla HTML and CSS does, with tons of
-                      frameworks and libraries to use.
+                      The UI design and idea gathering process is started from
+                      looking for many references about travel application in
+                      Dribble and Behance. UX design is the most challenging
+                      part, by collecting user persona, user needs, usability
+                      goals and data analytics, that need to be done with
+                      questioner method for surveying the data.
                     </p>
                   </div>
                   <h1 className="font-body font-bold text-black text-opacity-75">
                     TECH STACK
                   </h1>
                   <div className="flex flex-wrap gap-3">
-                    <ReactIcon></ReactIcon>
-                    <TailwindIcon></TailwindIcon>
-                    <GolangIcon></GolangIcon>
-                    <LambdaIcon></LambdaIcon>
-                    <RDSIcon></RDSIcon>
-                    <S3Icon></S3Icon>
-                    <p className="self-end">...</p>
+                    <FigmaIcon></FigmaIcon>
                   </div>
 
                   <div
@@ -376,4 +357,4 @@ function Tunema() {
   );
 }
 
-export default Tunema;
+export default YuTrav;

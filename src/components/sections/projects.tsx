@@ -6,6 +6,7 @@ import { useInView } from "react-intersection-observer";
 import ReactCurvedText from "react-curved-text";
 import "../../css/custom.css";
 import { Link as ToLink } from "react-scroll";
+import { Link } from "react-router-dom";
 
 function Projects() {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -90,135 +91,155 @@ function Projects() {
       >
         <motion.a
           data-cursor-size="80px"
-          data-cursor-stick="#stick-item"
           data-cursor-exclusion
           style={{
             scale: scale,
             transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
-          href="https://www.behance.net/gallery/171910903/TUNEMA"
-          target="_blank"
           className="group relative inline-block max-w-full sm:w-auto w-full sm:max-w-[518px] self-start py-5 bg-[#9CB719] text-[#ffff]"
         >
-          <h1 className="group-hover:-translate-y-5 transition-all duration-500 ease-cubic-bezier[0.16,1,0.3,1] font-foot text-[3rem] font-[600] text-center py-5">
-            TUNEMA
-          </h1>
-          <p className="font-body text-[1rem] text-center py-5">
-            A platform to share and find music samples.
-          </p>
-          <img
-            className="absolute group-hover:opacity-0 transition-opacity duration-700"
-            src="/porto/tunema2.webp"
-            alt=""
-          />
-          <img src="/porto/tunema.webp" alt="" />
-          <p className="font-body text-[1rem] text-center pt-5">
-            Frontend ── UI/UX
-          </p>
+          <Link
+            to="/projects/TUNEMA"
+            className="relative max-w-full sm:w-auto w-full sm:max-w-[518px]"
+          >
+            <h1 className="group-hover:-translate-y-5 transition-all duration-500 ease-cubic-bezier[0.16,1,0.3,1] font-foot text-[3rem] font-[600] text-center py-5">
+              TUNEMA
+            </h1>
+            <p className="font-body text-[1rem] text-center py-5">
+              A platform to share and find music samples.
+            </p>
+            <img
+              className="absolute group-hover:opacity-0 transition-opacity duration-700"
+              src="/porto/tunema2.webp"
+              alt=""
+            />
+            <img src="/porto/tunema.webp" alt="" />
+            <p className="font-body text-[1rem] text-center pt-5">
+              Frontend ── UI/UX
+            </p>
+          </Link>
         </motion.a>
 
         <motion.a
           data-cursor-size="80px"
-          data-cursor-stick="#stick-item"
           data-cursor-exclusion
           style={{
             scale: scale2,
             transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
-          href="https://www.behance.net/gallery/171659489/Serene"
-          target="_blank"
+          // href="https://www.behance.net/gallery/171659489/Serene"
+          // target="_blank"
           className="group relative sm:mt-52 mt-2 inline-block max-w-full sm:w-auto w-full sm:max-w-[594px] py-5 bg-[#14213D] text-[#ffff]"
         >
-          <h1 className="group-hover:-translate-y-5 transition-all duration-500 ease-cubic-bezier[0.16,1,0.3,1] font-foot text-[3rem] font-[600] text-center py-5">
-            Serene
-          </h1>
-          <p className="font-body text-[1rem] text-center py-5">
-            Journaling application for mental health issues.
-          </p>
-          <img
-            className="absolute group-hover:opacity-0 transition-opacity duration-700 object-cover w-fit"
-            src="/porto/serene2.webp"
-            alt=""
-          />
-          <img src="/porto/serene.webp" alt="" />
-          <p className="font-body text-[1rem] text-center pt-5">UI Designer</p>
+          <Link
+            to="/projects/Serene"
+            className="relative max-w-full sm:w-auto w-full sm:max-w-[594px]"
+          >
+            <h1 className="group-hover:-translate-y-5 transition-all duration-500 ease-cubic-bezier[0.16,1,0.3,1] font-foot text-[3rem] font-[600] text-center py-5">
+              Serene
+            </h1>
+            <p className="font-body text-[1rem] text-center py-5">
+              Journaling application for mental health issues.
+            </p>
+            <img
+              className="absolute group-hover:opacity-0 transition-opacity duration-700 object-cover w-fit"
+              src="/porto/serene2.webp"
+              alt=""
+            />
+            <img src="/porto/serene.webp" alt="" />
+            <p className="font-body text-[1rem] text-center pt-5">
+              UI Designer
+            </p>
+          </Link>
         </motion.a>
 
         <motion.a
           data-cursor-size="80px"
-          data-cursor-stick="#stick-item"
           data-cursor-exclusion
           style={{
             scale: scale3,
             transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
-          href="https://medium.com/@marhansen/catpaws-34cb48c56f28"
-          target="_blank"
+          // href="https://medium.com/@marhansen/catpaws-34cb48c56f28"
+          // target="_blank"
           className="group mt-2 items-center sm:mt-20 xl:ml-60 ml-0 inline-block max-w-full sm:w-auto w-full sm:max-w-[518px] self-start py-5 bg-[#FDA632] text-[#ffff]"
         >
-          <h1 className="group-hover:-translate-y-5 transition-all duration-500 ease-cubic-bezier[0.16,1,0.3,1] font-foot text-[3rem] font-[600] text-center py-5">
-            CatPaws
-          </h1>
-          <p className="font-body text-[1rem] text-center py-5">
-            Stray animal rescue application.
-          </p>
-          <img
-            src="/porto/catpaws.webp"
-            className="object-cover sm:w-[700px] sm:h-[200px] self-center justify-self-center"
-            alt=""
-          />
-          <p className="font-body text-[1rem] text-center pt-5">UI/UX</p>
+          <Link
+            to="/projects/CatPaws"
+            className="relative max-w-full sm:w-auto w-full sm:max-w-[518px]"
+          >
+            <h1 className="group-hover:-translate-y-5 transition-all duration-500 ease-cubic-bezier[0.16,1,0.3,1] font-foot text-[3rem] font-[600] text-center py-5">
+              CatPaws
+            </h1>
+            <p className="font-body text-[1rem] text-center py-5">
+              Stray animal rescue application.
+            </p>
+            <img
+              src="/porto/catpaws.webp"
+              className="object-cover sm:w-[700px] sm:h-[200px] self-center justify-self-center"
+              alt=""
+            />
+            <p className="font-body text-[1rem] text-center pt-5">UI/UX</p>
+          </Link>
         </motion.a>
 
         <motion.a
           data-cursor-size="80px"
-          data-cursor-stick="#stick-item"
           data-cursor-exclusion
           style={{
             scale: scale4,
             transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
-          href="https://www.behance.net/gallery/150326813/YuTrav"
-          target="_blank"
+          // href="https://www.behance.net/gallery/150326813/YuTrav"
+          // target="_blank"
           className="group relative sm:mt-96 justify-self-end mt-2 inline-block max-w-full sm:w-auto w-full sm:max-w-[494px] py-5 bg-[#232C31] text-[#ffff]"
         >
-          <h1 className="group-hover:-translate-y-5 transition-all duration-500 ease-cubic-bezier[0.16,1,0.3,1] font-foot text-[3rem] font-[600] text-center py-5">
-            YuTrav
-          </h1>
-          <p className="font-body text-[1rem] text-center py-5">
-            Virtual travel application.
-          </p>
-          <img
-            className="absolute group-hover:opacity-0 transition-opacity duration-700 object-cover w-fit xl:max-w-[494px]"
-            src="/porto/yutrav.webp"
-            alt=""
-          />
-          <img src="/porto/yutrav2.webp" alt="" />
-          <p className="font-body text-[1rem] text-center pt-5">UI/UX</p>
+          <Link
+            to="/projects/YuTrav"
+            className="relative max-w-full sm:w-auto w-full sm:max-w-[494px]"
+          >
+            <h1 className="group-hover:-translate-y-5 transition-all duration-500 ease-cubic-bezier[0.16,1,0.3,1] font-foot text-[3rem] font-[600] text-center py-5">
+              YuTrav
+            </h1>
+            <p className="font-body text-[1rem] text-center py-5">
+              Virtual travel application.
+            </p>
+            <img
+              className="absolute group-hover:opacity-0 transition-opacity duration-700 object-cover w-fit xl:max-w-[494px]"
+              src="/porto/yutrav.webp"
+              alt=""
+            />
+            <img src="/porto/yutrav2.webp" alt="" />
+            <p className="font-body text-[1rem] text-center pt-5">UI/UX</p>
+          </Link>
         </motion.a>
 
         <motion.a
           data-cursor-size="80px"
-          data-cursor-stick="#stick-item"
           data-cursor-exclusion
           style={{
             scale: scale5,
             transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
-          href="https://www.behance.net/gallery/166045673/Adex-Legends"
-          target="_blank"
+          // href="https://www.behance.net/gallery/166045673/Adex-Legends"
+          // target="_blank"
           className="group sm:-mt-32 mt-2 inline-block max-w-full sm:w-auto w-full sm:max-w-[494px] py-5 bg-[#F5F5F7]"
         >
-          <h1 className="group-hover:-translate-y-5 transition-all duration-500 ease-cubic-bezier[0.16,1,0.3,1] font-foot text-[3rem] font-[600] text-center py-5">
-            Adex Legend
-          </h1>
-          <p className="font-body text-[1rem] text-center py-5">
-            Human Computer Interaction final project.
-          </p>
-          <img src="/porto/adex.webp" alt="" />
-          <p className="font-body text-[1rem] text-center pt-5">
-            Frontend ── UI/UX
-          </p>
+          <Link
+            to="/projects/AdexLegend"
+            className="group relative sm:-mt-32 mt-2 inline-block max-w-full sm:w-auto w-full sm:max-w-[494px] py-5 bg-[#F5F5F7]"
+          >
+            <h1 className="group-hover:-translate-y-5 transition-all duration-500 ease-cubic-bezier[0.16,1,0.3,1] font-foot text-[3rem] font-[600] text-center py-5">
+              Adex Legend
+            </h1>
+            <p className="font-body text-[1rem] text-center py-5">
+              Human Computer Interaction final project.
+            </p>
+            <img src="/porto/adex.webp" alt="" />
+            <p className="font-body text-[1rem] text-center pt-5">
+              Frontend ── UI/UX
+            </p>
+          </Link>
         </motion.a>
       </div>
 
