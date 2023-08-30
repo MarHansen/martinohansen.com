@@ -175,7 +175,6 @@ function CatPaws() {
                         src={images[index]}
                         alt="caraousel"
                         custom={direction}
-                        loading="lazy"
                         draggable={false}
                         className="absolute top-0 left-0 w-full h-full object-cover object-center"
                       />
