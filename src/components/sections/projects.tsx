@@ -109,7 +109,7 @@ function Projects() {
               A platform to share and find music samples.
             </p>
             <img
-              className="absolute group-hover:opacity-0 transition-opacity duration-700"
+              className="absolute group-hover:opacity-0 transition-opacity duration-700 z-10"
               src="/porto/tunema2.webp"
               alt=""
             />
@@ -141,12 +141,18 @@ function Projects() {
             <p className="font-body text-[1rem] text-center py-5">
               Journaling application for mental health issues.
             </p>
+
             <img
-              className="absolute group-hover:opacity-0 transition-opacity duration-700 object-cover w-fit"
+              className="absolute  group-hover:opacity-0 transition-opacity duration-700 object-cover w-fit z-40"
               src="/porto/serene2.webp"
               alt=""
             />
-            <img src="/porto/serene.webp" alt="" />
+            <img
+              className="relative transition-opacity duration-700 object-cover w-fit"
+              src="/porto/serene.webp"
+              alt=""
+            />
+
             <p className="font-body text-[1rem] text-center pt-5">
               UI Designer
             </p>
@@ -205,7 +211,7 @@ function Projects() {
               Virtual travel application.
             </p>
             <img
-              className="absolute group-hover:opacity-0 transition-opacity duration-700 object-cover w-fit xl:max-w-[494px]"
+              className="absolute group-hover:opacity-0 transition-opacity duration-700 object-cover w-fit xl:max-w-[494px] z-10"
               src="/porto/yutrav.webp"
               alt=""
             />
