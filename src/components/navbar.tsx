@@ -1,19 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [navOpen, setNavOpen] = useState(false);
-
-  //preventing user to scrolling when navbar opened
-  useEffect(() => {
-    if (navOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-  }, [navOpen]);
-
   //chat gpt logic for hiding navbar, i'm to lazy T_T, i want to disable it temporary, because its too annoying
   // const [show, setShow] = useState(true);
   // const [scrollDirection, setScrollDirection] = useState("up");
@@ -106,7 +96,7 @@ const Navbar = () => {
                 target="blank"
                 className={check}
               >
-                Be.
+                Bē.
               </a>
               <a
                 href="https://www.linkedin.com/in/martino-hansen-290b90221/"

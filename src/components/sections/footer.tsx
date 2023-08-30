@@ -29,14 +29,14 @@ function Footer() {
               <motion.div
                 initial={{ width: 0, left: 0 }}
                 animate={{ width: inView ? "100%" : 0, left: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
+                transition={{ duration: 1, delay: 0.1 }}
                 className="h-[1px] bg-black"
               />
               <h1 className="my-5">Let's get in touch.</h1>
               <motion.div
                 initial={{ width: 0, right: 0 }}
                 animate={{ width: inView ? "100%" : 0, right: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
+                transition={{ duration: 1, delay: 0.1 }}
                 className="h-[1px] bg-black"
               />
             </Link>
@@ -45,7 +45,7 @@ function Footer() {
 
         <div className="flex md:gap-9 gap-5 flex-wrap">
           <CustomButton to="https://www.behance.net/marhansen" openInNewTab>
-            Behance
+            Bēhance
           </CustomButton>
           <CustomButton to="https://github.com/MarHansen" openInNewTab>
             Github.
@@ -108,7 +108,7 @@ function Footer() {
                   target="blank"
                   className={buttonClass2}
                 >
-                  Behance
+                  Bēhance
                 </a>
                 <a
                   href="https://www.linkedin.com/in/martino-hansen-290b90221/"
