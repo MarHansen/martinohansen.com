@@ -23,7 +23,7 @@ function Projects() {
 
   //a bit bruteforce right here :')
   const scale = useTransform(scrollYProgress, [0.1, 0.17], [0.6, 1]);
-  const scale2 = useTransform(scrollYProgress, [0.18, 0.28], [0.5, 1]);
+  const scale2 = useTransform(scrollYProgress, [0.18, 0.28], [0.62, 1]);
   const scale3 = useTransform(scrollYProgress, [0.35, 0.45], [0.7, 1]);
   const scale4 = useTransform(scrollYProgress, [0.4, 0.57], [0.6, 1]);
   const scale5 = useTransform(scrollYProgress, [0.47, 0.7], [0.5, 1]);
@@ -31,7 +31,7 @@ function Projects() {
 
   return (
     <section id="projects" className="max-w-none px-0 mt-10 lg:mb-10 mb-5">
-      <div className="flex overflow-clip mb-40 md:flex-row flex-col justify-between items-center font-serif text-[5rem] lg:text-[11rem] font-medium sticky top-10">
+      <div className="flex overflow-clip mb-40 md:flex-row flex-col justify-between items-center font-serif text-[23vw] lg:text-[10rem] sm:text-[5rem] font-medium sticky top-10">
         <ScrollReveal distance={50} delay={0.3}>
           <h1 className="md:mt-0 mt-[3rem]">Projects</h1>
           <motion.div
@@ -89,19 +89,17 @@ function Projects() {
         ref={targetRef}
         className="relative mb-5 grid sm:grid-cols-2 grid-cols-1 grid-rows-auto gap-x-4 gap-y-4 auto-rows-[auto,auto]"
       >
-        <motion.a
-          data-cursor-size="80px"
+        <motion.div
+          data-cursor-size="90px"
           data-cursor-exclusion
+          data-cursor-text="Explore"
           style={{
             scale: scale,
             transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
           className="group relative inline-block max-w-full sm:w-auto w-full sm:max-w-[518px] self-start py-5 bg-[#9CB719] text-[#ffff]"
         >
-          <Link
-            to="/projects/TUNEMA"
-            className="relative max-w-full sm:w-auto w-full sm:max-w-[518px]"
-          >
+          <Link to="/projects/TUNEMA" className="max-w-full block">
             <h1 className="group-hover:-translate-y-5 transition-all duration-500 ease-cubic-bezier[0.16,1,0.3,1] font-foot text-[3rem] font-[600] text-center py-5">
               TUNEMA
             </h1>
@@ -109,7 +107,7 @@ function Projects() {
               A platform to share and find music samples.
             </p>
             <img
-              className="absolute group-hover:opacity-0 transition-opacity duration-700 z-10"
+              className="absolute group-hover:opacity-0 transition-opacity duration-700  z-10"
               src="/porto/tunema2.webp"
               alt=""
             />
@@ -118,11 +116,12 @@ function Projects() {
               Frontend ── UI/UX
             </p>
           </Link>
-        </motion.a>
+        </motion.div>
 
-        <motion.a
-          data-cursor-size="80px"
+        <motion.div
+          data-cursor-size="90px"
           data-cursor-exclusion
+          data-cursor-text="Explore"
           style={{
             scale: scale2,
             transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
@@ -131,10 +130,7 @@ function Projects() {
           // target="_blank"
           className="group relative sm:mt-52 mt-2 inline-block max-w-full sm:w-auto w-full sm:max-w-[594px] py-5 bg-[#14213D] text-[#ffff]"
         >
-          <Link
-            to="/projects/Serene"
-            className="relative max-w-full sm:w-auto w-full sm:max-w-[594px]"
-          >
+          <Link to="/projects/Serene" className="max-w-full block">
             <h1 className="group-hover:-translate-y-5 transition-all duration-500 ease-cubic-bezier[0.16,1,0.3,1] font-foot text-[3rem] font-[600] text-center py-5">
               Serene
             </h1>
@@ -143,7 +139,7 @@ function Projects() {
             </p>
 
             <img
-              className="absolute  group-hover:opacity-0 transition-opacity duration-700 object-cover w-fit z-40"
+              className="absolute group-hover:opacity-0 transition-opacity duration-700 object-cover w-fit z-40"
               src="/porto/serene2.webp"
               alt=""
             />
@@ -157,11 +153,12 @@ function Projects() {
               UI Designer
             </p>
           </Link>
-        </motion.a>
+        </motion.div>
 
-        <motion.a
-          data-cursor-size="80px"
+        <motion.div
+          data-cursor-size="90px"
           data-cursor-exclusion
+          data-cursor-text="Explore"
           style={{
             scale: scale3,
             transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
@@ -170,10 +167,7 @@ function Projects() {
           // target="_blank"
           className="group mt-2 items-center sm:mt-20 xl:ml-60 ml-0 inline-block max-w-full sm:w-auto w-full sm:max-w-[518px] self-start py-5 bg-[#FDA632] text-[#ffff]"
         >
-          <Link
-            to="/projects/CatPaws"
-            className="relative max-w-full sm:w-auto w-full sm:max-w-[518px]"
-          >
+          <Link to="/projects/CatPaws" className="max-w-full block">
             <h1 className="group-hover:-translate-y-5 transition-all duration-500 ease-cubic-bezier[0.16,1,0.3,1] font-foot text-[3rem] font-[600] text-center py-5">
               CatPaws
             </h1>
@@ -187,11 +181,12 @@ function Projects() {
             />
             <p className="font-body text-[1rem] text-center pt-5">UI/UX</p>
           </Link>
-        </motion.a>
+        </motion.div>
 
-        <motion.a
-          data-cursor-size="80px"
+        <motion.div
+          data-cursor-size="90px"
           data-cursor-exclusion
+          data-cursor-text="Explore"
           style={{
             scale: scale4,
             transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
@@ -200,10 +195,7 @@ function Projects() {
           // target="_blank"
           className="group relative sm:mt-96 justify-self-end mt-2 inline-block max-w-full sm:w-auto w-full sm:max-w-[494px] py-5 bg-[#232C31] text-[#ffff]"
         >
-          <Link
-            to="/projects/YuTrav"
-            className="relative max-w-full sm:w-auto w-full sm:max-w-[494px]"
-          >
+          <Link to="/projects/YuTrav" className="max-w-full block">
             <h1 className="group-hover:-translate-y-5 transition-all duration-500 ease-cubic-bezier[0.16,1,0.3,1] font-foot text-[3rem] font-[600] text-center py-5">
               YuTrav
             </h1>
@@ -218,11 +210,12 @@ function Projects() {
             <img src="/porto/yutrav2.webp" alt="" />
             <p className="font-body text-[1rem] text-center pt-5">UI/UX</p>
           </Link>
-        </motion.a>
+        </motion.div>
 
-        <motion.a
-          data-cursor-size="80px"
+        <motion.div
+          data-cursor-size="90px"
           data-cursor-exclusion
+          data-cursor-text="Explore"
           style={{
             scale: scale5,
             transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
@@ -231,22 +224,20 @@ function Projects() {
           // target="_blank"
           className="group sm:-mt-32 mt-2 inline-block max-w-full sm:w-auto w-full sm:max-w-[494px] py-5 bg-[#F5F5F7]"
         >
-          <Link
-            to="/projects/AdexLegend"
-            className="group relative sm:-mt-32 mt-2 inline-block max-w-full sm:w-auto w-full sm:max-w-[494px] py-5 bg-[#F5F5F7]"
-          >
+          <Link to="/projects/AdexLegend" className="max-w-full block">
             <h1 className="group-hover:-translate-y-5 transition-all duration-500 ease-cubic-bezier[0.16,1,0.3,1] font-foot text-[3rem] font-[600] text-center py-5">
               Adex Legend
             </h1>
             <p className="font-body text-[1rem] text-center py-5">
               Human Computer Interaction final project.
             </p>
+
             <img src="/porto/adex.webp" alt="" />
             <p className="font-body text-[1rem] text-center pt-5">
               Frontend ── UI/UX
             </p>
           </Link>
-        </motion.a>
+        </motion.div>
       </div>
 
       <div className="w-fit sm:ml-auto sm:mr-0 mr-auto ml-auto my-10">
@@ -260,7 +251,7 @@ function Projects() {
         smooth={true}
         duration={500}
         to="about"
-        data-cursor-size="60px"
+        data-cursor-size="100px"
         data-cursor-stick="#stick-item"
         data-cursor-exclusion
         className="mt-[5rem] arrow flex w-fit mx-auto flex-col items-center cursor-pointe font-foot text-[1.3rem] font-medium"

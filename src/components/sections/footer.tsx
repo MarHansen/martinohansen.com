@@ -50,8 +50,11 @@ function Footer() {
           <CustomButton to="https://github.com/MarHansen" openInNewTab>
             Github.
           </CustomButton>
-          <CustomButton to="mailto:marhancens@gmail.com" openInNewTab>
-            Email
+          <CustomButton
+            to="https://drive.google.com/file/d/1bOrCTuNcxIXczkfgFRDf2ktth-oNGgnU/view?usp=sharing"
+            openInNewTab
+          >
+            CV
           </CustomButton>
           <CustomButton to="https://www.linkedin.com/in/martino-hansen-290b90221/">
             Linkedin
@@ -142,7 +145,7 @@ function Footer() {
                   About
                 </Link>
                 <Link to="" className={buttonClass2}>
-                  My Toolkit
+                  Blog (On Prog)
                 </Link>
               </div>
             </ScrollReveal>

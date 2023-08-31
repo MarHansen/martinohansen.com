@@ -142,7 +142,7 @@ function ProjectsPage() {
               <ProjectCard
                 targetRef={targetRef}
                 type="right"
-                backgroundImage="/porto/yutrav.webp"
+                backgroundImage="/showcase/yutrav/yutrav-4.webp"
                 title="YuTrav"
                 description="UI/UX"
                 buttonTo="/projects/YuTrav"
@@ -151,7 +151,7 @@ function ProjectsPage() {
               <ProjectCard
                 targetRef={targetRef}
                 type="left"
-                backgroundImage="/porto/adex.webp"
+                backgroundImage="/showcase/adex/adex-1.webp"
                 title="Adex Legend"
                 description="Frontend ── UI/UX"
                 buttonTo="/projects/AdexLegend"

@@ -133,6 +133,12 @@ function Tunema() {
                         >
                           Bēhance
                         </CustomButton>
+                        <CustomButton
+                          to="https://youtu.be/eTJzIU04X3s"
+                          openInNewTab
+                        >
+                          Youtube
+                        </CustomButton>
                       </div>
                     </div>
                   </div>
