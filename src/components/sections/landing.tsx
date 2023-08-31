@@ -104,7 +104,7 @@ function Landing() {
               spy={true}
               smooth={true}
               duration={500}
-              data-cursor-size="60px"
+              data-cursor-size="100px"
               data-cursor-stick="#stick-item"
               data-cursor-exclusion
               to="projects"

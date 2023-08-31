@@ -58,11 +58,13 @@ function App() {
           {!isMobile && (
             <Cursor
               isGelly={true}
-              cursorSize={15}
+              gellyAnimationAmount={50}
+              animationDuration={0.5}
+              cursorSize={10}
               sizeAnimationEase={[0.165, 0.84, 0.44, 1]}
-              sizeAnimationDuration={0.3}
+              sizeAnimationDuration={0.35}
               textAnimationEase={[0.165, 0.84, 0.44, 1]}
-              textAnimationDuration={0.3}
+              textAnimationDuration={0.4}
             />
           )}
           <Routes location={location} key={location.pathname}>

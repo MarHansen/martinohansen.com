@@ -415,7 +415,7 @@ function Expertise() {
         </motion.section>
 
         <a
-          data-cursor-size="60px"
+          data-cursor-size="100px"
           data-cursor-stick="#stick-item"
           data-cursor-exclusion
           className="mt-20 arrow mx-auto flex w-fit flex-col items-center cursor-pointe font-foot text-[1.3rem] font-medium"

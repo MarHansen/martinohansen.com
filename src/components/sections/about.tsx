@@ -50,7 +50,7 @@ function About() {
         className="pt-[5rem] max-w-none px-0 overflow-hidden text-black"
       >
         <div
-          data-cursor-size="100px"
+          data-cursor-size="150px"
           data-cursor-stick="#stick-item"
           data-cursor-exclusion
           ref={ref}
