@@ -63,7 +63,7 @@ const Navbar = () => {
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className={navColor}
           >
-            <div className="LeftSide flex sm:gap-14 gap-6 items-center font-medium">
+            <div className="LeftSide flex sm:gap-14 gap-6 items-center font-[420]">
               <Link
                 data-cursor-size="60px"
                 data-cursor-stick="#stick-item"

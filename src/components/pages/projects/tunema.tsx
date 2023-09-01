@@ -155,7 +155,7 @@ function Tunema() {
                     samples to help the producer and independent artist in music
                     industry.
                   </p>
-                  <div className="flex lg:flex-row flex-col gap-3">
+                  <div className="flex lg:flex-row flex-col gap-3 font-body">
                     <p className="w-fit">
                       This web application allows producers to sell and buy a
                       variety of music samples, including kicks, snare,
