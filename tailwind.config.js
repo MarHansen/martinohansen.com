@@ -15,7 +15,7 @@ export default {
       fontFamily: {
         sans: [""],
         serif: ["Newyork"],
-        body: ["'Satoshi', sans-serif"],
+        body: ["'abc', sans-serif"],
         foot: ["Newyork"],
       },
 

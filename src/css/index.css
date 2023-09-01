@@ -1,7 +1,7 @@
 @import url("https://api.fontshare.com/v2/css?f[]=boska@900,500,400,700&f[]=satoshi@900,700,500,301,701,300,501,401,901,400&display=swap");
 
 html {
-  font-family: satoshi;
+  font-family: abc;
   &.lenis {
     height: auto;
   }
@@ -65,4 +65,25 @@ html {
   font-weight: normal;
   src: url("/font/CircularStd-Book.otf") format("opentype");
   font-display: swap;
+}
+
+@font-face {
+  font-family: abc;
+  font-weight: normal;
+  src: url("/font/abc-normal/ABCNormal-Normal.ttf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: abc;
+  src: url("/font/abc-normal/ABCNormal-Neutral.ttf") format("opentype");
+  font-display: swap;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: abc;
+  src: url("/font/abc-normal/ABCNormal-Bold.ttf") format("opentype");
+  font-display: swap;
+  font-weight: 700;
 }
