@@ -49,14 +49,14 @@ body {
 }
 
 .lineTop.spin {
-  top: 2.3em;
-  transform: rotate(-45deg);
+  top: 2.37em;
+  transform: rotate(45deg);
   background: #ede8e2;
 }
 
 .lineBottom.spin {
   bottom: 2.3em;
-  transform: rotate(45deg);
+  transform: rotate(-45deg);
   background: #ede8e2;
 }
 

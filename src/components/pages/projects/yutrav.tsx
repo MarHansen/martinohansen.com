@@ -29,7 +29,7 @@ preloadImages(images);
 const variants = {
   initial: (direction: any) => {
     return {
-      x: direction > 0 ? 1000 : -1000,
+      x: direction > 0 ? "100%" : "-100%",
     };
   },
   animate: {
@@ -42,7 +42,7 @@ const variants = {
   },
   exit: (direction: any) => {
     return {
-      x: direction > 0 ? -1000 : 1000,
+      x: direction > 0 ? "-100%" : "100%",
 
       transition: {
         x: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
@@ -126,7 +126,7 @@ function YuTrav() {
                     </div>
                   </div>
                 </section>
-                <section className="lg:col-span-2 col-span-1 flex flex-col mt-5 gap-5">
+                <section className="lg:col-span-2 col-span-1 flex flex-col lg:mt-5 mt-20 gap-5">
                   <h1 className="font-body font-bold text-black text-opacity-75">
                     ABOUT
                   </h1>
@@ -188,51 +188,44 @@ function YuTrav() {
                     </AnimatePresence>
 
                     <button
-                      className="absolute lg:scale-100 scale-75 top-1/2 lg:left-10 left-3 transform -translate-y-1/2"
+                      className="absolute lg:scale-100 scale-75 top-1/2 lg:left-5 left-2 transform -translate-y-1/2"
                       onClick={prev}
                     >
                       <div
-                        data-cursor-size="80px"
+                        data-cursor-size="60px"
                         data-cursor-stick="#stick-item"
                         data-cursor-exclusion
                       >
                         {" "}
                         <svg
-                          width="58"
-                          height="58"
-                          viewBox="0 0 58 58"
+                          width="42"
+                          height="42"
+                          viewBox="0 0 42 42"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
                         >
-                          <g filter="url(#filter0_b_311_34)">
+                          <g filter="url(#filter0_b_324_42)">
                             <circle
-                              cx="29"
-                              cy="29"
-                              r="29"
-                              transform="matrix(-1 0 0 1 58 0)"
+                              cx="21"
+                              cy="21"
+                              r="21"
+                              transform="matrix(-1 0 0 1 42 0)"
                               fill="#2B2724"
                               fill-opacity="0.7"
                             />
                           </g>
                           <path
-                            d="M25.1311 19.3335L15.4667 28.5169L25.131 37.7002M42.5333 28.5169L15.7373 28.5169Z"
-                            fill="#2B2724"
-                            fill-opacity="0.7"
-                          />
-                          <path
-                            d="M25.1311 19.3335L15.4667 28.5169L25.131 37.7002M42.5333 28.5169L15.7373 28.5169"
+                            d="M25 30L16 21L25 12"
                             stroke="#EDE8E2"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            stroke-width="2"
                           />
                           <defs>
                             <filter
-                              id="filter0_b_311_34"
-                              x="-30"
-                              y="-30"
-                              width="118"
-                              height="118"
+                              id="filter0_b_324_42"
+                              x="-60"
+                              y="-60"
+                              width="162"
+                              height="162"
                               filterUnits="userSpaceOnUse"
                               color-interpolation-filters="sRGB"
                             >
@@ -242,17 +235,17 @@ function YuTrav() {
                               />
                               <feGaussianBlur
                                 in="BackgroundImageFix"
-                                stdDeviation="15"
+                                stdDeviation="30"
                               />
                               <feComposite
                                 in2="SourceAlpha"
                                 operator="in"
-                                result="effect1_backgroundBlur_311_34"
+                                result="effect1_backgroundBlur_324_42"
                               />
                               <feBlend
                                 mode="normal"
                                 in="SourceGraphic"
-                                in2="effect1_backgroundBlur_311_34"
+                                in2="effect1_backgroundBlur_324_42"
                                 result="shape"
                               />
                             </filter>
@@ -261,49 +254,42 @@ function YuTrav() {
                       </div>
                     </button>
                     <button
-                      className="absolute lg:scale-100 scale-75 top-1/2 lg:right-10 right-3 transform -translate-y-1/2"
+                      className="absolute lg:scale-100 scale-75 top-1/2 lg:right-5 right-2 transform -translate-y-1/2"
                       onClick={next}
                     >
                       <div
-                        data-cursor-size="80px"
+                        data-cursor-size="60px"
                         data-cursor-stick="#stick-item"
                         data-cursor-exclusion
                       >
                         <svg
-                          width="58"
-                          height="58"
-                          viewBox="0 0 58 58"
+                          width="42"
+                          height="42"
+                          viewBox="0 0 42 42"
                           fill="none"
                           xmlns="http://www.w3.org/2000/svg"
                         >
-                          <g filter="url(#filter0_b_311_34)">
+                          <g filter="url(#filter0_b_324_41)">
                             <circle
-                              cx="29"
-                              cy="29"
-                              r="29"
+                              cx="21"
+                              cy="21"
+                              r="21"
                               fill="#2B2724"
                               fill-opacity="0.7"
                             />
                           </g>
                           <path
-                            d="M32.8689 19.3335L42.5333 28.5169L32.869 37.7002M15.4667 28.5169L42.2627 28.5169Z"
-                            fill="#2B2724"
-                            fill-opacity="0.7"
-                          />
-                          <path
-                            d="M32.8689 19.3335L42.5333 28.5169L32.869 37.7002M15.4667 28.5169L42.2627 28.5169"
+                            d="M17 30L26 21L17 12"
                             stroke="#EDE8E2"
-                            stroke-miterlimit="10"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            stroke-width="2"
                           />
                           <defs>
                             <filter
-                              id="filter0_b_311_34"
-                              x="-30"
-                              y="-30"
-                              width="118"
-                              height="118"
+                              id="filter0_b_324_41"
+                              x="-60"
+                              y="-60"
+                              width="162"
+                              height="162"
                               filterUnits="userSpaceOnUse"
                               color-interpolation-filters="sRGB"
                             >
@@ -313,17 +299,17 @@ function YuTrav() {
                               />
                               <feGaussianBlur
                                 in="BackgroundImageFix"
-                                stdDeviation="15"
+                                stdDeviation="30"
                               />
                               <feComposite
                                 in2="SourceAlpha"
                                 operator="in"
-                                result="effect1_backgroundBlur_311_34"
+                                result="effect1_backgroundBlur_324_41"
                               />
                               <feBlend
                                 mode="normal"
                                 in="SourceGraphic"
-                                in2="effect1_backgroundBlur_311_34"
+                                in2="effect1_backgroundBlur_324_41"
                                 result="shape"
                               />
                             </filter>

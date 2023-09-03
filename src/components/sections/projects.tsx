@@ -107,11 +107,12 @@ function Projects() {
               A platform to share and find music samples.
             </p>
             <img
+              draggable={false}
               className="absolute group-hover:opacity-0 transition-opacity duration-700  z-10"
               src="/porto/tunema2.webp"
               alt=""
             />
-            <img src="/porto/tunema.webp" alt="" />
+            <img draggable={false} src="/porto/tunema.webp" alt="" />
             <p className="font-body text-[1rem] text-center pt-5">
               Frontend ── UI/UX
             </p>
@@ -139,11 +140,13 @@ function Projects() {
             </p>
 
             <img
+              draggable={false}
               className="absolute group-hover:opacity-0 transition-opacity duration-700 object-cover w-fit z-40"
               src="/porto/serene2.webp"
               alt=""
             />
             <img
+              draggable={false}
               className="relative transition-opacity duration-700 object-cover w-fit"
               src="/porto/serene.webp"
               alt=""
@@ -175,6 +178,7 @@ function Projects() {
               Stray animal rescue application.
             </p>
             <img
+              draggable={false}
               src="/porto/catpaws.webp"
               className="object-cover sm:w-[700px] sm:h-[200px] self-center justify-self-center"
               alt=""
@@ -203,11 +207,12 @@ function Projects() {
               Virtual travel application.
             </p>
             <img
+              draggable={false}
               className="absolute group-hover:opacity-0 transition-opacity duration-700 object-cover w-fit xl:max-w-[494px] z-10"
               src="/porto/yutrav.webp"
               alt=""
             />
-            <img src="/porto/yutrav2.webp" alt="" />
+            <img draggable={false} src="/porto/yutrav2.webp" alt="" />
             <p className="font-body text-[1rem] text-center pt-5">UI/UX</p>
           </Link>
         </motion.div>
@@ -232,7 +237,7 @@ function Projects() {
               Human Computer Interaction final project.
             </p>
 
-            <img src="/porto/adex.webp" alt="" />
+            <img draggable={false} src="/porto/adex.webp" alt="" />
             <p className="font-body text-[1rem] text-center pt-5">
               Frontend ── UI/UX
             </p>
