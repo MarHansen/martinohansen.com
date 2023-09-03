@@ -39,7 +39,8 @@ function About() {
     offset: ["start end", "end start"],
   });
   const xScroll = useTransform(scrollYProgress, [0, 1], [800, -1000]);
-  const yScroll = useTransform(scrollYProgress, [0.3, 1], [0, 150]);
+  const yScroll = useTransform(scrollYProgress, [0.3, 1], [0, 50]);
+  const yScrollM = useTransform(scrollYProgress, [0, 0], [0, 0]);
   const xScrollMobile = useTransform(scrollYProgress, [0, 1], [200, -800]);
 
   return (
@@ -130,21 +131,21 @@ function About() {
             </div>
           </div>
 
-          <div className="overflow-clip">
+          <div className="overflow-clip relative">
             <motion.img
               draggable={false}
               ref={ref}
               initial="hidden"
+              style={{
+                y: isSmall ? yScrollM : yScroll,
+                transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
+              }}
               animate={inView ? "visible" : "hidden"}
               variants={variants}
               transition={{
                 duration: 1,
                 delay: 0.01,
                 ease: [0.16, 1, 0.3, 1],
-              }}
-              style={{
-                y: isSmall ? 0 : yScroll,
-                transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
               }}
               whileHover={
                 isMobile

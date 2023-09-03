@@ -23,7 +23,6 @@ function ProjectsPage() {
           repeatType: "loop",
           duration: 10,
           ease: "linear",
-          transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
         },
       },
     },
@@ -41,7 +40,7 @@ function ProjectsPage() {
           <>
             <ReturnButton></ReturnButton>
 
-            <section className="h-[60vh] my-auto">
+            <section className="h-[40vh] my-auto">
               <div className="flex gap-[2rem] font-serif font-medium md:text-[7rem] text-[5rem]">
                 <AnimatedTextCharacter
                   customI={0}
@@ -78,13 +77,6 @@ function ProjectsPage() {
                   transition={{ duration: 1, delay: 0.5 }}
                   className="absolute bottom-0 h-[1px] bg-black"
                 />
-              </div>
-
-              <div className="flex justify-end gap-[2rem] font-serif font-medium md:text-[7rem] text-[5rem]">
-                <AnimatedTextCharacter
-                  customI={0}
-                  text="Portofolio"
-                ></AnimatedTextCharacter>
               </div>
             </section>
 
