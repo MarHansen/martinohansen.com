@@ -8,6 +8,8 @@ html,
 body {
   background: #ede8e2;
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* navbar */
