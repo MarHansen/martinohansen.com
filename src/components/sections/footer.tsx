@@ -121,7 +121,7 @@ function Footer() {
                   Linkedin
                 </a>
                 <a
-                  href="https://drive.google.com/file/d/1bOrCTuNcxIXczkfgFRDf2ktth-oNGgnU/view?usp=sharing"
+                  href="https://marhansen.com/Martino Hansen_CV.pdf"
                   target="blank"
                   className={buttonClass2}
                 >
