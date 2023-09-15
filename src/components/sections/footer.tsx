@@ -51,7 +51,7 @@ function Footer() {
             Github.
           </CustomButton>
           <CustomButton
-            to="https://drive.google.com/file/d/1bOrCTuNcxIXczkfgFRDf2ktth-oNGgnU/view?usp=sharing"
+            to="https://marhansen.com/Martino Hansen_CV.pdf"
             openInNewTab
           >
             CV
