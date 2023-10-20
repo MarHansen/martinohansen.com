@@ -42,7 +42,7 @@ function AboutPage() {
           <>
             <div className="mt-24">
               <ReturnButton></ReturnButton>
-              <div className="sm:mx-20 mx-5 flex flex-col gap-[2rem] font-light md:text-[6rem] text-[5rem] overflow-hidden">
+              <div className="sm:mx-20 mx-5 flex flex-col gap-[2rem] font-light md:text-[6rem] text-[4.5rem] overflow-hidden">
                 <motion.h1
                   variants={textVariants}
                   initial="hidden"
@@ -89,7 +89,7 @@ function AboutPage() {
                   variants={textVariants}
                   initial="hidden"
                   animate={controls}
-                  className="flex sm:flex-row flex-col gap-5 overflow-hidden"
+                  className="flex lg:flex-row flex-col gap-5 overflow-hidden"
                 >
                   <motion.h1
                     variants={textVariants}
