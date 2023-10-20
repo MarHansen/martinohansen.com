@@ -56,8 +56,17 @@ function Footer() {
           >
             CV
           </CustomButton>
-          <CustomButton to="https://www.linkedin.com/in/martino-hansen-290b90221/">
+          <CustomButton
+            to="https://www.linkedin.com/in/martino-hansen-290b90221/"
+            openInNewTab
+          >
             Linkedin
+          </CustomButton>
+          <CustomButton
+            to="https://github.com/MarHansen/porto-web"
+            openInNewTab
+          >
+            Source Code
           </CustomButton>
           <div className="ml-auto sm:mr-[20%] w-fit text-[1.5rem] font-serif font-normal ">
             <ScrollReveal delay={0.1}>04</ScrollReveal>
