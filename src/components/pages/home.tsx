@@ -1,7 +1,7 @@
 import Container from "../containers/container";
 import "../../css/custom.css";
 import "../../css/index.css";
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet";
 import Projects from "../sections/projects";
 import About from "../sections/about";
 import Landing from "../sections/landing";
@@ -10,17 +10,13 @@ import Footer from "../sections/footer";
 import Transition from "../animation/page-transition";
 import ScrollReveal from "../animation/scroll-reveal";
 import CustomButton from "../buttons/main-button";
+import HeadHelmet from "../head-helmet";
 
 function Home() {
   return (
     <>
       <Transition>
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>──marhansen</title>
-          <link rel="icon" type="image/x-icon" href="/favicon.svg" />
-        </Helmet>
-
+        <HeadHelmet title="──marhansen"></HeadHelmet>
         <>
           <Landing></Landing>
           <Container>

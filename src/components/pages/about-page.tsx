@@ -1,7 +1,7 @@
 import Container from "../containers/container";
 import "../../css/custom.css";
 import "../../css/index.css";
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet";
 import About from "../sections/about";
 import Transition from "../animation/page-transition";
 import Footer from "../sections/footer";
@@ -9,6 +9,7 @@ import Expertise from "../sections/expertise";
 import ReturnButton from "../buttons/return-button";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
+import HeadHelmet from "../head-helmet";
 
 function AboutPage() {
   const controls = useAnimation();
@@ -33,11 +34,7 @@ function AboutPage() {
   return (
     <>
       <Transition>
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>about──marhansen</title>
-          <link rel="icon" type="image/x-icon" href="/favicon.svg" />
-        </Helmet>
+        <HeadHelmet title="about──marhansen"></HeadHelmet>
         <Container>
           <>
             <div className="mt-24">

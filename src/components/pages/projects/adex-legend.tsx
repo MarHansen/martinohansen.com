@@ -1,7 +1,7 @@
 import Container from "../../containers/container";
 import "../../../css/custom.css";
 import "../../../css/index.css";
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet";
 import Transition from "../../animation/page-transition";
 import { Outlet } from "react-router-dom";
 import ReturnButton from "../../buttons/return-button";
@@ -12,6 +12,7 @@ import FigmaIcon from "../../techstack/figma-icon";
 import HTMLIcon from "../../techstack/html-icon";
 import CSSIcon from "../../techstack/css-icon";
 import JSIcon from "../../techstack/javascript-icon";
+import HeadHelmet from "../../head-helmet";
 
 const images = [
   "/showcase/adex/adex-1.webp",
@@ -88,11 +89,7 @@ function Adex() {
   return (
     <>
       <Transition>
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>Adex──marhansen</title>
-          <link rel="icon" type="image/x-icon" href="/favicon.svg" />
-        </Helmet>
+        <HeadHelmet title="Adex──marhansen"></HeadHelmet>
         <Container>
           <>
             <div className="mt-24 mb-10">

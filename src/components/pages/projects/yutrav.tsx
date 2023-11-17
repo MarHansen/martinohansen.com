@@ -1,7 +1,7 @@
 import Container from "../../containers/container";
 import "../../../css/custom.css";
 import "../../../css/index.css";
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet";
 import Transition from "../../animation/page-transition";
 import { Outlet } from "react-router-dom";
 import ReturnButton from "../../buttons/return-button";
@@ -9,6 +9,7 @@ import CustomButton from "../../buttons/main-button";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import FigmaIcon from "../../techstack/figma-icon";
+import HeadHelmet from "../../head-helmet";
 
 const images = [
   "/showcase/yutrav/yutrav-1.webp",
@@ -86,11 +87,7 @@ function YuTrav() {
   return (
     <>
       <Transition>
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>YuTrav──marhansen</title>
-          <link rel="icon" type="image/x-icon" href="/favicon.svg" />
-        </Helmet>
+        <HeadHelmet title="YuTrav──marhansen"></HeadHelmet>
         <Container>
           <>
             <div className="mt-24 mb-10">

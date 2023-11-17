@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet";
 import ReturnButton from "../buttons/return-button";
 import Container from "../containers/container";
 import Transition from "../animation/page-transition";
@@ -6,6 +6,7 @@ import CustomButton from "../buttons/main-button";
 import ReactCurvedText from "react-curved-text";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import HeadHelmet from "../head-helmet";
 
 function NotFound() {
   const [isMobile, setIsMobile] = useState(false);
@@ -27,11 +28,7 @@ function NotFound() {
   return (
     <>
       <Transition>
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>Not Found──marhansen</title>
-          <link rel="icon" type="image/x-icon" href="/favicon.svg" />
-        </Helmet>
+        <HeadHelmet title="Not Found──marhansen"></HeadHelmet>
         <Container>
           <>
             <div className="mt-24">

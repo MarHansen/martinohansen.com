@@ -1,7 +1,7 @@
 import Container from "../containers/container";
 import "../../css/custom.css";
 import "../../css/index.css";
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet";
 import Transition from "../animation/page-transition";
 import Footer from "../sections/footer";
 import { motion, useAnimation } from "framer-motion";
@@ -10,6 +10,7 @@ import ScrollReveal from "../animation/scroll-reveal";
 import { AnimatedTextCharacter } from "../animation/animated-text";
 import ReturnButton from "../buttons/return-button";
 import ProjectCard from "../containers/project-cards";
+import HeadHelmet from "../head-helmet";
 
 function ProjectsPage() {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -51,11 +52,7 @@ function ProjectsPage() {
   return (
     <>
       <Transition>
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>projects──marhansen</title>
-          <link rel="icon" type="image/x-icon" href="/favicon.svg" />
-        </Helmet>
+        <HeadHelmet title="projects──marhansen"></HeadHelmet>
         <Container>
           <>
             <ReturnButton></ReturnButton>
