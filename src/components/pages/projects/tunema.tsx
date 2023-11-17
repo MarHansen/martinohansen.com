@@ -1,7 +1,7 @@
 import Container from "../../containers/container";
 import "../../../css/custom.css";
 import "../../../css/index.css";
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet";
 import Transition from "../../animation/page-transition";
 import { Outlet } from "react-router-dom";
 import ReturnButton from "../../buttons/return-button";
@@ -14,6 +14,7 @@ import GolangIcon from "../../techstack/golang-icon";
 import LambdaIcon from "../../techstack/lambda-icon";
 import RDSIcon from "../../techstack/rds-icon";
 import S3Icon from "../../techstack/s3-icon";
+import HeadHelmet from "../../head-helmet";
 
 const images = [
   "/showcase/tunema/tunema-1.webp",
@@ -91,11 +92,7 @@ function Tunema() {
   return (
     <>
       <Transition>
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>TUNEMA──marhansen</title>
-          <link rel="icon" type="image/x-icon" href="/favicon.svg" />
-        </Helmet>
+        <HeadHelmet title="TUNEMA──marhansen"></HeadHelmet>
         <Container>
           <>
             <div className="mt-24 mb-10">
