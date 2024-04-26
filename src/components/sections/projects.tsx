@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 import ScrollReveal from "../animation/scroll-reveal";
 import CustomButton from "../buttons/main-button";
@@ -21,12 +21,21 @@ function Projects() {
     threshold: 0.5,
   });
 
-  //a bit bruteforce right here :')
-  const scale = useTransform(scrollYProgress, [0.1, 0.17], [0.6, 1]);
-  const scale2 = useTransform(scrollYProgress, [0.18, 0.28], [0.62, 1]);
-  const scale3 = useTransform(scrollYProgress, [0.35, 0.45], [0.7, 1]);
-  const scale4 = useTransform(scrollYProgress, [0.4, 0.57], [0.6, 1]);
-  const scale5 = useTransform(scrollYProgress, [0.47, 0.7], [0.5, 1]);
+  const scales = useMemo(
+    () => [
+      [0.1, 0.17, 0.6],
+      [0.18, 0.28, 0.62],
+      [0.35, 0.45, 0.7],
+      [0.4, 0.57, 0.6],
+      [0.47, 0.7, 0.5],
+    ],
+    []
+  );
+
+  const scaleValues = scales.map(([start, end, value]) =>
+    useTransform(scrollYProgress, [start, end], [value, 1])
+  );
+
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
 
   return (
@@ -94,7 +103,7 @@ function Projects() {
           data-cursor-exclusion
           data-cursor-text="Explore"
           style={{
-            scale: scale,
+            scale: scaleValues[0],
             transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
           className="group relative inline-block max-w-full sm:w-auto w-full sm:max-w-[518px] self-start py-5 bg-[#9CB719] text-[#ffff]"
@@ -124,7 +133,7 @@ function Projects() {
           data-cursor-exclusion
           data-cursor-text="Explore"
           style={{
-            scale: scale2,
+            scale: scaleValues[1],
             transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
           // href="https://www.behance.net/gallery/171659489/Serene"
@@ -163,7 +172,7 @@ function Projects() {
           data-cursor-exclusion
           data-cursor-text="Explore"
           style={{
-            scale: scale3,
+            scale: scaleValues[2],
             transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
           // href="https://medium.com/@marhansen/catpaws-34cb48c56f28"
@@ -192,7 +201,7 @@ function Projects() {
           data-cursor-exclusion
           data-cursor-text="Explore"
           style={{
-            scale: scale4,
+            scale: scaleValues[3],
             transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
           // href="https://www.behance.net/gallery/150326813/YuTrav"
@@ -222,7 +231,7 @@ function Projects() {
           data-cursor-exclusion
           data-cursor-text="Explore"
           style={{
-            scale: scale5,
+            scale: scaleValues[4],
             transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
           // href="https://www.behance.net/gallery/166045673/Adex-Legends"

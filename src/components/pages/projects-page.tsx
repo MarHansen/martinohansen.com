@@ -1,13 +1,11 @@
 import Container from "../containers/container";
 import "../../css/custom.css";
 import "../../css/index.css";
-// import { Helmet } from "react-helmet";
 import Transition from "../animation/page-transition";
 import Footer from "../sections/footer";
 import { motion, useAnimation } from "framer-motion";
 import { useRef, useEffect } from "react";
 import ScrollReveal from "../animation/scroll-reveal";
-import { AnimatedTextCharacter } from "../animation/animated-text";
 import ReturnButton from "../buttons/return-button";
 import ProjectCard from "../containers/project-cards";
 import HeadHelmet from "../head-helmet";
@@ -120,11 +118,22 @@ function ProjectsPage() {
                   animate="animate"
                   className="m-auto my-5 font-serif text-[2rem] lg:text-[2rem]"
                 >
-                  <AnimatedTextCharacter
-                    staggerChildren={0.015}
-                    customI={0}
-                    text="MyWorks ── Projects ── Portofolio ── Est2022. ── PersonalProjects ── MyWorks ── Projects ── Portofolio ── Est2022. ── PersonalProjects ── MyWorks ── Projects ── Portofolio ── Est2022. ── PersonalProjects ── MyWorks ── Projects ── Portofolio ── Est2022. ── PersonalProjects ── MyWorks ── Projects ── Portofolio ── Est2022. ── PersonalProjects ── MyWorks ── Projects"
-                  ></AnimatedTextCharacter>
+                  <motion.div
+                    variants={textVariants}
+                    initial="hidden"
+                    animate={controls}
+                    className="whitespace-nowrap"
+                  >
+                    MyWorks ── Projects ── Portofolio ── Est2022. ──
+                    PersonalProjects ── MyWorks ── Projects ── Portofolio ──
+                    Est2022. ── PersonalProjects ── MyWorks ── Projects ──
+                    Portofolio ── Est2022. ── PersonalProjects ── MyWorks ──
+                    Projects ── Portofolio ── Est2022 ── Projects ── Portofolio
+                    ── Est2022. ── PersonalProjects ── MyWorks ── Projects ──
+                    Portofolio ── Est2022. ── PersonalProjects ── MyWorks ──
+                    Projects ── Portofolio ── Est2022. ── PersonalProjects ──
+                    MyWorks ── Projects ── Portofolio ── Est2022.
+                  </motion.div>
                 </motion.div>
                 <motion.div
                   initial={{ width: 0, right: 0 }}
