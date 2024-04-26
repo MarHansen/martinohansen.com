@@ -6,7 +6,7 @@ import Transition from "../../animation/page-transition";
 import { Outlet } from "react-router-dom";
 import ReturnButton from "../../buttons/return-button";
 import CustomButton from "../../buttons/main-button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ReactIcon from "../../techstack/react-icon";
 import TailwindIcon from "../../techstack/tailwind-icon";
@@ -23,44 +23,48 @@ const images = [
   "/showcase/tunema/tunema-4.webp",
 ];
 
-const preloadImages = (imageUrls: any) => {
-  imageUrls.forEach((imageUrl: any) => {
-    const img = new Image();
-    img.src = imageUrl;
-  });
-};
-
-preloadImages(images);
-
-const variants = {
-  initial: (direction: any) => {
-    return {
-      x: direction > 0 ? "100%" : "-100%",
-    };
-  },
-  animate: {
-    x: 0,
-    opacity: 1,
-
-    transition: {
-      x: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
-    },
-  },
-  exit: (direction: any) => {
-    return {
-      x: direction > 0 ? "-100%" : "100%",
-
-      transition: {
-        x: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
-      },
-    };
-  },
-};
-
 function Tunema() {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isAuto, setIsAuto] = useState(true);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const preloadImages = (imageUrls: any) => {
+    imageUrls.forEach((imageUrl: any) => {
+      const img = new Image();
+      img.src = imageUrl;
+    });
+  };
+
+  preloadImages(images);
+
+  const variants = useMemo(
+    () => ({
+      initial: (direction: any) => {
+        return {
+          x: direction > 0 ? "100%" : "-100%",
+        };
+      },
+      animate: {
+        x: 0,
+        opacity: 1,
+
+        transition: {
+          x: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+        },
+      },
+      exit: (direction: any) => {
+        return {
+          x: direction > 0 ? "-100%" : "100%",
+
+          transition: {
+            x: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+          },
+        };
+      },
+    }),
+    []
+  );
 
   useEffect(() => {
     if (isAuto) {
@@ -72,22 +76,41 @@ function Tunema() {
     }
   }, [index, isAuto]);
 
-  const next = () => {
-    setDirection(1);
-    setIndex((prevIndex) =>
-      prevIndex + 1 === images.length ? 0 : prevIndex + 1
-    );
-  };
-  const prev = () => {
-    setDirection(-1);
-    setIndex((prevIndex) =>
-      prevIndex - 1 < 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
-  const dot = (indexs: any) => {
-    setDirection(indexs > index ? 1 : -1);
-    setIndex(indexs);
-  };
+  const next = useCallback(() => {
+    if (!isAnimating) {
+      setIsAnimating(true);
+      setDirection(1);
+      setIndex((prevIndex) =>
+        prevIndex + 1 === images.length ? 0 : prevIndex + 1
+      );
+
+      setTimeout(() => {
+        setIsAnimating(false);
+      }, 400);
+    }
+  }, [isAnimating, setDirection, setIndex]);
+
+  const prev = useCallback(() => {
+    if (!isAnimating) {
+      setIsAnimating(true);
+      setDirection(-1);
+      setIndex((prevIndex) =>
+        prevIndex - 1 < 0 ? images.length - 1 : prevIndex - 1
+      );
+
+      setTimeout(() => {
+        setIsAnimating(false);
+      }, 400);
+    }
+  }, [isAnimating, setDirection, setIndex]);
+
+  const dot = useCallback(
+    (indexs: any) => {
+      setDirection(indexs > index ? 1 : -1);
+      setIndex(indexs);
+    },
+    [setDirection, setIndex]
+  );
 
   return (
     <>

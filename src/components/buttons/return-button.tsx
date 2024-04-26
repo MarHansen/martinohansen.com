@@ -1,8 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useCallback } from "react";
+import React from "react";
 
-const ReturnButton = () => {
+const ReturnButton = React.memo(() => {
   const navigate = useNavigate();
+
+  const handleClick = useCallback(() => {
+    navigate(-1);
+  }, [navigate]);
+
   return (
     <div className="mt-24">
       <motion.div
@@ -17,7 +24,7 @@ const ReturnButton = () => {
           data-cursor-size="80px"
           data-cursor-stick="#stick-item"
           data-cursor-exclusion
-          onClick={() => navigate(-1)}
+          onClick={handleClick}
           className="group my-10 w-fit flex items-center gap-7 font-foot font-medium sm:text-[3rem] text-[2.5rem]"
         >
           <svg
@@ -43,6 +50,6 @@ const ReturnButton = () => {
       </motion.div>
     </div>
   );
-};
+});
 
 export default ReturnButton;
