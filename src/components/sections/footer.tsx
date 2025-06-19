@@ -130,7 +130,7 @@ function Footer() {
                   Linkedin
                 </a>
                 <a
-                  href="https://martinohansen.com/Martino Hansen_CV.pdf"
+                  // href="https://martinohansen.com/Martino Hansen_CV.pdf"
                   target="blank"
                   className={buttonClass2}
                 >
