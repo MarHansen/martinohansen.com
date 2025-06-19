@@ -15,7 +15,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   delay = 0,
   children,
 }) => {
-  const [ref, inView] = useInView({
+  const { ref, inView } = useInView({
     triggerOnce: true,
     threshold,
   });
@@ -29,7 +29,6 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
         duration: 0.6,
         delay,
         ease: [0.16, 1, 0.3, 1],
-        all: "0.5s",
       }}
     >
       {children}

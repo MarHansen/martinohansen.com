@@ -51,7 +51,7 @@ function Footer() {
             Github.
           </CustomButton>
           <CustomButton
-            to="https://marhansen.com/Martino Hansen_CV.pdf"
+            to="https://martinohansen.com/Martino Hansen_CV.pdf"
             openInNewTab
           >
             CV
@@ -130,7 +130,7 @@ function Footer() {
                   Linkedin
                 </a>
                 <a
-                  href="https://marhansen.com/Martino Hansen_CV.pdf"
+                  href="https://martinohansen.com/Martino Hansen_CV.pdf"
                   target="blank"
                   className={buttonClass2}
                 >
