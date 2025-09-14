@@ -56,34 +56,34 @@ html {
 
 @font-face {
   font-family: Newyork;
-  src: url("/font/NewYork.otf") format("opentype");
-  font-display: swap;
+  src: url("/font/NewYork.woff2") format("woff2");
+  font-display: auto;
 }
 
 @font-face {
   font-family: Circular;
   font-weight: normal;
   src: url("/font/CircularStd-Book.otf") format("opentype");
-  font-display: swap;
+  font-display: auto;
 }
 
 @font-face {
   font-family: abc;
   font-weight: normal;
   src: url("/font/abc-normal/ABCNormal-Normal.ttf") format("opentype");
-  font-display: swap;
+  font-display: auto;
 }
 
 @font-face {
   font-family: abc;
   src: url("/font/abc-normal/ABCNormal-Neutral.ttf") format("opentype");
-  font-display: swap;
+  font-display: auto;
   font-weight: 500;
 }
 
 @font-face {
   font-family: abc;
   src: url("/font/abc-normal/ABCNormal-Bold.ttf") format("opentype");
-  font-display: swap;
+  font-display: auto;
   font-weight: 700;
 }

@@ -2,7 +2,7 @@ import ScrollReveal from "../animation/scroll-reveal";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-let tabs = [
+const tabs = [
   { id: "frontend", label: "Frontend" },
   { id: "git", label: "git." },
   { id: "database", label: "Database" },

@@ -7,23 +7,23 @@ import ReactCurvedText from "react-curved-text";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import HeadHelmet from "../head-helmet";
+import { useDebouncedCallback } from "use-debounce";
 
 function NotFound() {
   const [isMobile, setIsMobile] = useState(false);
 
+  const debouncedCheckWindowSize = useDebouncedCallback(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, 250);
+
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
+    debouncedCheckWindowSize();
 
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
+    window.addEventListener("resize", debouncedCheckWindowSize);
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", debouncedCheckWindowSize);
     };
-  }, []);
+  }, [debouncedCheckWindowSize]);
 
   return (
     <>
