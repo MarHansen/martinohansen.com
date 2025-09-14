@@ -3,6 +3,7 @@ import { useScroll, useTransform, motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { useDebouncedCallback } from "use-debounce";
+import useImagePreloader from "../animation/image-preload";
 
 function About() {
   const [ref, inView] = useInView({
@@ -13,11 +14,14 @@ function About() {
   const variants = {
     hidden: { opacity: 0, scale: 0, borderRadius: "100%" },
     visible: { opacity: 1, scale: 1, borderRadius: 0 },
-    hover: { scale: 1.05, transition: { duration: 0.1, ease: "easeInOut" } },
+    hover: { scale: 1.1, transition: { duration: 0.1, ease: "easeInOut" } },
   };
   const targetRef = useRef<HTMLDivElement>(null);
 
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  const imageUrl = "/about/profile-pic.webp";
+  const isImageLoaded = useImagePreloader(imageUrl);
 
   const [isSmall, setIsSmall] = useState<boolean>(false);
 
@@ -106,19 +110,19 @@ function About() {
           <div className="flex flex-col md:w-[40%] w-[100%] justify-around lg:gap-0 gap-10">
             <div className="flex gap-10 flex-col">
               <ScrollReveal distance={40} delay={0.1}>
-                Hello, i am Martino Hansen. I am an aspiring UI/UX designer and
-                front-end developer based in Indonesia, currently pursuing my
-                undergraduate studies at Binus University. With a keen interest
-                in React and Next.js, I strive to craft captivating digital
-                experiences that leave a lasting impression."
+                Hello, I am Martino Hansen, an aspiring UI/UX designer and
+                front-end developer based in Indonesia. I am currently pursuing
+                my undergraduate studies at Binus University. With a strong
+                interest in React and Next.js, I strive to create engaging
+                digital experiences that leave a lasting impression."
                 <br />
               </ScrollReveal>
               <ScrollReveal distance={50} delay={0.2}>
-                Ever since my first encounter with computer science major, I
-                discovered an unwavering passion for web development and UI/UX
-                design, where I found the perfect blend of creativity and
-                technology, allowing me to shape digital experiences that
-                inspire and delight users.
+                Ever since my first encounter with computer science, I have
+                developed an unwavering passion for web development and UI/UX
+                design. I discovered the perfect blend of creativity and
+                technology in this field, which allows me to craft digital
+                experiences that both inspire and delight users.
               </ScrollReveal>
             </div>
             <div className="self-start md:self-end text-left md:text-right flex gap-4 flex-col">
@@ -138,16 +142,15 @@ function About() {
             </div>
           </div>
 
-          <div className="overflow-clip relative">
+          <div ref={ref} className="overflow-clip relative">
             <motion.img
               draggable={false}
-              ref={ref}
               initial="hidden"
               style={{
                 y: yScroll,
                 transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
               }}
-              animate={inView ? "visible" : "hidden"}
+              animate={inView && isImageLoaded ? "visible" : "hidden"}
               variants={variants}
               transition={{
                 duration: 1,
@@ -162,7 +165,7 @@ function About() {
                     }
               }
               whileTap={isMobile ? {} : "hover"}
-              src="/about/profile-pic2.webp"
+              src={imageUrl}
               className="object-cover max-w-[25rem] lg:max-w-[30rem] md:mt-0 mt-5 transition-all duration-700 ease-in-out filter grayscale hover:filter-none"
               alt=""
             />
