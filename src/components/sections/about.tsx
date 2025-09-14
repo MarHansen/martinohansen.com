@@ -2,6 +2,7 @@ import ScrollReveal from "../animation/scroll-reveal";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
+import { useDebouncedCallback } from "use-debounce";
 
 function About() {
   const [ref, inView] = useInView({
@@ -20,28 +21,34 @@ function About() {
 
   const [isSmall, setIsSmall] = useState<boolean>(false);
 
+  const debouncedCheckWindowSize = useDebouncedCallback(() => {
+    setIsSmall(window.innerWidth < 768);
+  }, 250);
+
   useEffect(() => {
-    const checkWindowSize = () => {
-      setIsSmall(window.innerWidth < 768);
-    };
+    debouncedCheckWindowSize();
 
-    checkWindowSize();
-
-    window.addEventListener("resize", checkWindowSize);
-
+    window.addEventListener("resize", debouncedCheckWindowSize);
     return () => {
-      window.removeEventListener("resize", checkWindowSize);
+      window.removeEventListener("resize", debouncedCheckWindowSize);
     };
-  }, []);
+  }, [debouncedCheckWindowSize]);
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start end", "end start"],
   });
-  const xScroll = useTransform(scrollYProgress, [0, 1], [800, -1000]);
-  const yScroll = useTransform(scrollYProgress, [0.3, 1], [0, 50]);
-  const yScrollM = useTransform(scrollYProgress, [0, 0], [0, 0]);
-  const xScrollMobile = useTransform(scrollYProgress, [0, 1], [200, -800]);
+
+  const xScroll = useTransform(
+    scrollYProgress,
+    [0, 1],
+    isSmall ? [200, -800] : [800, -1000]
+  );
+  const yScroll = useTransform(
+    scrollYProgress,
+    [0, 1],
+    isSmall ? [0, 0] : [-50, 50]
+  );
 
   return (
     <>
@@ -71,7 +78,7 @@ function About() {
           />
           <motion.h1
             style={{
-              x: isMobile ? xScrollMobile : xScroll,
+              x: xScroll,
               transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
             }}
             className="whitespace-nowrap"
@@ -137,7 +144,7 @@ function About() {
               ref={ref}
               initial="hidden"
               style={{
-                y: isSmall ? yScrollM : yScroll,
+                y: yScroll,
                 transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
               }}
               animate={inView ? "visible" : "hidden"}
@@ -155,7 +162,7 @@ function About() {
                     }
               }
               whileTap={isMobile ? {} : "hover"}
-              src="/about/profile-pic.webp"
+              src="/about/profile-pic2.webp"
               className="object-cover max-w-[25rem] lg:max-w-[30rem] md:mt-0 mt-5 transition-all duration-700 ease-in-out filter grayscale hover:filter-none"
               alt=""
             />

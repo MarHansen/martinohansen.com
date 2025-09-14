@@ -4,23 +4,23 @@ import ScrollReveal from "../animation/scroll-reveal";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Link as ToLink } from "react-scroll";
+import { useDebouncedCallback } from "use-debounce";
 
 function Landing() {
   const [isMobile, setIsMobile] = useState(false);
 
+  const debouncedCheckWindowSize = useDebouncedCallback(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, 250);
+
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
+    debouncedCheckWindowSize();
 
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
+    window.addEventListener("resize", debouncedCheckWindowSize);
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", debouncedCheckWindowSize);
     };
-  }, []);
+  }, [debouncedCheckWindowSize]);
 
   return (
     <>
