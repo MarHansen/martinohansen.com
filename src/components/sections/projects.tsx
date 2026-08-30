@@ -1,8 +1,7 @@
 import { useMemo, useRef } from "react";
-import { useScroll, useTransform, motion } from "framer-motion";
+import { useScroll, useTransform, motion, useInView } from "framer-motion";
 import ScrollReveal from "../animation/scroll-reveal";
 import CustomButton from "../buttons/main-button";
-import { useInView } from "react-intersection-observer";
 import ReactCurvedText from "react-curved-text";
 import "../../css/custom.css";
 import { Link as ToLink } from "react-scroll";
@@ -16,10 +15,8 @@ function Projects() {
     offset: ["start end", "end start"],
   });
 
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.5,
-  });
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.5 });
 
   const scales = useMemo(
     () => [

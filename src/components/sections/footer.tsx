@@ -1,14 +1,13 @@
+import { useRef } from "react";
 import CustomButton from "../buttons/main-button";
 import ScrollReveal from "../animation/scroll-reveal";
+import { RevealGroup, RevealItem } from "../animation/reveal-group";
 import { Link } from "react-router-dom";
-import { useInView } from "react-intersection-observer";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 function Footer() {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const ref = useRef<HTMLElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.1 });
 
   const buttonClass2 =
     "duration-200 text-[1.1rem] relative mt-auto mb-auto w-fit text-black hover:text-black hover:before:scale-x-100 before:absolute before:origin-top-left before:block before:transition-transform before:duration-[0.3s] before:ease-[ease] before:scale-x-0 before:left-0 before:bottom-0 before:w-full before:h-0.5 before:bg-black";
@@ -74,14 +73,14 @@ function Footer() {
         </div>
 
         <div className="grid sm:grid-cols-4 lg:gap-0 gap-10 grid-cols-2 mt-20 font-body text-[1.1rem]">
-          <div className="flex flex-col gap-5">
-            <ScrollReveal>Martino Hansen</ScrollReveal>
-            <ScrollReveal>UI/UX Designer ── Web Developer</ScrollReveal>
-          </div>
+          <RevealGroup className="flex flex-col gap-5">
+            <RevealItem>Martino Hansen</RevealItem>
+            <RevealItem>UI/UX Designer ── Web Developer</RevealItem>
+          </RevealGroup>
 
-          <div className="flex flex-col gap-5 lg:justify-self-center justify-self-start">
-            <ScrollReveal>CONTACT</ScrollReveal>
-            <ScrollReveal>
+          <RevealGroup className="flex flex-col gap-5 lg:justify-self-center justify-self-start">
+            <RevealItem>CONTACT</RevealItem>
+            <RevealItem>
               <div className="flex flex-col gap-3">
                 <a
                   href="mailto:marhancens@gmail.com"
@@ -101,12 +100,12 @@ function Footer() {
                   Whatsapp
                 </a>
               </div>
-            </ScrollReveal>
-          </div>
+            </RevealItem>
+          </RevealGroup>
 
-          <div className="flex flex-col gap-5 lg:justify-self-center justify-self-start">
-            <ScrollReveal>PORTOFOLIO</ScrollReveal>
-            <ScrollReveal>
+          <RevealGroup className="flex flex-col gap-5 lg:justify-self-center justify-self-start">
+            <RevealItem>PORTOFOLIO</RevealItem>
+            <RevealItem>
               <div className="flex flex-col gap-3">
                 <a
                   href="https://github.com/MarHansen"
@@ -137,12 +136,12 @@ function Footer() {
                   CV
                 </a>
               </div>
-            </ScrollReveal>
-          </div>
+            </RevealItem>
+          </RevealGroup>
 
-          <div className="flex flex-col gap-5 lg:justify-self-center justify-self-start">
-            <ScrollReveal>NAVIGATE</ScrollReveal>
-            <ScrollReveal>
+          <RevealGroup className="flex flex-col gap-5 lg:justify-self-center justify-self-start">
+            <RevealItem>NAVIGATE</RevealItem>
+            <RevealItem>
               <div className="flex flex-col gap-3">
                 <Link to="/" className={buttonClass2}>
                   Home
@@ -157,8 +156,8 @@ function Footer() {
                   Blog (On Prog)
                 </Link>
               </div>
-            </ScrollReveal>
-          </div>
+            </RevealItem>
+          </RevealGroup>
         </div>
       </section>
     </>

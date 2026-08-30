@@ -1,11 +1,12 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { REVEAL_EASE } from "../../animation/variants";
 
 interface ScrollRevealProps {
   threshold?: number;
   distance?: number;
   delay?: number;
+  className?: string;
   children: React.ReactNode;
 }
 
@@ -13,23 +14,19 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   threshold = 0.5,
   distance = 40,
   delay = 0,
+  className,
   children,
 }) => {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold,
-  });
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount: threshold });
 
   return (
     <motion.div
       ref={ref}
+      className={className}
       initial={{ opacity: 0, y: distance }}
-      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : distance }}
-      transition={{
-        duration: 0.6,
-        delay,
-        ease: [0.16, 1, 0.3, 1],
-      }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: distance }}
+      transition={{ duration: 0.6, delay, ease: REVEAL_EASE }}
     >
       {children}
     </motion.div>

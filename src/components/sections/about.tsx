@@ -1,15 +1,16 @@
 import ScrollReveal from "../animation/scroll-reveal";
-import { useScroll, useTransform, motion } from "framer-motion";
+import { RevealGroup, RevealItem } from "../animation/reveal-group";
+import { useScroll, useTransform, motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { useInView } from "react-intersection-observer";
 import { useDebouncedCallback } from "use-debounce";
 import useImagePreloader from "../animation/image-preload";
 
 function About() {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const titleRef = useRef<HTMLDivElement>(null);
+  const titleInView = useInView(titleRef, { once: true, amount: 0.1 });
+
+  const imageRef = useRef<HTMLDivElement>(null);
+  const imageInView = useInView(imageRef, { once: true, amount: 0.1 });
 
   const variants = {
     hidden: { opacity: 0, scale: 0, borderRadius: "100%" },
@@ -65,7 +66,7 @@ function About() {
           data-cursor-size="150px"
           data-cursor-stick="#stick-item"
           data-cursor-exclusion
-          ref={ref}
+          ref={titleRef}
           className="relative overflow-hidden m-auto font-serif text-[5rem] lg:text-[7rem] font-medium border-t-[1px] mb-7"
         >
           <motion.div
@@ -75,7 +76,7 @@ function About() {
             animate={
               isSmall
                 ? { width: "100%", left: 0 }
-                : { width: inView ? "100%" : 0, left: 0 }
+                : { width: titleInView ? "100%" : 0, left: 0 }
             }
             transition={{ duration: 0.5, delay: 0 }}
             className="h-[1px] bg-black"
@@ -97,7 +98,7 @@ function About() {
             animate={
               isSmall
                 ? { width: "100%", right: 0 }
-                : { width: inView ? "100%" : 0, right: 0 }
+                : { width: titleInView ? "100%" : 0, right: 0 }
             }
             transition={{ duration: 0.5, delay: 0 }}
             className="absolute bottom-0 h-[1px] bg-black"
@@ -108,41 +109,32 @@ function About() {
             <ScrollReveal delay={0.1}>02</ScrollReveal>
           </div>
           <div className="flex flex-col md:w-[40%] w-[100%] justify-around lg:gap-0 gap-10">
-            <div className="flex gap-10 flex-col">
-              <ScrollReveal distance={40} delay={0.1}>
+            <RevealGroup className="flex gap-10 flex-col">
+              <RevealItem>
                 Hello, I am Martino Hansen, an aspiring UI/UX designer and
                 front-end developer based in Indonesia. I am currently pursuing
                 my undergraduate studies at Binus University. With a strong
                 interest in React and Next.js, I strive to create engaging
                 digital experiences that leave a lasting impression."
                 <br />
-              </ScrollReveal>
-              <ScrollReveal distance={50} delay={0.2}>
+              </RevealItem>
+              <RevealItem>
                 Ever since my first encounter with computer science, I have
                 developed an unwavering passion for web development and UI/UX
                 design. I discovered the perfect blend of creativity and
                 technology in this field, which allows me to craft digital
                 experiences that both inspire and delight users.
-              </ScrollReveal>
-            </div>
-            <div className="self-start md:self-end text-left md:text-right flex gap-4 flex-col">
-              <ScrollReveal distance={60} delay={0.3}>
-                I do UI/UX designing.
-              </ScrollReveal>
-              <ScrollReveal distance={70} delay={0.3}>
-                I do Web Development.
-              </ScrollReveal>
-              <ScrollReveal distance={80} delay={0.3}>
-                I do Code things.
-              </ScrollReveal>
-              <ScrollReveal distance={90} delay={0.3}>
-                {" "}
-                I do Video Editing.
-              </ScrollReveal>
-            </div>
+              </RevealItem>
+            </RevealGroup>
+            <RevealGroup className="self-start md:self-end text-left md:text-right flex gap-4 flex-col">
+              <RevealItem>I do UI/UX designing.</RevealItem>
+              <RevealItem>I do Web Development.</RevealItem>
+              <RevealItem>I do Code things.</RevealItem>
+              <RevealItem> I do Video Editing.</RevealItem>
+            </RevealGroup>
           </div>
 
-          <div ref={ref} className="overflow-clip relative">
+          <div ref={imageRef} className="overflow-clip relative">
             <motion.img
               draggable={false}
               initial="hidden"
@@ -150,7 +142,7 @@ function About() {
                 y: yScroll,
                 transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
               }}
-              animate={inView && isImageLoaded ? "visible" : "hidden"}
+              animate={imageInView && isImageLoaded ? "visible" : "hidden"}
               variants={variants}
               transition={{
                 duration: 1,

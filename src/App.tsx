@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./components/pages/home";
 import AboutPage from "./components/pages/about-page";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, MotionConfig } from "framer-motion";
 import { useEffect } from "react";
 import ProjectsPage from "./components/pages/projects-page";
 import { ReactLenis } from "@studio-freight/react-lenis";
@@ -36,7 +36,7 @@ function App() {
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       <Analytics />
       <Navbar></Navbar>
       <ReactLenis root options={{ lerp: 0.08, smoothWheel: true }}>
@@ -89,7 +89,7 @@ function App() {
           </Routes>
         </AnimatePresence>
       </ReactLenis>
-    </>
+    </MotionConfig>
   );
 }
 
