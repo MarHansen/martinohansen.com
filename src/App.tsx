@@ -12,6 +12,7 @@ import { Cursor } from "react-creative-cursor";
 import "react-creative-cursor/dist/styles.css";
 import { Analytics } from "@vercel/analytics/react";
 import NotFound from "./components/pages/catch-page";
+import Preloader from "./components/animation/preloader";
 import ProjectDetail from "./components/pages/projects/project-detail";
 import tunemaData from "./components/pages/projects/data/tunema";
 import sereneData from "./components/pages/projects/data/serene";
@@ -29,6 +30,7 @@ function App() {
       <Analytics />
       <Navbar></Navbar>
       <ReactLenis root options={{ lerp: 0.08, smoothWheel: true }}>
+        <Preloader />
         <Helmet>
           <meta charSet="utf-8" />
           <title>──marhansen</title>
