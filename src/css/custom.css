@@ -12,6 +12,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* enlarge the glyph shown inside the creative cursor (data-cursor-text) */
+#c-cursorInner {
+  font-size: 2rem;
+  line-height: 1;
+}
+
 /* navbar */
 .nav-overlay {
   transition: all 1.8s cubic-bezier(0.16, 1, 0.3, 1);

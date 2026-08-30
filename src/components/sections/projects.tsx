@@ -26,11 +26,11 @@ function Projects() {
       [0.4, 0.57, 0.6],
       [0.47, 0.7, 0.5],
     ],
-    []
+    [],
   );
 
   const scaleValues = scales.map(([start, end, value]) =>
-    useTransform(scrollYProgress, [start, end], [value, 1])
+    useTransform(scrollYProgress, [start, end], [value, 1]),
   );
 
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
@@ -96,9 +96,9 @@ function Projects() {
         className="relative mb-5 grid sm:grid-cols-2 grid-cols-1 grid-rows-auto gap-x-4 gap-y-4 auto-rows-[auto,auto]"
       >
         <motion.div
-          data-cursor-size="90px"
+          data-cursor-size="100px"
           data-cursor-exclusion
-          data-cursor-text="Explore"
+          data-cursor-text="↗"
           style={{
             scale: scaleValues[0],
             transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
@@ -126,9 +126,9 @@ function Projects() {
         </motion.div>
 
         <motion.div
-          data-cursor-size="90px"
+          data-cursor-size="100px"
           data-cursor-exclusion
-          data-cursor-text="Explore"
+          data-cursor-text="↗"
           style={{
             scale: scaleValues[1],
             transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
@@ -165,9 +165,9 @@ function Projects() {
         </motion.div>
 
         <motion.div
-          data-cursor-size="90px"
+          data-cursor-size="100px"
           data-cursor-exclusion
-          data-cursor-text="Explore"
+          data-cursor-text="↗"
           style={{
             scale: scaleValues[2],
             transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
@@ -194,9 +194,9 @@ function Projects() {
         </motion.div>
 
         <motion.div
-          data-cursor-size="90px"
+          data-cursor-size="100px"
           data-cursor-exclusion
-          data-cursor-text="Explore"
+          data-cursor-text="↗"
           style={{
             scale: scaleValues[3],
             transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
@@ -224,9 +224,9 @@ function Projects() {
         </motion.div>
 
         <motion.div
-          data-cursor-size="90px"
+          data-cursor-size="100px"
           data-cursor-exclusion
-          data-cursor-text="Explore"
+          data-cursor-text="↗"
           style={{
             scale: scaleValues[4],
             transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",

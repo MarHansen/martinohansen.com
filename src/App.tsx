@@ -51,8 +51,7 @@ function App() {
           {!isMobile && (
             <Cursor
               isGelly={true}
-              gellyAnimationAmount={50}
-              animationDuration={0.5}
+              animationDuration={0.2}
               cursorSize={10}
               sizeAnimationEase={[0.165, 0.84, 0.44, 1]}
               sizeAnimationDuration={0.35}

@@ -66,35 +66,37 @@ const Navbar = () => {
             <div className="LeftSide flex sm:gap-14 gap-6 items-center font-[420]">
               <Link
                 data-cursor-size="60px"
-                data-cursor-stick="#stick-item"
+                data-cursor-stick=".stick-item"
                 data-cursor-exclusion
                 to="/"
+                className="group inline-flex"
               >
-                <motion.svg
-                  whileHover={{ scale: 0.85 }}
-                  transition={{
-                    duration: 1,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="12"
-                    fill={navOpen ? "#EDE8E2" : "#2B2724"}
-                  />
-                </motion.svg>
+                <span className="stick-item inline-flex">
+                  <svg
+                    className="transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[0.85]"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="12"
+                      fill={navOpen ? "#EDE8E2" : "#2B2724"}
+                    />
+                  </svg>
+                </span>
               </Link>
 
               <a
                 href="https://www.behance.net/marhansen"
                 target="blank"
                 className={check}
+                data-cursor-size="60px"
+                data-cursor-stick="#stick-item"
+                data-cursor-exclusion
               >
                 Bē.
               </a>
@@ -102,6 +104,9 @@ const Navbar = () => {
                 href="https://www.linkedin.com/in/martino-hansen-290b90221/"
                 target="blank"
                 className={check}
+                data-cursor-size="60px"
+                data-cursor-stick="#stick-item"
+                data-cursor-exclusion
               >
                 In.
               </a>
@@ -109,6 +114,9 @@ const Navbar = () => {
                 href="https://github.com/MarHansen"
                 target="blank"
                 className={check}
+                data-cursor-size="60px"
+                data-cursor-stick="#stick-item"
+                data-cursor-exclusion
               >
                 Git.
               </a>
