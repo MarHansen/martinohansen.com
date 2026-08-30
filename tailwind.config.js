@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  darkMode: "class",
   theme: {
     container: {
       padding: {
@@ -19,7 +20,7 @@ export default {
         foot: ["Newyork"],
       },
 
-      colors: { white: "#F2F2F2", black: "#070707" },
+      colors: { white: "var(--color-paper)", black: "var(--color-ink)" },
     },
   },
   plugins: [],

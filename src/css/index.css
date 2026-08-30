@@ -1,5 +1,21 @@
 @import url("https://api.fontshare.com/v2/css?f[]=satoshi@1,900,700,500,301,701,300,501,401,901,400&display=swap");
 
+:root {
+  --color-paper: #f2f2f2;
+  --color-ink: #070707;
+  /* how far a project's accent color is pulled toward the foreground so it
+     stays readable — 0% keeps the brand hue untouched in light mode. */
+  --accent-tint: 0%;
+  color-scheme: light;
+}
+
+html.dark {
+  --color-paper: #070707;
+  --color-ink: #f2f2f2;
+  --accent-tint: 62%;
+  color-scheme: dark;
+}
+
 html {
   font-family: satoshi;
   &.lenis {
@@ -7,7 +23,7 @@ html {
   }
 
   scroll-behavior: smooth;
-  color: "#070707";
+  color: var(--color-ink);
 }
 
 .lenis {
@@ -36,18 +52,20 @@ html {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: rgba(7, 7, 7, 0.1);
+  background: var(--color-ink);
+  background: color-mix(in srgb, var(--color-ink) 10%, transparent);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #070707;
+  background: var(--color-ink);
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(78, 70, 65, 1);
+  background: var(--color-ink);
+  background: color-mix(in srgb, var(--color-ink) 70%, var(--color-paper));
 }
 
 @tailwind base;

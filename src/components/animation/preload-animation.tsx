@@ -9,7 +9,7 @@ const PreloadAnimation = () => {
         alignItems: "center",
         width: "100vw",
         height: "100vh",
-        background: "#070707",
+        background: "var(--color-ink)",
       }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

@@ -431,7 +431,7 @@ function Expertise() {
             >
               <path
                 d="M37 33.79L19 52L1 33.79M19 1V51.49"
-                stroke="#070707"
+                stroke="currentColor"
                 stroke-width="2"
                 stroke-miterlimit="10"
                 stroke-linecap="round"

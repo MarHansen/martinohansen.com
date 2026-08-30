@@ -68,10 +68,10 @@ function Projects() {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <circle cx="45" cy="45" r="45" fill="#070707" />
+                <circle cx="45" cy="45" r="45" className="fill-black" />
                 <path
                   d="M42.4965 4C39.4723 6.81782 37.0467 10.2159 35.3643 13.9914C33.682 17.767 32.7774 21.8427 32.7044 25.9755C32.6315 30.1082 33.3918 34.2133 34.9399 38.0458C36.488 41.8784 38.7923 45.3599 41.7151 48.2826C44.638 51.2054 48.1197 53.5095 51.9525 55.0575C55.7852 56.6056 59.8905 57.3658 64.0235 57.2929C68.1564 57.22 72.2323 56.3154 76.0081 54.6331C79.7838 52.9509 83.182 50.5254 86 47.5013C85.3574 57.9259 80.7626 67.7128 73.1524 74.8665C65.5423 82.0202 55.49 86.002 45.0452 86C22.3741 86 4 67.6269 4 44.961C4 23.1488 21.0156 5.31325 42.4965 4Z"
-                  fill="#F2F2F2"
+                  className="fill-white"
                 />
               </svg>
 
@@ -85,7 +85,9 @@ function Projects() {
                 startOffset={10}
                 reversed={true}
                 text="Est 2022•Est 2022•Est 2022•Est 2022•Est 2022•Est 2022•Est 2022•Est 2022•Est 2022"
-                textProps={{ style: { letterSpacing: 3 } }}
+                textProps={{
+                  style: { letterSpacing: 3, fill: "currentColor" },
+                }}
               />
             </svg>
           </ScrollReveal>
@@ -103,7 +105,7 @@ function Projects() {
             scale: scaleValues[0],
             transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
-          className="group relative inline-block max-w-full sm:w-auto w-full sm:max-w-[518px] self-start py-5 bg-[#9CB719] text-[#ffff]"
+          className="group relative inline-block max-w-full sm:w-auto w-full sm:max-w-[518px] self-start py-5 bg-[#9CB719] dark:bg-[#586619] text-[#ffff]"
         >
           <Link to="/projects/TUNEMA" className="max-w-full block">
             <h1 className="group-hover:-translate-y-5 transition-all duration-500 ease-cubic-bezier[0.16,1,0.3,1] font-foot text-[3rem] font-[600] text-center py-5">
@@ -135,7 +137,7 @@ function Projects() {
           }}
           // href="https://www.behance.net/gallery/171659489/Serene"
           // target="_blank"
-          className="group relative sm:mt-52 mt-2 inline-block max-w-full sm:w-auto w-full sm:max-w-[594px] py-5 bg-[#14213D] text-[#ffff]"
+          className="group relative sm:mt-52 mt-2 inline-block max-w-full sm:w-auto w-full sm:max-w-[594px] py-5 bg-[#14213D] dark:bg-[#1b2a4a] text-[#ffff]"
         >
           <Link to="/projects/Serene" className="max-w-full block">
             <h1 className="group-hover:-translate-y-5 transition-all duration-500 ease-cubic-bezier[0.16,1,0.3,1] font-foot text-[3rem] font-[600] text-center py-5">
@@ -174,7 +176,7 @@ function Projects() {
           }}
           // href="https://medium.com/@marhansen/catpaws-34cb48c56f28"
           // target="_blank"
-          className="group mt-2 items-center sm:mt-20 xl:ml-60 ml-0 inline-block max-w-full sm:w-auto w-full sm:max-w-[518px] self-start py-5 bg-[#FDA632] text-[#ffff]"
+          className="group mt-2 items-center sm:mt-20 xl:ml-60 ml-0 inline-block max-w-full sm:w-auto w-full sm:max-w-[518px] self-start py-5 bg-[#FDA632] dark:bg-[#8a5a20] text-[#ffff]"
         >
           <Link to="/projects/CatPaws" className="max-w-full block">
             <h1 className="group-hover:-translate-y-5 transition-all duration-500 ease-cubic-bezier[0.16,1,0.3,1] font-foot text-[3rem] font-[600] text-center py-5">
@@ -203,7 +205,7 @@ function Projects() {
           }}
           // href="https://www.behance.net/gallery/150326813/YuTrav"
           // target="_blank"
-          className="group relative sm:mt-96 justify-self-end mt-2 inline-block max-w-full sm:w-auto w-full sm:max-w-[494px] py-5 bg-[#232C31] text-[#ffff]"
+          className="group relative sm:mt-96 justify-self-end mt-2 inline-block max-w-full sm:w-auto w-full sm:max-w-[494px] py-5 bg-[#232C31] dark:bg-[#2b353b] text-[#ffff]"
         >
           <Link to="/projects/YuTrav" className="max-w-full block">
             <h1 className="group-hover:-translate-y-5 transition-all duration-500 ease-cubic-bezier[0.16,1,0.3,1] font-foot text-[3rem] font-[600] text-center py-5">
@@ -233,7 +235,7 @@ function Projects() {
           }}
           // href="https://www.behance.net/gallery/166045673/Adex-Legends"
           // target="_blank"
-          className="group sm:-mt-32 mt-2 inline-block max-w-full sm:w-auto w-full sm:max-w-[494px] py-5 bg-[#F5F5F7]"
+          className="group sm:-mt-32 mt-2 inline-block max-w-full sm:w-auto w-full sm:max-w-[494px] py-5 bg-[#F5F5F7] dark:bg-[#1a1a1d]"
         >
           <Link to="/projects/AdexLegend" className="max-w-full block">
             <h1 className="group-hover:-translate-y-5 transition-all duration-500 ease-cubic-bezier[0.16,1,0.3,1] font-foot text-[3rem] font-[600] text-center py-5">
@@ -278,7 +280,7 @@ function Projects() {
           >
             <path
               d="M37 33.79L19 52L1 33.79M19 1V51.49"
-              stroke="#070707"
+              stroke="currentColor"
               stroke-width="2"
               stroke-miterlimit="10"
               stroke-linecap="round"

@@ -4,6 +4,23 @@ import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [navOpen, setNavOpen] = useState(false);
+  const [dark, setDark] = useState(
+    () =>
+      typeof document !== "undefined" &&
+      document.documentElement.classList.contains("dark"),
+  );
+
+  const toggleTheme = () => {
+    setDark((prev) => {
+      const next = !prev;
+      document.documentElement.classList.toggle("dark", next);
+      try {
+        localStorage.setItem("theme", next ? "dark" : "light");
+      } catch (e) {
+      }
+      return next;
+    });
+  };
   //chat gpt logic for hiding navbar, i'm to lazy T_T, i want to disable it temporary, because its too annoying
   // const [show, setShow] = useState(true);
   // const [scrollDirection, setScrollDirection] = useState("up");
@@ -84,7 +101,7 @@ const Navbar = () => {
                       cx="12"
                       cy="12"
                       r="12"
-                      fill={navOpen ? "#F2F2F2" : "#070707"}
+                      className={navOpen ? "fill-white" : "fill-black"}
                     />
                   </svg>
                 </span>
@@ -121,18 +138,54 @@ const Navbar = () => {
                 Git.
               </a>
             </div>
-            <div
-              data-cursor-size="60px"
-              data-cursor-stick="#stick-item"
-              data-cursor-exclusion
-              className="menu-toggle cursor-pointer"
-              onClick={() => setNavOpen(!navOpen)}
-            >
-              <div className={navOpen ? "hamBox hamBoxOpen" : "hamBox"}>
-                <span className={navOpen ? "lineTop spin" : "lineTop"}></span>
-                <span
-                  className={navOpen ? "lineBottom spin" : "lineBottom"}
-                ></span>
+            <div className="RightSide flex items-center sm:gap-8 gap-5">
+              <button
+                type="button"
+                aria-label="Toggle dark mode"
+                aria-pressed={dark}
+                onClick={toggleTheme}
+                data-cursor-size="60px"
+                data-cursor-stick="#stick-item"
+                data-cursor-exclusion
+                className={`${
+                  navOpen ? "text-white" : "text-black"
+                } group inline-flex items-center transition-colors`}
+              >
+                <svg
+                  className="transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-45 group-hover:scale-[0.85]"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  {dark ? (
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                  ) : (
+                    <>
+                      <circle cx="12" cy="12" r="4.5" />
+                      <path d="M12 2v2.5M12 19.5V22M4.22 4.22l1.77 1.77M18.01 18.01l1.77 1.77M2 12h2.5M19.5 12H22M4.22 19.78l1.77-1.77M18.01 5.99l1.77-1.77" />
+                    </>
+                  )}
+                </svg>
+              </button>
+              <div
+                data-cursor-size="60px"
+                data-cursor-stick="#stick-item"
+                data-cursor-exclusion
+                className="menu-toggle cursor-pointer"
+                onClick={() => setNavOpen(!navOpen)}
+              >
+                <div className={navOpen ? "hamBox hamBoxOpen" : "hamBox"}>
+                  <span className={navOpen ? "lineTop spin" : "lineTop"}></span>
+                  <span
+                    className={navOpen ? "lineBottom spin" : "lineBottom"}
+                  ></span>
+                </div>
               </div>
             </div>
           </motion.div>

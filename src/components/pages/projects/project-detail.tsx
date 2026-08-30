@@ -91,7 +91,7 @@ function ProjectDetail({ data }: ProjectDetailProps) {
         };
       },
     }),
-    []
+    [],
   );
 
   useEffect(() => {
@@ -109,7 +109,7 @@ function ProjectDetail({ data }: ProjectDetailProps) {
       setIsAnimating(true);
       setDirection(1);
       setIndex((prevIndex) =>
-        prevIndex + 1 === images.length ? 0 : prevIndex + 1
+        prevIndex + 1 === images.length ? 0 : prevIndex + 1,
       );
 
       setTimeout(() => {
@@ -123,7 +123,7 @@ function ProjectDetail({ data }: ProjectDetailProps) {
       setIsAnimating(true);
       setDirection(-1);
       setIndex((prevIndex) =>
-        prevIndex - 1 < 0 ? images.length - 1 : prevIndex - 1
+        prevIndex - 1 < 0 ? images.length - 1 : prevIndex - 1,
       );
 
       setTimeout(() => {
@@ -137,7 +137,7 @@ function ProjectDetail({ data }: ProjectDetailProps) {
       setDirection(indexs > index ? 1 : -1);
       setIndex(indexs);
     },
-    [setDirection, setIndex]
+    [setDirection, setIndex],
   );
 
   return (
@@ -182,7 +182,12 @@ function ProjectDetail({ data }: ProjectDetailProps) {
                   <h1 className="font-body font-bold text-black text-opacity-75">
                     ABOUT
                   </h1>
-                  <p className="font-medium" style={{ color: aboutColor }}>
+                  <p
+                    className="font-medium"
+                    style={{
+                      color: `color-mix(in srgb, ${aboutColor}, var(--color-ink) var(--accent-tint))`,
+                    }}
+                  >
                     {aboutText}
                   </p>
                   <div

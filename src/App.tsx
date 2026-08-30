@@ -39,6 +39,8 @@ function App() {
           {!isMobile && (
             <Cursor
               isGelly={true}
+              cursorBackgrounColor="var(--color-ink)"
+              cursorInnerColor="var(--color-paper)"
               animationDuration={0.2}
               cursorSize={10}
               sizeAnimationEase={[0.165, 0.84, 0.44, 1]}
