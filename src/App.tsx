@@ -6,7 +6,6 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./components/pages/home";
 import AboutPage from "./components/pages/about-page";
 import { AnimatePresence, MotionConfig } from "framer-motion";
-import { useEffect } from "react";
 import ProjectsPage from "./components/pages/projects-page";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import { Cursor } from "react-creative-cursor";
@@ -19,16 +18,6 @@ import sereneData from "./components/pages/projects/data/serene";
 import catpawsData from "./components/pages/projects/data/catpaws";
 import yutravData from "./components/pages/projects/data/yutrav";
 import adexLegendData from "./components/pages/projects/data/adex-legend";
-
-function ScrollToTop() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-}
 
 function App() {
   const location = useLocation();
@@ -47,7 +36,6 @@ function App() {
         </Helmet>
 
         <AnimatePresence mode="wait">
-          <ScrollToTop />
           {!isMobile && (
             <Cursor
               isGelly={true}
