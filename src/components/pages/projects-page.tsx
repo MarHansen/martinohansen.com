@@ -4,14 +4,14 @@ import "../../css/index.css";
 import Transition from "../animation/page-transition";
 import Footer from "../sections/footer";
 import { motion, useAnimation } from "framer-motion";
-import { useRef, useEffect } from "react";
-import ScrollReveal from "../animation/scroll-reveal";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import ReturnButton from "../buttons/return-button";
-import ProjectCard from "../containers/project-cards";
+import ProjectStack from "./projects/project-stack";
 import HeadHelmet from "../head-helmet";
 
 function ProjectsPage() {
-  const targetRef = useRef<HTMLDivElement>(null);
+  const { slug } = useParams();
 
   const marqueeVariants = {
     animate: {
@@ -143,97 +143,13 @@ function ProjectsPage() {
                 />
               </div>
             </section>
-
-            <ScrollReveal>
-              <section className="my-10 flex font-body text-[1.5rem] justify-between">
-                <p>My works</p>
-                <div className="flex items-center justify-center gap-[4rem]">
-                  <motion.div
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{
-                      duration: 1.5,
-                      delay: 0.3,
-                      ease: [0.165, 0.84, 0.44, 1],
-                    }}
-                    className="border-t w-[10rem] border-black my-4"
-                    style={{ transformOrigin: "left" }}
-                  ></motion.div>
-                  <p>02</p>
-                </div>
-              </section>
-            </ScrollReveal>
-
-            <section
-              ref={targetRef}
-              className="relative mb-5 grid sm:grid-cols-2 grid-cols-1 grid-rows-auto lg:gap-x-[12rem] gap-x-5 gap-y-10 auto-rows-[auto,auto]"
-            >
-              <ProjectCard
-                targetRef={targetRef}
-                type="left"
-                backgroundImage="/showcase/tunema/tunema-1.webp"
-                title="TUNEMA"
-                description="Frontend ── UI/UX"
-                buttonTo="/projects/TUNEMA"
-              />
-
-              <ProjectCard
-                targetRef={targetRef}
-                type="right"
-                backgroundImage="/showcase/serene/serene-1.webp"
-                title="Serene"
-                description="User Interface Design"
-                buttonTo="/projects/Serene"
-              />
-
-              <ProjectCard
-                targetRef={targetRef}
-                type="left"
-                backgroundImage="/porto/catpaws.webp"
-                title="CatPaws"
-                description="UI/UX"
-                buttonTo="/projects/CatPaws"
-              />
-
-              <ProjectCard
-                targetRef={targetRef}
-                type="right"
-                backgroundImage="/showcase/yutrav/yutrav-4.webp"
-                title="YuTrav"
-                description="UI/UX"
-                buttonTo="/projects/YuTrav"
-              />
-
-              <ProjectCard
-                targetRef={targetRef}
-                type="left"
-                backgroundImage="/showcase/adex/adex-1.webp"
-                title="Adex Legend"
-                description="Frontend ── UI/UX"
-                buttonTo="/projects/AdexLegend"
-              />
-
-              <ProjectCard
-                targetRef={targetRef}
-                type="right"
-                backgroundImage="/porto/merci.webp"
-                title="Merci"
-                description="Frontend ── UI/UX"
-                buttonTo="/projects/Merci"
-              />
-
-              <ProjectCard
-                targetRef={targetRef}
-                type="left"
-                backgroundImage="/porto/marhansenv1.webp"
-                title="marhansen ── Early Version"
-                description="Frontend ── UI/UX"
-                buttonTo="/projects/marhansen"
-              />
-            </section>
-
-            <Footer></Footer>
           </>
+        </Container>
+
+        <ProjectStack initialSlug={slug} />
+
+        <Container>
+          <Footer></Footer>
         </Container>
       </Transition>
     </>

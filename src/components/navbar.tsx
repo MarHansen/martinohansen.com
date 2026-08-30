@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { flushSync } from "react-dom";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SocialLink from "./buttons/social-link";
+import NavIconButton from "./buttons/nav-icon-button";
+import MenuIcon from "./buttons/menu-icon";
 
 const Navbar = () => {
   const [navOpen, setNavOpen] = useState(false);
@@ -75,57 +77,37 @@ const Navbar = () => {
     }, DURATION * 0.85);
   };
 
-  //chat gpt logic for hiding navbar, i'm to lazy T_T, i want to disable it temporary, because its too annoying
-  // const [show, setShow] = useState(true);
-  // const [scrollDirection, setScrollDirection] = useState("up");
-  // const [prevScrollY, setPrevScrollY] = useState(window.scrollY);
+  const [hidden, setHidden] = useState(false);
+  const lastY = useRef(0);
 
-  // const controlNavbar = () => {
-  //   const currentScrollY = window.scrollY;
-  //   setScrollDirection(
-  //     currentScrollY > prevScrollY
-  //       ? "down"
-  //       : currentScrollY < prevScrollY
-  //       ? "up"
-  //       : scrollDirection
-  //   );
-  //   setPrevScrollY(currentScrollY);
-  // };
+  useEffect(() => {
+    lastY.current = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      const delta = y - lastY.current;
+      if (Math.abs(delta) < 6) return;
+      if (y < 80) setHidden(false);
+      else setHidden(delta > 0);
+      lastY.current = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", controlNavbar);
-  //   return () => {
-  //     window.removeEventListener("scroll", controlNavbar);
-  //   };
-  // }, [prevScrollY]);
+  const revealed = navOpen || !hidden;
 
-  // useEffect(() => {
-  //   setShow(scrollDirection === "up");
-  // }, [scrollDirection]);
-
-  // const variants = {
-  //   visible: { y: 0 },
-  //   hidden: { y: -90 },
-  // };
-  //ends here
-
-  const colorVariant = {
-    light:
-      "z-50 navbar fixed top-0 left-0 w-full flex justify-between align-middle sm:px-[3em] px-[1.2em] transition duration-500 ease-cubic-bezier bg-white",
-    dark: "z-50 navbar fixed top-0 left-0 w-full flex justify-between align-middle sm:px-[3em] px-[1.2em] transition duration-500 ease-cubic-bezier bg-black",
-  };
-  const navColor = navOpen ? colorVariant.dark : colorVariant.light;
+  const navClass =
+    "z-50 navbar fixed top-0 left-0 w-full flex justify-between items-center align-middle sm:px-[3em] px-[1.2em] py-[1.2em] bg-transparent";
 
   return (
     <>
       <div className="nav fixed z-[100] -top-1 font-body text-[1rem] py-2">
         <div className="nav-container">
           <motion.div
-            // variants={variants}
             initial={false}
-            // animate={show ? "visible" : "hidden"}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className={navColor}
+            animate={{ y: revealed ? "0%" : "-120%" }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className={navClass}
           >
             <div className="LeftSide flex sm:gap-14 gap-6 items-center font-[420]">
               <Link
@@ -170,21 +152,14 @@ const Navbar = () => {
                 dark={navOpen}
               />
             </div>
-            <div className="RightSide flex items-center sm:gap-8 gap-5">
-              <button
-                type="button"
-                aria-label="Toggle dark mode"
-                aria-pressed={dark}
+            <div className="RightSide flex items-center sm:gap-6 gap-3">
+              <NavIconButton
+                label="Toggle dark mode"
+                ariaPressed={dark}
                 onClick={toggleTheme}
-                data-cursor-size="60px"
-                data-cursor-stick="#stick-item"
-                data-cursor-exclusion
-                className={`${
-                  navOpen ? "text-white" : "text-black"
-                } group inline-flex items-center transition-colors`}
+                dark={navOpen}
               >
                 <svg
-                  className="transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:rotate-45 group-hover:scale-[0.85]"
                   width="20"
                   height="20"
                   viewBox="0 0 24 24"
@@ -204,21 +179,15 @@ const Navbar = () => {
                     </>
                   )}
                 </svg>
-              </button>
-              <div
-                data-cursor-size="60px"
-                data-cursor-stick="#stick-item"
-                data-cursor-exclusion
-                className="menu-toggle cursor-pointer"
+              </NavIconButton>
+              <NavIconButton
+                label="Toggle menu"
+                ariaPressed={navOpen}
                 onClick={() => setNavOpen(!navOpen)}
+                dark={navOpen}
               >
-                <div className={navOpen ? "hamBox hamBoxOpen" : "hamBox"}>
-                  <span className={navOpen ? "lineTop spin" : "lineTop"}></span>
-                  <span
-                    className={navOpen ? "lineBottom spin" : "lineBottom"}
-                  ></span>
-                </div>
-              </div>
+                <MenuIcon open={navOpen} />
+              </NavIconButton>
             </div>
           </motion.div>
           <div
