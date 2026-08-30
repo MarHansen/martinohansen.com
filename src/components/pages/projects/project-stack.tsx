@@ -7,7 +7,6 @@ import {
   useTransform,
 } from "framer-motion";
 import { useLenis } from "@studio-freight/react-lenis";
-import ScrollReveal from "../../animation/scroll-reveal";
 import projectList from "./data";
 import ProjectPanel from "./project-panel";
 
@@ -201,22 +200,21 @@ function ProjectStack({ initialSlug }: ProjectStackProps) {
     return (
       <div className="mt-12">
         {projectList.map((project, index) => (
-          <ScrollReveal key={project.slug} distance={60}>
-            <div
-              id={slotId(project.slug)}
-              className="min-h-screen"
-              style={{
-                backgroundColor: panelBackground(project.data.aboutColor),
-              }}
-            >
-              <ProjectPanel
-                data={project.data}
-                positionLabel={`${String(index + 1).padStart(2, "0")} / ${String(
-                  total,
-                ).padStart(2, "0")}`}
-              />
-            </div>
-          </ScrollReveal>
+          <div
+            key={project.slug}
+            id={slotId(project.slug)}
+            className="min-h-screen"
+            style={{
+              backgroundColor: panelBackground(project.data.aboutColor),
+            }}
+          >
+            <ProjectPanel
+              data={project.data}
+              positionLabel={`${String(index + 1).padStart(2, "0")} / ${String(
+                total,
+              ).padStart(2, "0")}`}
+            />
+          </div>
         ))}
       </div>
     );

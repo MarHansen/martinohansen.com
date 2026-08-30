@@ -22,8 +22,8 @@ const FloatingBackButton = () => {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-          style={{ transformOrigin: "50% 50%" }}
-          className="pointer-events-none absolute inset-0 text-black"
+          style={{ transformOrigin: "50% 50%", color: "var(--color-ink)" }}
+          className="pointer-events-none absolute inset-0"
         >
           <ReactCurvedText
             width={120}
@@ -46,7 +46,13 @@ const FloatingBackButton = () => {
           />
         </motion.div>
 
-        <span className="relative grid aspect-square w-[44%] place-items-center rounded-full bg-black transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-90">
+        <span
+          style={{
+            backgroundColor: "var(--color-ink)",
+            color: "var(--color-paper)",
+          }}
+          className="relative grid aspect-square w-[44%] place-items-center rounded-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-90"
+        >
           <svg
             viewBox="0 0 53 38"
             fill="none"
@@ -55,7 +61,7 @@ const FloatingBackButton = () => {
           >
             <path
               d="M19.21 37L0.999999 19L19.21 0.999999M52 19L1.51 19"
-              stroke="#F2F2F2"
+              stroke="currentColor"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
