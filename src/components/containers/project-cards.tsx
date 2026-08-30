@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-// import { useScroll, useTransform } from "framer-motion";
 import SecondaryButton from "../buttons/secondary-button";
 import ScrollReveal from "../animation/scroll-reveal";
 
@@ -26,7 +25,7 @@ const ProjectCard: React.FC<ProjectCardProps> = React.memo(
       offset: ["start end", "end start"],
     });
 
-    const yScroll = useTransform(scrollYProgress, [0, 1], [0, 60]);
+    const yScroll = useTransform(scrollYProgress, [0, 1], [-70, 70]);
 
     return (
       <div className={`max-w-full ${type === "right" ? "sm:mt-36 mt-0" : ""}`}>
@@ -42,7 +41,7 @@ const ProjectCard: React.FC<ProjectCardProps> = React.memo(
                 backgroundPosition: "top",
                 transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
               }}
-              className={`absolute w-full top-0 left-0 h-full bg-cover bg-top`}
+              className={`absolute left-0 -top-[70px] w-full h-[calc(100%+140px)] bg-cover bg-top`}
             ></motion.div>
           </div>
           <div className="flex justify-between items-center w-auto mt-2">

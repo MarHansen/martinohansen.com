@@ -15,7 +15,6 @@ function About() {
   const variants = {
     hidden: { opacity: 0, scale: 0, borderRadius: "100%" },
     visible: { opacity: 1, scale: 1, borderRadius: 0 },
-    hover: { scale: 1.1, transition: { duration: 0.1, ease: "easeInOut" } },
   };
   const targetRef = useRef<HTMLDivElement>(null);
 
@@ -49,11 +48,8 @@ function About() {
     [0, 1],
     isSmall ? [200, -800] : [800, -1000]
   );
-  const yScroll = useTransform(
-    scrollYProgress,
-    [0, 1],
-    isSmall ? [0, 0] : [-50, 50]
-  );
+
+  const yScroll = useTransform(scrollYProgress, [0, 1], [-100, 100]);
 
   return (
     <>
@@ -134,34 +130,25 @@ function About() {
             </RevealGroup>
           </div>
 
-          <div ref={imageRef} className="overflow-clip relative">
+          <motion.div
+            ref={imageRef}
+            initial="hidden"
+            animate={imageInView && isImageLoaded ? "visible" : "hidden"}
+            variants={variants}
+            transition={{ duration: 1, delay: 0.01, ease: [0.16, 1, 0.3, 1] }}
+            className="relative overflow-hidden w-[25rem] lg:w-[30rem] max-w-full aspect-[2/3] md:mt-0 mt-5"
+          >
             <motion.img
               draggable={false}
-              initial="hidden"
-              style={{
-                y: yScroll,
-                transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
-              }}
-              animate={imageInView && isImageLoaded ? "visible" : "hidden"}
-              variants={variants}
-              transition={{
-                duration: 1,
-                delay: 0.01,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              whileHover={
-                isMobile
-                  ? {}
-                  : {
-                      scale: 1.05,
-                    }
-              }
-              whileTap={isMobile ? {} : "hover"}
               src={imageUrl}
-              className="object-cover max-w-[25rem] lg:max-w-[30rem] md:mt-0 mt-5 transition-all duration-700 ease-in-out filter grayscale hover:filter-none"
+              style={{ y: yScroll }}
+              whileHover={isMobile ? {} : { scale: 1.05 }}
+              whileTap={isMobile ? {} : { scale: 1.05 }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute left-0 -top-[100px] w-full h-[calc(100%+200px)] object-cover object-center filter grayscale hover:filter-none transition-[filter] duration-700 ease-in-out"
               alt=""
             />
-          </div>
+          </motion.div>
         </div>
       </section>
     </>
