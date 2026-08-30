@@ -9,15 +9,16 @@ import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
 import ProjectsPage from "./components/pages/projects-page";
 import { ReactLenis } from "@studio-freight/react-lenis";
-import Tunema from "./components/pages/projects/tunema";
 import { Cursor } from "react-creative-cursor";
 import "react-creative-cursor/dist/styles.css";
 import { Analytics } from "@vercel/analytics/react";
 import NotFound from "./components/pages/catch-page";
-import Serene from "./components/pages/projects/serene";
-import CatPaws from "./components/pages/projects/catpaws";
-import YuTrav from "./components/pages/projects/yutrav";
-import Adex from "./components/pages/projects/adex-legend";
+import ProjectDetail from "./components/pages/projects/project-detail";
+import tunemaData from "./components/pages/projects/data/tunema";
+import sereneData from "./components/pages/projects/data/serene";
+import catpawsData from "./components/pages/projects/data/catpaws";
+import yutravData from "./components/pages/projects/data/yutrav";
+import adexLegendData from "./components/pages/projects/data/adex-legend";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -63,11 +64,26 @@ function App() {
             <Route index element={<Home />}></Route>
             <Route path="/about" element={<AboutPage />}></Route>
             <Route path="/projects" element={<ProjectsPage />}></Route>
-            <Route path="/projects/TUNEMA" element={<Tunema />}></Route>
-            <Route path="/projects/Serene" element={<Serene />}></Route>
-            <Route path="/projects/CatPaws" element={<CatPaws />}></Route>
-            <Route path="/projects/YuTrav" element={<YuTrav />}></Route>
-            <Route path="/projects/AdexLegend" element={<Adex />}></Route>
+            <Route
+              path="/projects/TUNEMA"
+              element={<ProjectDetail data={tunemaData} />}
+            ></Route>
+            <Route
+              path="/projects/Serene"
+              element={<ProjectDetail data={sereneData} />}
+            ></Route>
+            <Route
+              path="/projects/CatPaws"
+              element={<ProjectDetail data={catpawsData} />}
+            ></Route>
+            <Route
+              path="/projects/YuTrav"
+              element={<ProjectDetail data={yutravData} />}
+            ></Route>
+            <Route
+              path="/projects/AdexLegend"
+              element={<ProjectDetail data={adexLegendData} />}
+            ></Route>
             <Route path="/blog" element={<NotFound />}></Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

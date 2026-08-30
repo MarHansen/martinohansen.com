@@ -1,24 +1,57 @@
 import Container from "../../containers/container";
 import "../../../css/custom.css";
 import "../../../css/index.css";
-// import { Helmet } from "react-helmet";
 import Transition from "../../animation/page-transition";
 import { Outlet } from "react-router-dom";
 import ReturnButton from "../../buttons/return-button";
 import CustomButton from "../../buttons/main-button";
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ReactIcon from "../../techstack/react-icon";
+import TailwindIcon from "../../techstack/tailwind-icon";
+import GolangIcon from "../../techstack/golang-icon";
+import LambdaIcon from "../../techstack/lambda-icon";
+import RDSIcon from "../../techstack/rds-icon";
+import S3Icon from "../../techstack/s3-icon";
 import FigmaIcon from "../../techstack/figma-icon";
+import HTMLIcon from "../../techstack/html-icon";
+import CSSIcon from "../../techstack/css-icon";
+import JSIcon from "../../techstack/javascript-icon";
 import HeadHelmet from "../../head-helmet";
+import { ProjectData, TechStackKey } from "./data/types";
 
-const images = [
-  "/showcase/yutrav/yutrav-1.webp",
-  "/showcase/yutrav/yutrav-2.webp",
-  "/showcase/yutrav/yutrav-3.webp",
-  "/showcase/yutrav/yutrav-3.webp",
-];
+const techStackIcons: Record<TechStackKey, () => JSX.Element> = {
+  react: ReactIcon,
+  tailwind: TailwindIcon,
+  golang: GolangIcon,
+  lambda: LambdaIcon,
+  rds: RDSIcon,
+  s3: S3Icon,
+  figma: FigmaIcon,
+  html: HTMLIcon,
+  css: CSSIcon,
+  js: JSIcon,
+};
 
-function YuTrav() {
+interface ProjectDetailProps {
+  data: ProjectData;
+}
+
+function ProjectDetail({ data }: ProjectDetailProps) {
+  const {
+    headTitle,
+    title,
+    role,
+    developed,
+    docs,
+    aboutColor,
+    aboutText,
+    paragraphs,
+    paragraphsClassName,
+    techStack,
+    images,
+  } = data;
+
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isAuto, setIsAuto] = useState(true);
@@ -110,38 +143,37 @@ function YuTrav() {
   return (
     <>
       <Transition>
-        <HeadHelmet title="YuTrav──marhansen"></HeadHelmet>
+        <HeadHelmet title={headTitle}></HeadHelmet>
         <Container>
           <>
             <div className="mt-24 mb-10">
               <ReturnButton></ReturnButton>
               <section className="h-full grid lg:grid-cols-3 grid-cols-1">
                 <section className="flex flex-col gap-10">
-                  <h1 className="font-serif text-[4rem]">YuTrav</h1>
+                  <h1 className="font-serif text-[4rem]">{title}</h1>
                   <div className="flex flex-wrap lg:flex-col flex-row justify-start lg:gap-20 gap-16">
                     <div>
                       <h1 className="font-body font-bold text-black text-opacity-75">
                         ROLE
                       </h1>
-                      <p>UI/UX Designer</p>
+                      <p>{role}</p>
                     </div>
                     <div>
                       <h1 className="font-body font-bold text-black text-opacity-75">
                         DEVELOPED
                       </h1>
-                      <p>July 2022</p>
+                      <p>{developed}</p>
                     </div>
                     <div>
                       <h1 className="font-body font-bold text-black text-opacity-75">
                         DOCUMENTATION
                       </h1>
                       <div className="w-fit flex flex-wrap gap-5 mt-3">
-                        <CustomButton
-                          to="https://medium.com/@marhansen/catpaws-34cb48c56f28"
-                          openInNewTab
-                        >
-                          Bēhance
-                        </CustomButton>
+                        {docs.map((doc) => (
+                          <CustomButton key={doc.to} to={doc.to} openInNewTab>
+                            {doc.label}
+                          </CustomButton>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -150,41 +182,34 @@ function YuTrav() {
                   <h1 className="font-body font-bold text-black text-opacity-75">
                     ABOUT
                   </h1>
-                  <p className="font-medium text-[#1F1F1F]">
-                    Indonesia have a lot of nature potential that not well known
-                    by the public. Usually tourist across the world only known
-                    Indonesia not more than Bali and Jogja, neither the other
-                    tourist destination that can be better than that two.
-                    Tourist also don't know the other destination due to less
-                    documentation about the other place.
+                  <p className="font-medium" style={{ color: aboutColor }}>
+                    {aboutText}
                   </p>
-                  <div className="flex lg:flex-row flex-col gap-3">
-                    <p className="w-fit">
-                      YuTrav was orginaly planned to solve the less
-                      documentation about the Indonesia tourist destination.
-                      <br /> YuTrav offer many features that will help foreigner
-                      and domestic tourist to find the underdog tourist
-                      destination in Indonesia. User can do a virtual tour to
-                      set the expectation before heading into the place, user
-                      also can see the ongoing and upcoming event and culinary
-                      in the place. Community hub have a huge impact in tourist
-                      destination promotion, because every user can share their
-                      own experience.
-                    </p>
-                    <p className="w-fit">
-                      The UI design and idea gathering process is started from
-                      looking for many references about travel application in
-                      Dribble and Behance. UX design is the most challenging
-                      part, by collecting user persona, user needs, usability
-                      goals and data analytics, that need to be done with
-                      questioner method for surveying the data.
-                    </p>
+                  <div
+                    className={
+                      paragraphsClassName ?? "flex lg:flex-row flex-col gap-3"
+                    }
+                  >
+                    {paragraphs.map((paragraph, paragraphIndex) => (
+                      <p key={paragraphIndex} className="w-fit">
+                        {paragraph.split("\n").map((line, lineIndex, arr) => (
+                          <span key={lineIndex}>
+                            {line}
+                            {lineIndex < arr.length - 1 && <br />}
+                          </span>
+                        ))}
+                      </p>
+                    ))}
                   </div>
                   <h1 className="font-body font-bold text-black text-opacity-75">
                     TECH STACK
                   </h1>
                   <div className="flex flex-wrap gap-3">
-                    <FigmaIcon></FigmaIcon>
+                    {techStack.map((key) => {
+                      const Icon = techStackIcons[key];
+                      return <Icon key={key}></Icon>;
+                    })}
+                    <p className="self-end">...</p>
                   </div>
 
                   <div
@@ -361,7 +386,6 @@ function YuTrav() {
                 </section>
               </section>
 
-              {/* <Footer></Footer> */}
               <Outlet />
             </div>
           </>
@@ -371,4 +395,4 @@ function YuTrav() {
   );
 }
 
-export default YuTrav;
+export default ProjectDetail;
