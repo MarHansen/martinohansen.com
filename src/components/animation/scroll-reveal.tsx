@@ -7,6 +7,7 @@ interface ScrollRevealProps {
   distance?: number;
   delay?: number;
   className?: string;
+  active?: boolean;
   children: React.ReactNode;
 }
 
@@ -15,6 +16,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   distance = 40,
   delay = 0,
   className,
+  active = true,
   children,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -25,7 +27,9 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
       ref={ref}
       className={className}
       initial={{ opacity: 0, y: distance }}
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: distance }}
+      animate={
+        active && inView ? { opacity: 1, y: 0 } : { opacity: 0, y: distance }
+      }
       transition={{ duration: 0.6, delay, ease: REVEAL_EASE }}
     >
       {children}

@@ -5,9 +5,11 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Link as ToLink } from "react-scroll";
 import { useDebouncedCallback } from "use-debounce";
+import { usePreloaderDone } from "../../animation/use-preloader";
 
 function Landing() {
   const [isMobile, setIsMobile] = useState(false);
+  const ready = usePreloaderDone();
 
   const debouncedCheckWindowSize = useDebouncedCallback(() => {
     setIsMobile(window.innerWidth < 768);
@@ -35,18 +37,20 @@ function Landing() {
             <AnimatedTextCharacter
               customI={1}
               text="MARTINO"
+              start={ready}
             ></AnimatedTextCharacter>
 
             <AnimatedTextCharacter
               customI={2}
               text="HANSEN"
+              start={ready}
             ></AnimatedTextCharacter>
           </div>
           <Container>
             <div className="flex justify-center items-center gap-5">
               <motion.div
                 initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
+                animate={ready ? { scaleX: 1 } : { scaleX: 0 }}
                 transition={{
                   duration: 1.5,
                   delay: 0.4,
@@ -56,7 +60,7 @@ function Landing() {
                 style={{ transformOrigin: "right" }}
               ></motion.div>
 
-              <ScrollReveal delay={0.2}>
+              <ScrollReveal delay={0.2} active={ready}>
                 <motion.svg
                   style={{ rotate: "0deg" }} // Initial rotation angle
                   animate={{ rotate: "360deg" }}
@@ -81,7 +85,7 @@ function Landing() {
 
               <motion.div
                 initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
+                animate={ready ? { scaleX: 1 } : { scaleX: 0 }}
                 transition={{
                   duration: 1.5,
                   delay: 0.3,
@@ -96,7 +100,7 @@ function Landing() {
         <Container>
           <div className="mb-[60px] grid grid-cols-3 gap-[1rem] auto-cols-max justify-items-between font-body md:text-[1.2rem] text-[1rem] text-center">
             <span className="justify-self-start">
-              <ScrollReveal delay={isMobile ? 0.1 : 2.1}>
+              <ScrollReveal delay={isMobile ? 0.1 : 2.1} active={ready}>
                 UI/UX Designer ── Web Developer
               </ScrollReveal>
             </span>
@@ -110,7 +114,7 @@ function Landing() {
               to="projects"
               className="arrow flex w-fit mx-auto flex-col items-center cursor-pointe font-foot text-[1.3rem] font-medium"
             >
-              <ScrollReveal delay={isMobile ? 0.3 : 2.5}>
+              <ScrollReveal delay={isMobile ? 0.3 : 2.5} active={ready}>
                 <svg
                   className="mx-auto"
                   width="38"
@@ -132,7 +136,7 @@ function Landing() {
               </ScrollReveal>
             </ToLink>
             <span className="justify-self-end">
-              <ScrollReveal delay={isMobile ? 0.2 : 2.3}>
+              <ScrollReveal delay={isMobile ? 0.2 : 2.3} active={ready}>
                 Based in Jakarta, Indonesia.
               </ScrollReveal>
             </span>

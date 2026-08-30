@@ -24,10 +24,12 @@ const AnimatedTextCharacter = ({
   text,
   customI,
   staggerChildren = 0.05,
+  start = true,
 }: {
   text: string;
   customI: number;
   staggerChildren?: number;
+  start?: boolean;
 }) => {
   const letters = Array.from(text);
 
@@ -44,7 +46,7 @@ const AnimatedTextCharacter = ({
       style={{ overflow: "hidden", display: "flex" }}
       variants={container}
       initial="hidden"
-      animate="visible"
+      animate={start ? "visible" : "hidden"}
     >
       {letters.map((letter, index) => (
         <motion.span variants={child} key={index}>

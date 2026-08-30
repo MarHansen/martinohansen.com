@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLenis } from "@studio-freight/react-lenis";
+import { markPreloaderDone } from "../../animation/use-preloader";
 
 const MIN_DURATION = 1900;
 const MAX_DURATION = 4000;
@@ -57,6 +58,7 @@ const Preloader: React.FC = () => {
   const handleExitComplete = () => {
     lenisRef.current?.start?.();
     document.body.style.overflow = "";
+    markPreloaderDone();
   };
 
   return (
