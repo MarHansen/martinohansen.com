@@ -2,6 +2,7 @@ import { useState } from "react";
 import { flushSync } from "react-dom";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import SocialLink from "./buttons/social-link";
 
 const Navbar = () => {
   const [navOpen, setNavOpen] = useState(false);
@@ -115,13 +116,6 @@ const Navbar = () => {
   };
   const navColor = navOpen ? colorVariant.dark : colorVariant.light;
 
-  const hoverVariant = {
-    light:
-      "duration-200 relative mt-auto mb-auto text-black hover:text-black hover:before:scale-x-100 before:absolute before:origin-top-left before:block before:transition-transform before:duration-[0.3s] before:ease-[ease] before:scale-x-0 before:left-0 before:bottom-0 before:w-full before:h-0.5 before:bg-black",
-    dark: "duration-200 relative mt-auto mb-auto text-white hover:text-white hover:before:scale-x-100 before:absolute before:origin-top-left before:block before:transition-transform before:duration-[0.3s] before:ease-[ease] before:scale-x-0 before:left-0 before:bottom-0 before:w-full before:h-0.5 before:bg-white",
-  };
-  const check = navOpen ? hoverVariant.dark : hoverVariant.light;
-
   return (
     <>
       <div className="nav fixed z-[100] -top-1 font-body text-[1rem] py-2">
@@ -160,36 +154,21 @@ const Navbar = () => {
                 </span>
               </Link>
 
-              <a
+              <SocialLink
                 href="https://www.behance.net/marhansen"
-                target="blank"
-                className={check}
-                data-cursor-size="60px"
-                data-cursor-stick="#stick-item"
-                data-cursor-exclusion
-              >
-                Bē.
-              </a>
-              <a
+                label="Bē."
+                dark={navOpen}
+              />
+              <SocialLink
                 href="https://www.linkedin.com/in/martino-hansen-290b90221/"
-                target="blank"
-                className={check}
-                data-cursor-size="60px"
-                data-cursor-stick="#stick-item"
-                data-cursor-exclusion
-              >
-                In.
-              </a>
-              <a
+                label="In."
+                dark={navOpen}
+              />
+              <SocialLink
                 href="https://github.com/MarHansen"
-                target="blank"
-                className={check}
-                data-cursor-size="60px"
-                data-cursor-stick="#stick-item"
-                data-cursor-exclusion
-              >
-                Git.
-              </a>
+                label="Git."
+                dark={navOpen}
+              />
             </div>
             <div className="RightSide flex items-center sm:gap-8 gap-5">
               <button

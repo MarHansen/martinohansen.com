@@ -3,12 +3,16 @@ import { motion } from "framer-motion";
 import { useCallback } from "react";
 import React from "react";
 
+const EASE = "cubic-bezier(0.19,1,0.22,1)";
+
 const ReturnButton = React.memo(() => {
   const navigate = useNavigate();
 
   const handleClick = useCallback(() => {
     navigate(-1);
   }, [navigate]);
+
+  const label = <span className="block px-1">Return</span>;
 
   return (
     <div className="mt-24">
@@ -43,9 +47,28 @@ const ReturnButton = React.memo(() => {
               strokeLinejoin="round"
             />
           </svg>
-          <p className="duration-200 relative mt-auto mb-auto w-fit text-black group-hover:text-black group-hover:before:scale-x-100 before:absolute before:origin-top-left before:block before:transition-transform before:duration-[0.3s] before:ease-[ease] before:scale-x-0 before:left-0 before:bottom-0 before:w-full before:h-0.5 before:bg-black">
-            Return
-          </p>
+
+          <span className="relative inline-flex items-center justify-center overflow-hidden rounded-full px-4 py-1">
+            <span
+              aria-hidden
+              style={{ transitionTimingFunction: EASE }}
+              className="pointer-events-none absolute bottom-0 left-1/2 z-0 aspect-square w-[150%] -translate-x-1/2 translate-y-1/2 origin-center scale-0 rounded-full bg-black transition-transform duration-[900ms] group-hover:scale-[1.35]"
+            />
+            <span className="relative z-10 block overflow-hidden">
+              <span
+                style={{ transitionTimingFunction: EASE }}
+                className="block transition-transform duration-[900ms] group-hover:-translate-y-[140%]"
+              >
+                {label}
+              </span>
+              <span
+                style={{ transitionTimingFunction: EASE }}
+                className="absolute inset-0 translate-y-[140%] text-white transition-transform duration-[900ms] group-hover:translate-y-0"
+              >
+                {label}
+              </span>
+            </span>
+          </span>
         </button>
       </motion.div>
     </div>
