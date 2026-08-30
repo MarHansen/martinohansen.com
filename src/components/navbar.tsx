@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { flushSync } from "react-dom";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -11,16 +12,68 @@ const Navbar = () => {
   );
 
   const toggleTheme = () => {
-    setDark((prev) => {
-      const next = !prev;
+    const next = !dark;
+
+    const applyTheme = () => {
+      flushSync(() => setDark(next));
       document.documentElement.classList.toggle("dark", next);
       try {
         localStorage.setItem("theme", next ? "dark" : "light");
-      } catch (e) {
+      } catch (e) {}
+    };
+
+    const DURATION = 900;
+    const EASING = "cubic-bezier(0.4, 0, 0.2, 1)";
+    const cover = Math.hypot(window.innerWidth / 2, window.innerHeight);
+    const radius = cover * 1.5;
+    document.documentElement.style.setProperty(
+      "--theme-reveal-radius",
+      `${radius}px`,
+    );
+
+    const startViewTransition = (
+      document as Document & {
+        startViewTransition?: (cb: () => void) => unknown;
       }
-      return next;
-    });
+    ).startViewTransition;
+
+    if (typeof startViewTransition === "function") {
+      startViewTransition.call(document, applyTheme);
+      return;
+    }
+
+    const disc = document.createElement("div");
+    disc.style.cssText =
+      "position:fixed;inset:0;z-index:2147483647;pointer-events:none;" +
+      "will-change:opacity;" +
+      `background:${next ? "#070707" : "#f2f2f2"};` +
+      "clip-path:circle(0px at 50% 100%);";
+    document.body.appendChild(disc);
+
+    disc.animate(
+      [
+        { clipPath: "circle(0px at 50% 100%)" },
+        { clipPath: `circle(${radius}px at 50% 100%)` },
+      ],
+      { duration: DURATION, easing: EASING, fill: "forwards" },
+    );
+
+    window.setTimeout(() => {
+      applyTheme();
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          disc
+            .animate([{ opacity: 1 }, { opacity: 0 }], {
+              duration: 300,
+              easing: "ease-out",
+              fill: "forwards",
+            })
+            .finished.then(() => disc.remove());
+        });
+      });
+    }, DURATION * 0.85);
   };
+
   //chat gpt logic for hiding navbar, i'm to lazy T_T, i want to disable it temporary, because its too annoying
   // const [show, setShow] = useState(true);
   // const [scrollDirection, setScrollDirection] = useState("up");

@@ -3,8 +3,6 @@
 :root {
   --color-paper: #f2f2f2;
   --color-ink: #070707;
-  /* how far a project's accent color is pulled toward the foreground so it
-     stays readable — 0% keeps the brand hue untouched in light mode. */
   --accent-tint: 0%;
   color-scheme: light;
 }
@@ -14,6 +12,28 @@ html.dark {
   --color-ink: #f2f2f2;
   --accent-tint: 62%;
   color-scheme: dark;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  animation: none;
+  z-index: 0;
+}
+::view-transition-new(root) {
+  z-index: 1;
+  animation: theme-reveal 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0px at 50% 100%);
+  }
+  to {
+    clip-path: circle(var(--theme-reveal-radius, 250vmax) at 50% 100%);
+  }
 }
 
 html {
