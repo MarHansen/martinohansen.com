@@ -84,7 +84,7 @@ const Navbar = () => {
                       cx="12"
                       cy="12"
                       r="12"
-                      fill={navOpen ? "#EDE8E2" : "#2B2724"}
+                      fill={navOpen ? "#F2F2F2" : "#070707"}
                     />
                   </svg>
                 </span>

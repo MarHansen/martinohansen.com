@@ -33,8 +33,8 @@ const SecondaryButton = ({ to }: CustomButtonProps) => {
           >
             <path
               d="M12.5729 1L19 7.5L12.5729 14M1 7.5L18.82 7.5"
-              stroke="#2B2724"
-              className="group-hover:stroke-[#EDE8E2]"
+              stroke="#070707"
+              className="group-hover:stroke-[#F2F2F2]"
               stroke-miterlimit="10"
               stroke-linecap="round"
               stroke-linejoin="round"

@@ -255,13 +255,13 @@ function ProjectDetail({ data }: ProjectDetailProps) {
                               cy="21"
                               r="21"
                               transform="matrix(-1 0 0 1 42 0)"
-                              fill="#2B2724"
+                              fill="#070707"
                               fill-opacity="0.7"
                             />
                           </g>
                           <path
                             d="M25 30L16 21L25 12"
-                            stroke="#EDE8E2"
+                            stroke="#F2F2F2"
                             stroke-width="2"
                           />
                           <defs>
@@ -319,13 +319,13 @@ function ProjectDetail({ data }: ProjectDetailProps) {
                               cx="21"
                               cy="21"
                               r="21"
-                              fill="#2B2724"
+                              fill="#070707"
                               fill-opacity="0.7"
                             />
                           </g>
                           <path
                             d="M17 30L26 21L17 12"
-                            stroke="#EDE8E2"
+                            stroke="#F2F2F2"
                             stroke-width="2"
                           />
                           <defs>

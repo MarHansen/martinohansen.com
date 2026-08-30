@@ -40,8 +40,8 @@ const CustomButton = ({ to, children, openInNewTab }: CustomButtonProps) => {
             >
               <path
                 d="M3.65162 0.985864L10.9859 0.985863L10.9859 8.32011M0.715508 11.2562L10.8832 1.08857"
-                stroke="#2B2724"
-                className="group-hover:stroke-[#EDE8E2]"
+                stroke="#070707"
+                className="group-hover:stroke-[#F2F2F2]"
                 stroke-miterlimit="10"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -80,8 +80,8 @@ const CustomButton = ({ to, children, openInNewTab }: CustomButtonProps) => {
           >
             <path
               d="M3.65162 0.985864L10.9859 0.985863L10.9859 8.32011M0.715508 11.2562L10.8832 1.08857"
-              stroke="#2B2724"
-              className="group-hover:stroke-[#EDE8E2]"
+              stroke="#070707"
+              className="group-hover:stroke-[#F2F2F2]"
               stroke-miterlimit="10"
               stroke-linecap="round"
               stroke-linejoin="round"

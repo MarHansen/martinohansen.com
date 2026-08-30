@@ -19,7 +19,7 @@ export default {
         foot: ["Newyork"],
       },
 
-      colors: { white: "#EDE8E2", black: "#2B2724" },
+      colors: { white: "#F2F2F2", black: "#070707" },
     },
   },
   plugins: [],

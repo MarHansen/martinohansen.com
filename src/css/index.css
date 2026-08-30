@@ -7,7 +7,7 @@ html {
   }
 
   scroll-behavior: smooth;
-  color: "#2B2724";
+  color: "#070707";
 }
 
 .lenis {
@@ -36,12 +36,12 @@ html {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: rgba(43, 39, 36, 0.1);
+  background: rgba(7, 7, 7, 0.1);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #2b2724;
+  background: #070707;
   border-radius: 10px;
 }
 

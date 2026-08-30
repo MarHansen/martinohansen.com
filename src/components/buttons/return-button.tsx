@@ -37,7 +37,7 @@ const ReturnButton = React.memo(() => {
           >
             <path
               d="M19.21 37L0.999999 19L19.21 0.999999M52 19L1.51 19"
-              stroke="#2B2724"
+              stroke="#070707"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
