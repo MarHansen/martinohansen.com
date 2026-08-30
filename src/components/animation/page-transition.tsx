@@ -1,5 +1,6 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useLayoutEffect } from "react";
 import { motion } from "framer-motion";
+import { useLenis } from "@studio-freight/react-lenis";
 import "../../css/custom.css";
 
 interface TransitionProps {
@@ -7,6 +8,15 @@ interface TransitionProps {
 }
 
 const Transition: React.FC<TransitionProps> = ({ children }) => {
+  const lenis = useLenis();
+
+  useLayoutEffect(() => {
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true, force: true });
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       {children}
