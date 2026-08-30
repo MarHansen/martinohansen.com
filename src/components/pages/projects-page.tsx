@@ -7,6 +7,7 @@ import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ReturnButton from "../buttons/return-button";
+import FloatingBackButton from "../buttons/floating-back-button";
 import ProjectStack from "./projects/project-stack";
 import HeadHelmet from "../head-helmet";
 
@@ -51,6 +52,7 @@ function ProjectsPage() {
     <>
       <Transition>
         <HeadHelmet title="projects──marhansen"></HeadHelmet>
+        <FloatingBackButton />
         <Container>
           <>
             <ReturnButton></ReturnButton>
