@@ -18,7 +18,11 @@ import HTMLIcon from "../../techstack/html-icon";
 import CSSIcon from "../../techstack/css-icon";
 import JSIcon from "../../techstack/javascript-icon";
 import HeadHelmet from "../../head-helmet";
+import { REVEAL_EASE } from "../../../animation/variants";
 import { ProjectData, TechStackKey } from "./data/types";
+
+const SLIDE_EASE = REVEAL_EASE;
+const SLIDE_DURATION = 0.9;
 
 const techStackIcons: Record<TechStackKey, () => JSX.Element> = {
   react: ReactIcon,
@@ -55,89 +59,64 @@ function ProjectDetail({ data }: ProjectDetailProps) {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isAuto, setIsAuto] = useState(true);
-  const [isAnimating, setIsAnimating] = useState(false);
 
-  const preloadImages = (imageUrls: any) => {
-    imageUrls.forEach((imageUrl: any) => {
+  useEffect(() => {
+    images.forEach((imageUrl) => {
       const img = new Image();
       img.src = imageUrl;
     });
-  };
-
-  preloadImages(images);
+  }, [images]);
 
   const variants = useMemo(
     () => ({
-      initial: (direction: any) => {
-        return {
-          x: direction > 0 ? "100%" : "-100%",
-        };
-      },
-      animate: {
+      enter: (dir: number) => ({
+        x: dir > 0 ? "100%" : "-100%",
+        scale: 1.06,
+      }),
+      center: {
         x: 0,
-        opacity: 1,
-
+        scale: 1,
         transition: {
-          x: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+          x: { duration: SLIDE_DURATION, ease: SLIDE_EASE },
+          scale: { duration: SLIDE_DURATION, ease: SLIDE_EASE },
         },
       },
-      exit: (direction: any) => {
-        return {
-          x: direction > 0 ? "-100%" : "100%",
-
-          transition: {
-            x: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
-          },
-        };
-      },
+      exit: (dir: number) => ({
+        x: dir > 0 ? "-100%" : "100%",
+        scale: 1.06,
+        transition: {
+          x: { duration: SLIDE_DURATION, ease: SLIDE_EASE },
+          scale: { duration: SLIDE_DURATION, ease: SLIDE_EASE },
+        },
+      }),
     }),
     [],
   );
 
+  const paginate = useCallback(
+    (dir: number) => {
+      setDirection(dir);
+      setIndex((prevIndex) => (prevIndex + dir + images.length) % images.length);
+    },
+    [images.length],
+  );
+
+  const next = useCallback(() => paginate(1), [paginate]);
+  const prev = useCallback(() => paginate(-1), [paginate]);
+
   useEffect(() => {
-    if (isAuto) {
-      const timer = setTimeout(() => {
-        next();
-      }, 3000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [index, isAuto]);
-
-  const next = useCallback(() => {
-    if (!isAnimating) {
-      setIsAnimating(true);
-      setDirection(1);
-      setIndex((prevIndex) =>
-        prevIndex + 1 === images.length ? 0 : prevIndex + 1,
-      );
-
-      setTimeout(() => {
-        setIsAnimating(false);
-      }, 400);
-    }
-  }, [isAnimating, setDirection, setIndex]);
-
-  const prev = useCallback(() => {
-    if (!isAnimating) {
-      setIsAnimating(true);
-      setDirection(-1);
-      setIndex((prevIndex) =>
-        prevIndex - 1 < 0 ? images.length - 1 : prevIndex - 1,
-      );
-
-      setTimeout(() => {
-        setIsAnimating(false);
-      }, 400);
-    }
-  }, [isAnimating, setDirection, setIndex]);
+    if (!isAuto) return;
+    const timer = setTimeout(() => next(), 3000);
+    return () => clearTimeout(timer);
+  }, [index, isAuto, next]);
 
   const dot = useCallback(
-    (indexs: any) => {
-      setDirection(indexs > index ? 1 : -1);
-      setIndex(indexs);
+    (target: number) => {
+      if (target === index) return;
+      setDirection(target > index ? 1 : -1);
+      setIndex(target);
     },
-    [setDirection, setIndex],
+    [index],
   );
 
   return (
@@ -225,14 +204,15 @@ function ProjectDetail({ data }: ProjectDetailProps) {
                     <AnimatePresence initial={false} custom={direction}>
                       <motion.img
                         variants={variants}
-                        initial="initial"
-                        animate="animate"
+                        initial="enter"
+                        animate="center"
                         exit="exit"
                         key={images[index]}
                         src={images[index]}
                         alt="caraousel"
                         custom={direction}
                         draggable={false}
+                        style={{ willChange: "transform" }}
                         className="absolute top-0 left-0 w-full h-full object-cover object-center"
                       />
                     </AnimatePresence>
@@ -374,18 +354,20 @@ function ProjectDetail({ data }: ProjectDetailProps) {
                     className="flex justify-center gap-5 items-center"
                   >
                     {images.map((_, indexs) => (
-                      <div
+                      <button
+                        type="button"
                         key={indexs}
+                        aria-label={`Go to image ${indexs + 1}`}
                         data-cursor-size="30px"
                         data-cursor-stick="#stick-item"
                         data-cursor-exclusion
-                        className={`w-[0.5rem] h-[0.5rem] rounded-full bg-black bg-opacity-50 cursor-pointer transition duration-300 ease-cubic-bezier${
+                        className={`h-[0.5rem] w-[0.5rem] cursor-pointer rounded-full bg-black bg-opacity-50 transition duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                           index === indexs
-                            ? "bg-black bg-opacity-100 w-[0.7rem] h-[0.7rem] transition duration-300 ease-cubic-bezier"
+                            ? "h-[0.7rem] w-[0.7rem] bg-opacity-100"
                             : ""
                         }`}
                         onClick={() => dot(indexs)}
-                      ></div>
+                      ></button>
                     ))}
                   </div>
                 </section>

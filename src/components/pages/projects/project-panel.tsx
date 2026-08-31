@@ -11,7 +11,11 @@ import HTMLIcon from "../../techstack/html-icon";
 import CSSIcon from "../../techstack/css-icon";
 import JSIcon from "../../techstack/javascript-icon";
 import CustomButton from "../../buttons/main-button";
+import { REVEAL_EASE } from "../../../animation/variants";
 import { ProjectData, TechStackKey } from "./data/types";
+
+const SLIDE_EASE = REVEAL_EASE;
+const SLIDE_DURATION = 0.9;
 
 const techStackIcons: Record<TechStackKey, () => JSX.Element> = {
   react: ReactIcon,
@@ -56,7 +60,8 @@ function ProjectPanel({
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const [, setIsAnimating] = useState(false);
+
+  const lockRef = useRef(false);
 
   useEffect(() => {
     images.forEach((imageUrl) => {
@@ -67,46 +72,55 @@ function ProjectPanel({
 
   const variants = useMemo(
     () => ({
-      initial: (dir: number) => ({ x: dir > 0 ? "100%" : "-100%" }),
-      animate: {
+      enter: (dir: number) => ({
+        x: dir > 0 ? "100%" : "-100%",
+        scale: 1.06,
+      }),
+      center: {
         x: 0,
-        opacity: 1,
-        transition: { x: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+        scale: 1,
+        transition: {
+          x: { duration: SLIDE_DURATION, ease: SLIDE_EASE },
+          scale: { duration: SLIDE_DURATION, ease: SLIDE_EASE },
+        },
       },
       exit: (dir: number) => ({
         x: dir > 0 ? "-100%" : "100%",
-        transition: { x: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+        scale: 1.06,
+        transition: {
+          x: { duration: SLIDE_DURATION, ease: SLIDE_EASE },
+          scale: { duration: SLIDE_DURATION, ease: SLIDE_EASE },
+        },
       }),
     }),
     [],
   );
 
-  const next = useCallback(() => {
-    setIsAnimating((animating) => {
-      if (animating) return animating;
-      setDirection(1);
-      setIndex((prev) => (prev + 1 === images.length ? 0 : prev + 1));
-      setTimeout(() => setIsAnimating(false), 400);
-      return true;
-    });
-  }, [images.length]);
+  const paginate = useCallback(
+    (dir: number) => {
+      if (lockRef.current) return;
+      lockRef.current = true;
+      setDirection(dir);
+      setIndex((prev) => (prev + dir + images.length) % images.length);
+      window.setTimeout(() => {
+        lockRef.current = false;
+      }, SLIDE_DURATION * 500);
+    },
+    [images.length],
+  );
 
-  const prev = useCallback(() => {
-    setIsAnimating((animating) => {
-      if (animating) return animating;
-      setDirection(-1);
-      setIndex((prevIndex) =>
-        prevIndex - 1 < 0 ? images.length - 1 : prevIndex - 1,
-      );
-      setTimeout(() => setIsAnimating(false), 400);
-      return true;
-    });
-  }, [images.length]);
+  const next = useCallback(() => paginate(1), [paginate]);
+  const prev = useCallback(() => paginate(-1), [paginate]);
 
   const dot = useCallback(
     (target: number) => {
+      if (lockRef.current || target === index) return;
+      lockRef.current = true;
       setDirection(target > index ? 1 : -1);
       setIndex(target);
+      window.setTimeout(() => {
+        lockRef.current = false;
+      }, SLIDE_DURATION * 1000);
     },
     [index],
   );
@@ -204,14 +218,15 @@ function ProjectPanel({
             <AnimatePresence initial={false} custom={direction}>
               <motion.img
                 variants={variants}
-                initial="initial"
-                animate="animate"
+                initial="enter"
+                animate="center"
                 exit="exit"
                 key={images[index]}
                 src={images[index]}
                 alt={`${title} showcase`}
                 custom={direction}
                 draggable={false}
+                style={{ willChange: "transform" }}
                 className="absolute left-0 top-0 h-full w-full object-cover object-center"
               />
             </AnimatePresence>
@@ -297,7 +312,7 @@ function ProjectPanel({
                 data-cursor-size="30px"
                 data-cursor-stick="#stick-item"
                 data-cursor-exclusion
-                className={`h-[0.5rem] w-[0.5rem] cursor-pointer rounded-full bg-black bg-opacity-50 transition duration-300 ${
+                className={`h-[0.5rem] w-[0.5rem] cursor-pointer rounded-full bg-black bg-opacity-50 transition duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
                   index === dotIndex
                     ? "h-[0.7rem] w-[0.7rem] bg-opacity-100"
                     : ""
